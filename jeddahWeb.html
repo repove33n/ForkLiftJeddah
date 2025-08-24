@@ -1,235 +1,296 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forklift Rental in Jeddah</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forklift Rental in Jeddah | Book Now</title>
+  <meta name="description" content="Daily & long-term forklift rental in Jeddah. Maintenance & repairs. Eco-friendly electric forklifts. Call or WhatsApp 0580864487." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fefefe; color:#222; }
-    header { background:#fff; color:#222; padding:20px; text-align:center; border-bottom:4px solid #ff6600; }
-    header img { max-height:70px; margin-bottom:10px; }
-    nav { background:#ff6600; color:#fff; display:flex; justify-content:center; align-items:center; padding:10px; gap:15px; }
-    nav a { color:#fff; margin:0 8px; text-decoration:none; font-weight:bold; }
-    nav a:hover { text-decoration:underline; }
-    #langToggle { background:#fff; color:#ff6600; border:none; padding:6px 12px; border-radius:6px; cursor:pointer; font-weight:bold; }
-    .hero { display:flex; align-items:center; justify-content:center; padding:60px 20px; text-align:center;
-            background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.45)), url('a3f66504-b7b6-4cca-83f9-f4838e5d585f.jpg') center/cover no-repeat; color:#fff; }
-    .hero h1 { font-size:2.2em; color:#ffddcc; margin-bottom:10px; }
-    .hero p { font-size:1.1em; color:#f2f2f2; }
-    .cta { background:#ff6600; color:#fff; padding:15px; display:inline-block; margin-top:15px; text-decoration:none; border-radius:6px; font-weight:bold; }
-    .cta:hover { background:#e65c00; }
-    section { padding:50px 20px; max-width:1000px; margin:auto; }
-    section h2 { color:#ff6600; text-align:center; margin-bottom:25px; }
-    .services { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
-    .service { background:#fff; padding:20px; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.08); text-align:center; }
-    .gallery { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-    .gallery img { width:100%; border-radius:10px; }
-    footer { background:#222; color:#fff; text-align:center; padding:25px; margin-top:30px; }
-    .sticky-buttons { position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; }
-    .sticky-buttons a { background:#ff6600; color:#fff; padding:12px; border-radius:50px; text-align:center; text-decoration:none; font-weight:bold; }
-    .reviews, .whyus { margin-top:40px; }
-    .review { background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.08); margin-bottom:20px; }
-    .stars { color:#ffcc00; font-size:18px; margin-bottom:5px; }
-    .contact-box { background:#fff; padding:25px; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.12); margin-top:30px; }
-    form input, form select { width:100%; padding:12px; margin:10px 0; border-radius:6px; border:1px solid #ccc; font-size:1em; }
-    form button { background:#ff6600; color:#fff; padding:14px; border:none; border-radius:6px; cursor:pointer; font-weight:bold; width:100%; font-size:1em; }
-    form button:hover { background:#e65c00; }
+    :root{
+      --brand:#ff6a00;            /* forklift orange */
+      --brand-dark:#cc5400;
+      --ink:#0e1320;              /* dark ink */
+      --text:#1b2333;             /* body text */
+      --muted:#5d6b85;            /* secondary */
+      --bg:#f7fafc;               /* light background */
+      --card:#ffffff;             /* white cards */
+      --stroke:#e6eaf1;           /* soft borders */
+      --accent:#1c7efb;           /* link/hover accent */
+      --success:#20b15a;          /* WhatsApp */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+    /* Top contact banner */
+    .topbar{background:var(--ink);color:#d8deea;font-size:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .topbar .container{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;gap:12px}
+    .topbar .cta a{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.18)}
+    .topbar .cta a:hover{background:rgba(255,255,255,.06)}
+
+    /* Header with logo left */
+    header.sitehead{background:#fff;border-bottom:1px solid var(--stroke);position:sticky;top:0;z-index:50}
+    .head-wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:10px 20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:56px;width:auto}
+    .brand .title{line-height:1}
+    .brand .title b{font-size:22px;font-weight:900;color:var(--brand)}
+    .brand .title span{display:block;color:var(--muted);font-size:12px}
+
+    /* Nav */
+    nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
+    nav.primary a{padding:10px 8px;border-radius:8px;color:#384156;font-weight:600}
+    nav.primary a:hover{color:var(--accent)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#fff;font-weight:800;cursor:pointer}
+    .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
+    .btn-brand:hover{background:var(--brand-dark)}
+    .btn-ghost{background:transparent}
+
+    /* Lang toggle */
+    .lang{display:flex;align-items:center;gap:8px}
+    .switch{cursor:pointer;padding:6px 10px;border-radius:10px;border:1px solid var(--stroke);background:#fff;color:#384156;font-weight:700}
+    .switch.active{background:var(--brand);color:#fff;border-color:transparent}
+
+    /* Hero banner */
+    .hero{background:#fff;color:var(--ink)}
+    .hero .container{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:60px 20px}
+    .hero .lead{padding:22px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,106,0,.15);border:1px solid rgba(255,106,0,.3);color:var(--brand);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.25px}
+    .hero h1{font-size:38px;line-height:1.15;margin:.4rem 0 0;color:var(--brand);font-weight:900}
+    .hero .sub{color:#364359}
+    .hero-img img{border-radius:20px;box-shadow:0 8px 18px rgba(0,0,0,.12)}
+
+    /* Sections & cards */
+    .section{margin:40px 0}
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .card{background:var(--card);border:1px solid var(--stroke);padding:18px;border-radius:16px}
+    .card img{border-radius:12px;margin-bottom:10px}
+
+    /* Form */
+    .form{display:grid;gap:12px}
+    .form input,.form select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:#fff}
+    .form button{width:100%}
+
+    /* Footer */
+    footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
+    footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero .container{grid-template-columns:1fr}
+      .grid-3,.grid-4{grid-template-columns:1fr}
+      .head-wrap{grid-template-columns:auto 1fr}
+      nav.primary{display:none}
+      .hero h1{font-size:32px}
+    }
   </style>
 </head>
 <body>
-  <header>
-    <img src="A_logo_for_a_company_named_Forklift_Rental_Jeddah_.png" alt="Forklift Rental Jeddah Logo">
-    <h1 id="title-en">Forklift Rental in Jeddah</h1>
-    <h1 id="title-ar" style="display:none">تأجير رافعات في جدة</h1>
-    <p id="subtitle-en">Reliable Forklift Rentals, Repairs & Eco-Friendly Solutions</p>
-    <p id="subtitle-ar" style="display:none">تأجير وصيانة الرافعات الموثوقة وحلول صديقة للبيئة</p>
-  </header>
-
-  <nav>
-    <a href="#book" id="nav-book-en">Book Now</a>
-    <a href="#book" id="nav-book-ar" style="display:none">احجز الآن</a>
-    <a href="#services" id="nav-services-en">Services</a>
-    <a href="#services" id="nav-services-ar" style="display:none">الخدمات</a>
-    <a href="#gallery" id="nav-gallery-en">Gallery</a>
-    <a href="#gallery" id="nav-gallery-ar" style="display:none">معرض الصور</a>
-    <a href="#reviews" id="nav-reviews-en">Reviews</a>
-    <a href="#reviews" id="nav-reviews-ar" style="display:none">آراء العملاء</a>
-    <a href="#contact" id="nav-contact-en">Contact</a>
-    <a href="#contact" id="nav-contact-ar" style="display:none">اتصل بنا</a>
-    <button id="langToggle">AR</button>
-  </nav>
-
-  <div class="hero" id="book">
-    <div>
-      <h1 id="hero-en">🚀 Book Now – Forklift Rental in Jeddah</h1>
-      <h1 id="hero-ar" style="display:none">🚀 احجز الآن – تأجير رافعات في جدة</h1>
-      <p id="hero-sub-en">Fast same-day dispatch • Certified operators • 12+ years experience</p>
-      <p id="hero-sub-ar" style="display:none">توصيل سريع في نفس اليوم • مشغلون معتمدون • خبرة تزيد عن 12 عامًا</p>
-      <div class="contact-box" style="max-width:560px; margin:18px auto 0; text-align:left;">
-        <form id="bookNowForm">
-          <input type="text" id="bn_name" placeholder="Your Name / الاسم" required>
-          <input type="tel" id="bn_phone" placeholder="Your Phone Number / الهاتف" required>
-          <input type="email" id="bn_email" placeholder="Your Email / البريد الإلكتروني" required>
-          <select id="bn_service" required>
-            <option value="">Select Service Needed / اختر الخدمة المطلوبة</option>
-            <option id="opt-daily-en">Daily Forklift Rental</option>
-            <option id="opt-daily-ar" style="display:none">تأجير يومي للرافعات</option>
-            <option id="opt-long-en">Long-Term Rental</option>
-            <option id="opt-long-ar" style="display:none">تأجير طويل الأجل</option>
-            <option id="opt-maint-en">Maintenance & Repairs</option>
-            <option id="opt-maint-ar" style="display:none">صيانة وإصلاحات</option>
-            <option id="opt-electric-en">Eco-Friendly Electric Forklifts</option>
-            <option id="opt-electric-ar" style="display:none">رافعات كهربائية صديقة للبيئة</option>
-          </select>
-          <input type="date" id="bn_date" required placeholder="Date / التاريخ">
-          <button type="submit" id="book-btn-en">💬 Book on WhatsApp</button>
-          <button type="submit" id="book-btn-ar" style="display:none">💬 احجز عبر واتساب</button>
-        </form>
-        <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;">
-          <a class="cta" href="tel:0580864487">📞 Call 0580864487</a>
-          <a class="cta" href="https://wa.me/966580864487" target="_blank">💬 Chat on WhatsApp</a>
-        </div>
+  <!-- Top contact banner -->
+  <div class="topbar">
+    <div class="container">
+      <div class="cta">📞 <a href="tel:0580864487">0580864487</a> · 📞 <a href="tel:0560461067">0560461067</a> · 💬 <a href="https://wa.me/966580864487" target="_blank">WhatsApp</a></div>
+      <div class="lang">
+        <span style="opacity:.8">Language / اللغة</span>
+        <button class="switch active" data-lang="en">EN</button>
+        <button class="switch" data-lang="ar">AR</button>
       </div>
     </div>
   </div>
 
-  <section id="services">
-    <h2 id="services-en">Our Services</h2>
-    <h2 id="services-ar" style="display:none">خدماتنا</h2>
-    <div class="services">
-      <div class="service" id="svc1">
-        <h3 id="svc1-en">Daily Forklift Rental</h3>
-        <h3 id="svc1-ar" style="display:none">تأجير يومي للرافعات</h3>
-        <p id="svc1p-en">Flexible daily rental plans with same-day delivery across Jeddah.</p>
-        <p id="svc1p-ar" style="display:none">خطط تأجير يومية مرنة مع توصيل في نفس اليوم داخل جدة.</p>
+  <!-- Banner header with logo left & nav on top -->
+  <header class="sitehead">
+    <div class="container head-wrap">
+      <div class="brand">
+        <img src="A_logo_for_a_company_named_Forklift_Rental_Jeddah_.png" alt="Logo">
+        <div class="title">
+          <b id="title-en">Forklift Rental in Jeddah</b>
+          <b id="title-ar" style="display:none">تأجير رافعات في جدة</b>
+          <span id="tag-en">Daily • Long-Term • Maintenance</span>
+          <span id="tag-ar" style="display:none">يومي • طويل الأجل • صيانة</span>
+        </div>
       </div>
-      <div class="service" id="svc2">
-        <h3 id="svc2-en">Long-Term Rental</h3>
-        <h3 id="svc2-ar" style="display:none">تأجير طويل الأجل</h3>
-        <p id="svc2p-en">Monthly contracts with preventive maintenance included.</p>
-        <p id="svc2p-ar" style="display:none">عقود شهرية مع صيانة وقائية مضمّنة.</p>
+      <nav class="primary">
+        <a href="#book" id="nav-book-en" class="btn btn-brand">Book Now</a>
+        <a href="#book" id="nav-book-ar" class="btn btn-brand" style="display:none">احجز الآن</a>
+        <a href="#services" id="nav-services-en">Services</a>
+        <a href="#services" id="nav-services-ar" style="display:none">الخدمات</a>
+        <a href="#industries" id="nav-ind-en">Industries</a>
+        <a href="#industries" id="nav-ind-ar" style="display:none">القطاعات</a>
+        <a href="#reviews" id="nav-rev-en">Reviews</a>
+        <a href="#reviews" id="nav-rev-ar" style="display:none">المراجعات</a>
+        <a href="#contact" id="nav-contact-en" class="btn btn-ghost">Contact</a>
+        <a href="#contact" id="nav-contact-ar" class="btn btn-ghost" style="display:none">اتصل بنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero with slogan, image and booking form -->
+  <section class="hero" id="book">
+    <div class="container">
+      <div class="lead">
+        <span class="badge">24/7 • Same-Day • جدة</span>
+        <h1 id="hero-en">Forklift Rental in Jeddah</h1>
+        <h1 id="hero-ar" style="display:none">تأجير رافعات في جدة</h1>
+        <p class="sub" id="slogan-en"><em>“Your Trusted Partner in Forklift Rental for Over 12 Years”</em></p>
+        <p class="sub" id="slogan-ar" style="display:none"><em>«شريكك الموثوق في تأجير الرافعات لأكثر من 12 عامًا»</em></p>
+        <p class="sub" id="hero-sub-en">Daily & long-term rental. Certified operators, maintenance & eco-friendly electric models.</p>
+        <p class="sub" id="hero-sub-ar" style="display:none">تأجير يومي وطويل الأجل. سائقون معتمدون وصيانة ونماذج كهربائية صديقة للبيئة.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <a class="btn btn-brand" href="tel:0580864487">📞 0580864487</a>
+          <a class="btn" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp</a>
+        </div>
       </div>
-      <div class="service" id="svc3">
-        <h3 id="svc3-en">Maintenance & Repairs</h3>
-        <h3 id="svc3-ar" style="display:none">صيانة وإصلاحات</h3>
-        <p id="svc3p-en">Expert technicians to keep your fleet running smoothly.</p>
-        <p id="svc3p-ar" style="display:none">فنيون محترفون للحفاظ على أسطولك يعمل بسلاسة.</p>
-      </div>
-      <div class="service" id="svc4">
-        <h3 id="svc4-en">Eco-Friendly Electric Forklifts</h3>
-        <h3 id="svc4-ar" style="display:none">رافعات كهربائية صديقة للبيئة</h3>
-        <p id="svc4p-en">Quiet, zero-emission options for indoor operations.</p>
-        <p id="svc4p-ar" style="display:none">خيارات هادئة وصفر انبعاثات للمواقع الداخلية.</p>
+      <div class="hero-img">
+        <img src="5492b7da-a895-4f15-b773-b627165a39a8.jpg" alt="Forklift working in warehouse">
       </div>
     </div>
-  </section>
 
-  <section id="whyus" class="whyus">
-    <h2 id="why-en">Why Choose Us</h2>
-    <h2 id="why-ar" style="display:none">لماذا نحن</h2>
-    <p id="whytext-en" style="text-align:center">With over <strong>12+ years of experience</strong>, we’ve proudly served major industries with reliable equipment and top-class service.</p>
-    <p id="whytext-ar" style="display:none; text-align:center">بخبرة تزيد عن <strong>12 سنة</strong>، خدمنا قطاعات رئيسية بمعدات موثوقة وخدمة عالية الجودة.</p>
-    <ul style="max-width:800px;margin:10px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;list-style:none;padding:0">
-      <li id="ind1-en">📦 Warehousing & Logistics</li>
-      <li id="ind1-ar" style="display:none">📦 التخزين واللوجستيات</li>
-      <li id="ind2-en">🛢 Oil & Gas</li>
-      <li id="ind2-ar" style="display:none">🛢 النفط والغاز</li>
-      <li id="ind3-en">🏭 Manufacturing & Industrial</li>
-      <li id="ind3-ar" style="display:none">🏭 التصنيع والصناعة</li>
-      <li id="ind4-en">🏗 Construction & Infrastructure</li>
-      <li id="ind4-ar" style="display:none">🏗 البناء والبنية التحتية</li>
-    </ul>
-  </section>
-
-  <section id="gallery">
-    <h2 id="gallery-h-en">Gallery</h2>
-    <h2 id="gallery-h-ar" style="display:none">معرض الصور</h2>
-    <div class="gallery">
-      <img src="a3f66504-b7b6-4cca-83f9-f4838e5d585f.jpg" alt="Warehouse forklift">
-      <img src="5492b7da-a895-4f15-b773-b627165a39a8.jpg" alt="Yellow forklift">
+    <div class="container" style="margin-top:16px">
+      <div class="card" style="max-width:560px">
+        <h3 style="margin-top:0" id="form-title-en">Get a Quick Quote</h3>
+        <h3 style="margin-top:0;display:none" id="form-title-ar">احصل على عرض سريع</h3>
+        <form id="bookNowForm" class="form">
+          <input id="bn_name" placeholder="Your Name / الاسم" required>
+          <input id="bn_phone" placeholder="Phone / الهاتف" required>
+          <input id="bn_email" type="email" placeholder="Email / البريد الإلكتروني" required>
+          <select id="bn_service" required>
+            <option value="" id="opt0-en">Select Service / اختر الخدمة</option>
+            <option id="opt1-en">Daily Forklift Rental</option>
+            <option id="opt1-ar" style="display:none">تأجير يومي للرافعات</option>
+            <option id="opt2-en">Long-Term Rental</option>
+            <option id="opt2-ar" style="display:none">تأجير طويل الأجل</option>
+            <option id="opt3-en">Maintenance & Repairs</option>
+            <option id="opt3-ar" style="display:none">صيانة وإصلاحات</option>
+            <option id="opt4-en">Eco-Friendly Electric Forklifts</option>
+            <option id="opt4-ar" style="display:none">رافعات كهربائية صديقة للبيئة</option>
+          </select>
+          <input id="bn_date" type="date" placeholder="Date / التاريخ" required>
+          <button type="submit" class="btn btn-brand" id="book-btn-en">💬 Book on WhatsApp</button>
+          <button type="submit" class="btn btn-brand" id="book-btn-ar" style="display:none">💬 احجز عبر واتساب</button>
+        </form>
+      </div>
     </div>
   </section>
 
-  <section id="reviews" class="reviews">
-    <h2 id="reviews-en">Customer Reviews</h2>
-    <h2 id="reviews-ar" style="display:none">آراء العملاء</h2>
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <strong id="r1n-en">Abdul Al-Hameed</strong>
-      <strong id="r1n-ar" style="display:none">عبدالحميد</strong>
-      <p id="r1-en">“The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.”</p>
-      <p id="r1-ar" style="display:none">“الفريق محترف ولطيف، قاموا بعمل رائع في المستودع. الخيار الأول لتأجير الرافعات.”</p>
-    </div>
-    <div class="review">
-      <div class="stars">★★★★☆</div>
-      <strong id="r2n-en">Hamaad Q.</strong>
-      <strong id="r2n-ar" style="display:none">حماد ق.</strong>
-      <p id="r2-en">“The team responds very quick and great communication, highly recommend for long term rentals.”</p>
-      <p id="r2-ar" style="display:none">“استجابة سريعة وتواصل ممتاز، أنصح بهم بشدة للتأجير طويل الأجل.”</p>
-    </div>
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <strong id="r3n-en">Sarah M.</strong>
-      <strong id="r3n-ar" style="display:none">سارة م.</strong>
-      <p id="r3-en">“Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.”</p>
-      <p id="r3-ar" style="display:none">“خدمة ممتازة! استأجرنا رافعات كهربائية – فعالة وصديقة للبيئة وبسعر مناسب.”</p>
+  <!-- Services -->
+  <section class="container section" id="services">
+    <h2 style="margin-top:0" id="services-en">Our Services</h2>
+    <h2 style="margin-top:0;display:none" id="services-ar">خدماتنا</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <img src="a3f66504-b7b6-4cca-83f9-f4838e5d585f.jpg" alt="Daily Rental">
+        <h3 id="s1-en">Daily Forklift Rental</h3>
+        <h3 id="s1-ar" style="display:none">تأجير يومي للرافعات</h3>
+        <p id="s1p-en">Flexible daily hire with fast delivery.</p>
+        <p id="s1p-ar" style="display:none">تأجير يومي مرن مع توصيل سريع.</p>
+      </div>
+      <div class="card">
+        <img src="5492b7da-a895-4f15-b773-b627165a39a8.jpg" alt="Long Term">
+        <h3 id="s2-en">Long-Term Rental</h3>
+        <h3 id="s2-ar" style="display:none">تأجير طويل الأجل</h3>
+        <p id="s2p-en">Monthly contracts with preventive maintenance.</p>
+        <p id="s2p-ar" style="display:none">عقود شهرية مع صيانة وقائية.</p>
+      </div>
+      <div class="card">
+        <img src="a3f66504-b7b6-4cca-83f9-f4838e5d585f.jpg" alt="Repairs">
+        <h3 id="s3-en">Maintenance & Repairs</h3>
+        <h3 id="s3-ar" style="display:none">صيانة وإصلاحات</h3>
+        <p id="s3p-en">Keep your fleet running smoothly.</p>
+        <p id="s3p-ar" style="display:none">حافظ على أسطولك يعمل بسلاسة.</p>
+      </div>
     </div>
   </section>
 
-  <section id="map">
-    <h2 id="map-en">📍 Find Us in Jeddah</h2>
-    <h2 id="map-ar" style="display:none">📍 موقعنا في جدة</h2>
-    <p style="text-align:center" id="addr-en"><strong>Address:</strong> 6712 Sari Br RD, 2, 4172, Jeddah 23436</p>
-    <p style="text-align:center; display:none" id="addr-ar"><strong>العنوان:</strong> 6712 طريق ساري الفرعي، 2، 4172، جدة 23436</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.684325404014!2d39.13152711500263!3d21.56460598570657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d07b51e3bbf9%3A0x70bffda8a2dbf25c!2s6712%20Sari%20Br%20Rd%2C%202%2C%204172%2C%20Jeddah%2023436!5e0!3m2!1sen!2ssa!4v1693392647000!5m2!1sen!2ssa" width="100%" height="400" style="border:0; border-radius:12px;" allowfullscreen loading="lazy"></iframe>
+  <!-- Industries -->
+  <section class="container section" id="industries">
+    <h2 id="indh-en">Industries We Serve</h2>
+    <h2 id="indh-ar" style="display:none">القطاعات التي نخدمها</h2>
+    <div class="grid grid-4">
+      <div class="card">📦 <b id="i1-en">Warehousing & Logistics</b><b id="i1-ar" style="display:none">التخزين واللوجستيات</b></div>
+      <div class="card">🛢 <b id="i2-en">Oil & Gas</b><b id="i2-ar" style="display:none">النفط والغاز</b></div>
+      <div class="card">🏭 <b id="i3-en">Manufacturing & Industrial</b><b id="i3-ar" style="display:none">التصنيع والصناعة</b></div>
+      <div class="card">🏗 <b id="i4-en">Construction & Infrastructure</b><b id="i4-ar" style="display:none">البناء والبنية التحتية</b></div>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2 id="contact-en">Contact Us</h2>
-    <h2 id="contact-ar" style="display:none">اتصل بنا</h2>
-    <div class="contact-box">
-      <p id="contactp-en" style="text-align:center">Call or WhatsApp us anytime for fast forklift rental support in Jeddah.</p>
-      <p id="contactp-ar" style="display:none; text-align:center">اتصل بنا أو تواصل عبر واتساب في أي وقت لدعم سريع لتأجير الرافعات في جدة.</p>
-      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-        <a class="cta" href="tel:0580864487">📞 0580864487</a>
-        <a class="cta" href="tel:0560461067">📞 0560461067</a>
-        <a class="cta" href="https://wa.me/966580864487" target="_blank">💬 WhatsApp</a>
+  <!-- Reviews -->
+  <section class="container section" id="reviews">
+    <h2 id="revh-en">Customer Reviews</h2>
+    <h2 id="revh-ar" style="display:none">آراء العملاء</h2>
+    <div class="grid grid-3">
+      <div class="card"><div class="stars">★★★★★</div><b id="r1n-en">Abdul Al-Hameed</b><b id="r1n-ar" style="display:none">عبدالحميد</b><p id="r1-en">The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.</p><p id="r1-ar" style="display:none">الفريق محترف ولطيف، قاموا بعمل رائع في المستودع. الخيار الأول لتأجير الرافعات.</p></div>
+      <div class="card"><div class="stars">★★★★☆</div><b id="r2n-en">Hamaad Q.</b><b id="r2n-ar" style="display:none">حماد ق.</b><p id="r2-en">The team responds very quick and great communication, highly recommend for long term rentals.</p><p id="r2-ar" style="display:none">استجابة سريعة وتواصل ممتاز، أنصح بهم للتأجير طويل الأجل.</p></div>
+      <div class="card"><div class="stars">★★★★★</div><b id="r3n-en">Sarah M.</b><b id="r3n-ar" style="display:none">سارة م.</b><p id="r3-en">Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.</p><p id="r3-ar" style="display:none">خدمة ممتازة! استأجرنا رافعات كهربائية – فعالة وصديقة للبيئة وبسعر مناسب.</p></div>
+    </div>
+  </section>
+
+  <!-- Contact & Map -->
+  <section class="container section" id="contact">
+    <h2 id="conh-en">Contact Us</h2>
+    <h2 id="conh-ar" style="display:none">اتصل بنا</h2>
+    <div class="grid" style="grid-template-columns:1fr 1fr">
+      <div class="card">
+        <p id="conp-en">Call or WhatsApp us anytime for fast forklift rental support in Jeddah.</p>
+        <p id="conp-ar" style="display:none">اتصل بنا أو تواصل عبر واتساب في أي وقت لدعم سريع لتأجير الرافعات في جدة.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-ghost" href="tel:0580864487">📞 0580864487</a>
+          <a class="btn btn-ghost" href="tel:0560461067">📞 0560461067</a>
+          <a class="btn btn-brand" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="card">
+        <iframe title="Map Jeddah" width="100%" height="280" style="border:0;border-radius:12px" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.684325404014!2d39.13152711500263!3d21.56460598570657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d07b51e3bbf9%3A0x70bffda8a2dbf25c!2s6712%20Sari%20Br%20Rd%2C%202%2C%204172%2C%20Jeddah%2023436!5e0!3m2!1sen!2ssa!4v1693392647000!5m2!1sen!2ssa"></iframe>
       </div>
     </div>
   </section>
 
   <footer>
-    <p id="footer-en">© 2025 Forklift Rental in Jeddah. All rights reserved.</p>
-    <p id="footer-ar" style="display:none">© 2025 تأجير الرافعات في جدة. جميع الحقوق محفوظة.</p>
+    <div class="container">
+      <div>© <span id="year"></span> Forklift Rental in Jeddah</div>
+      <div><a href="#book" class="btn btn-brand">Book Now</a></div>
+    </div>
   </footer>
 
   <script>
-    // Language toggle (EN <-> AR)
-    document.getElementById('langToggle').addEventListener('click', function(){
-      const en = document.querySelectorAll('[id$="-en"]');
-      const ar = document.querySelectorAll('[id$="-ar"]');
-      const showingEn = en[0].style.display !== 'none';
-      en.forEach(e => e.style.display = showingEn ? 'none' : '');
-      ar.forEach(e => e.style.display = showingEn ? '' : 'none');
-      document.documentElement.dir = showingEn ? 'rtl' : 'ltr';
-      this.textContent = showingEn ? 'EN' : 'AR';
-    });
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Book form -> WhatsApp (to 0580864487)
+    // Language toggle (EN/AR)
+    const switches = document.querySelectorAll('.switch');
+    const enEls = document.querySelectorAll('[id$="-en"],#opt0-en');
+    const arEls = document.querySelectorAll('[id$="-ar"]');
+    switches.forEach(b=>b.addEventListener('click',()=>{
+      switches.forEach(s=>s.classList.remove('active'));
+      b.classList.add('active');
+      const useAr = b.dataset.lang==='ar';
+      enEls.forEach(el=>el.style.display = useAr ? 'none' : '');
+      arEls.forEach(el=>el.style.display = useAr ? '' : 'none');
+      document.documentElement.dir = useAr ? 'rtl' : 'ltr';
+      document.documentElement.lang = useAr ? 'ar' : 'en';
+    }));
+
+    // WhatsApp booking (always to 0580864487)
     const bnForm = document.getElementById('bookNowForm');
-    if (bnForm) {
+    if (bnForm){
       bnForm.addEventListener('submit', function(e){
         e.preventDefault();
         const name = document.getElementById('bn_name').value.trim();
         const phone = document.getElementById('bn_phone').value.trim();
         const email = document.getElementById('bn_email').value.trim();
-        const service = document.getElementById('bn_service').options[document.getElementById('bn_service').selectedIndex].text;
+        const serviceSel = document.getElementById('bn_service');
+        const serviceText = serviceSel.options[serviceSel.selectedIndex].text;
         const date = document.getElementById('bn_date').value;
-        const msg = encodeURIComponent(`Hello, my name is ${name}.
-Service: ${service}.
-Phone: ${phone}.
-Email: ${email}.
-Date needed: ${date}`);
+        const msg = encodeURIComponent(
+          `Hello, my name is ${name}.\nService: ${serviceText}.\nPhone: ${phone}.\nEmail: ${email}.\nDate needed: ${date}`
+        );
         window.open(`https://wa.me/966580864487?text=${msg}`, '_blank');
       });
     }
