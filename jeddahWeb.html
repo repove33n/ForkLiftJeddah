@@ -15,15 +15,16 @@
     :root{
       --brand:#ff6a00;                 /* forklift orange */
       --brand-dark:#cc5400;
-      /* Light theme */
+      /* Light site background */
       --ink:#0e1320;                   /* headings */
       --text:#213045;                  /* body text */
       --muted:#55637d;                 /* secondary */
-      --bg:#f7f8fc;                    /* page background (light) */
+      --bg:#ffffff;                    /* ***** white background ***** */
       --card:#ffffff;                  /* white cards */
       --stroke:#e5e8f0;                /* soft borders */
       --accent:#1c7efb;                /* link/hover accent */
       --success:#25D366;               /* WhatsApp green */
+      --purple:#231c52;                /* purple bars (nav + stats) */
       --hero-overlay1: rgba(0,0,0,.45);
       --hero-overlay2: rgba(0,0,0,.25);
     }
@@ -34,25 +35,25 @@
     img{max-width:100%;height:auto}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
-    /* Top contact banner */
+    /* Top contact banner (subtle dark for contrast, can keep as-is) */
     .topbar{background:#0f1626;color:#dfe7f3;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
     .topbar .container{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;gap:12px}
     .topbar .cta a{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.18)}
     .topbar .cta a:hover{background:rgba(255,255,255,.06)}
 
-    /* Header */
-    header.sitehead{background:#ffffff;border-bottom:1px solid var(--stroke);position:sticky;top:0;z-index:50}
+    /* Header NAV stays PURPLE */
+    header.sitehead{background:var(--purple);border-bottom:1px solid #1a1440;position:sticky;top:0;z-index:50}
     .head-wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:10px 20px}
     .brand{display:flex;align-items:center;gap:14px}
     .brand img{height:56px;width:auto}
     .brand .title{line-height:1}
-    .brand .title b{font-size:22px;font-weight:900;color:var(--brand)}
-    .brand .title span{display:block;color:var(--muted);font-size:12px}
+    .brand .title b{font-size:22px;font-weight:900;color:#ffd3bb}
+    .brand .title span{display:block;color:#e1dcff;font-size:12px}
 
     /* Nav */
     nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
-    nav.primary a{padding:10px 8px;border-radius:8px;color:#394459;font-weight:600}
-    nav.primary a:hover{color:var(--accent)}
+    nav.primary a{padding:10px 8px;border-radius:8px;color:#f3f2ff;font-weight:600}
+    nav.primary a:hover{color:#ffffff}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#fff;font-weight:800;cursor:pointer;color:#1b2436}
     .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
     .btn-brand:hover{background:var(--brand-dark)}
@@ -64,10 +65,10 @@
 
     /* Lang toggle */
     .lang{display:flex;align-items:center;gap:8px}
-    .switch{cursor:pointer;padding:6px 10px;border-radius:10px;border:1px solid var(--stroke);background:#fff;color:#394459;font-weight:700}
+    .switch{cursor:pointer;padding:6px 10px;border-radius:10px;border:1px solid var(--stroke);background:#fff;color:#f3f2ff;font-weight:700}
     .switch.active{background:var(--brand);color:#fff;border-color:transparent}
 
-    /* HERO — Full-width background slideshow (light overlay for readability) */
+    /* HERO — Full-width background slideshow (overlay for readability) */
     .hero{
       position:relative;
       min-height:76vh;
@@ -94,6 +95,7 @@
       backdrop-filter:blur(6px);
       border:1px solid rgba(255,255,255,.35);
       border-radius:18px;
+      color:#fff;
     }
     .badge{
       display:inline-flex;align-items:center;gap:8px;
@@ -114,7 +116,7 @@
       border:1px solid rgba(255,255,255,.45);border-radius:16px;padding:18px;color:#0e1320
     }
 
-    /* Sections & cards */
+    /* Sections & cards (white background site) */
     .section{margin:40px 0}
     .grid{display:grid;gap:16px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
@@ -122,12 +124,12 @@
     .card{background:var(--card);border:1px solid var(--stroke);padding:18px;border-radius:16px}
     .card img{border-radius:12px;margin-bottom:10px}
 
-    /* Stats bar (light) */
-    .stats{background:#ffffff;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:20px 0;margin:0}
+    /* ***** STATS BAR stays PURPLE ***** */
+    .stats{background:var(--purple);border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.08);padding:20px 0;margin:0}
     .stats .container{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:center;text-align:center}
     .stat{padding:10px 8px}
-    .stat .num{font-size:30px;font-weight:900;color:#1b5e20}
-    .stat .label{color:#3a4a65}
+    .stat .num{font-size:30px;font-weight:900;color:#ffd966}
+    .stat .label{color:#f6f3ff}
 
     /* Form */
     .form{display:grid;gap:12px}
@@ -155,7 +157,7 @@
     footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
 
-    /* Mobile: tighten layout, stack columns, larger tap targets */
+    /* Mobile */
     @media (max-width: 980px){
       .hero .container{grid-template-columns:1fr;padding:56px 16px}
       .grid-3,.grid-4{grid-template-columns:1fr}
@@ -183,14 +185,14 @@
         </a>
       </div>
       <div class="lang">
-        <span style="opacity:.8">Language / اللغة</span>
+        <span style="opacity:.8;color:#e1dcff">Language / اللغة</span>
         <button class="switch active" data-lang="en">EN</button>
         <button class="switch" data-lang="ar">AR</button>
       </div>
     </div>
   </div>
 
-  <!-- Banner header with logo left & nav on top -->
+  <!-- NAV BAR (purple) with logo + links -->
   <header class="sitehead">
     <div class="container head-wrap">
       <div class="brand">
@@ -211,18 +213,18 @@
         <a href="#industries" id="nav-ind-ar" style="display:none">القطاعات</a>
         <a href="#reviews" id="nav-rev-en">Reviews</a>
         <a href="#reviews" id="nav-rev-ar" style="display:none">المراجعات</a>
-        <a href="#contact" id="nav-contact-en" class="btn btn-ghost">Contact</a>
-        <a href="#contact" id="nav-contact-ar" class="btn btn-ghost" style="display:none">اتصل بنا</a>
+        <a href="#contact" id="nav-contact-en" class="btn-ghost">Contact</a>
+        <a href="#contact" id="nav-contact-ar" class="btn-ghost" style="display:none">اتصل بنا</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO: background slideshow + overlay content and form -->
   <section class="hero" id="book">
-    <!-- Slideshow layers -->
-    <div class="hero-bg" id="bg0" style="opacity:1;background-image:url('https://robsforklift.com/wp-content/uploads/2025/02/Forklift-2-1024x859.jpg');"></div>
-    <div class="hero-bg" id="bg1" style="opacity:0;background-image:url('a3f66504-b7b6-4cca-83f9-f4838e5d585f.jpg');"></div>
-    <div class="hero-bg" id="bg2" style="opacity:0;background-image:url('5492b7da-a895-4f15-b773-b627165a39a8.jpg');"></div>
+    <!-- Slideshow layers (NOW USING YOUR THREE IMAGES) -->
+    <div class="hero-bg" id="bg0" style="opacity:1;background-image:url('https://www.novaliftequipment.com/wp-content/uploads/2021/03/Mask-Group-17.jpg');"></div>
+    <div class="hero-bg" id="bg1" style="opacity:0;background-image:url('https://www.aaaforklifts.com/cdn/shop/articles/thumbnail_be8c9fd3-ade3-45e7-b12a-8e9a9714fd2e.jpg?v=1726381483&width=1024');"></div>
+    <div class="hero-bg" id="bg2" style="opacity:0;background-image:url('https://www.baltimoreforkliftrental.com/uploads/1/4/3/1/143110782/editor/baltimore-forklift-rental-in-baltimore-ct-3.jpg?1662899524');"></div>
 
     <div class="container">
       <div class="lead">
@@ -269,7 +271,7 @@
     </div>
   </section>
 
-  <!-- Rolling stats bar -->
+  <!-- ***** STATS BAR (purple) ***** -->
   <section class="stats" id="stats">
     <div class="container">
       <div class="stat">
@@ -427,11 +429,11 @@
     },{threshold:0.2});
     reveals.forEach(el=>observer.observe(el));
 
-    // Background slideshow
+    // Background slideshow (USING YOUR THREE URLS)
     const slides = [
-      "https://robsforklift.com/wp-content/uploads/2025/02/Forklift-2-1024x859.jpg",
-      "a3f66504-b7b6-4cca-83f9-f4838e5d585f.jpg",
-      "5492b7da-a895-4f15-b773-b627165a39a8.jpg"
+      "https://www.novaliftequipment.com/wp-content/uploads/2021/03/Mask-Group-17.jpg",
+      "https://www.aaaforklifts.com/cdn/shop/articles/thumbnail_be8c9fd3-ade3-45e7-b12a-8e9a9714fd2e.jpg?v=1726381483&width=1024",
+      "https://www.baltimoreforkliftrental.com/uploads/1/4/3/1/143110782/editor/baltimore-forklift-rental-in-baltimore-ct-3.jpg?1662899524"
     ];
     let current = 0;
     const bgEls = [document.getElementById('bg0'), document.getElementById('bg1'), document.getElementById('bg2')];
@@ -470,7 +472,7 @@
     }, {threshold:0.4});
     statsObserver.observe(document.getElementById('stats'));
 
-    // Floating WhatsApp call button: try direct app call, fallback to chat link for desktop
+    // Floating WhatsApp call button: try direct app call, fallback to chat for desktop
     const waBtn = document.getElementById('waCallBtn');
     waBtn.addEventListener('click', function(e){
       setTimeout(()=>{
@@ -480,5 +482,4 @@
   </script>
 </body>
 </html>
-
 
