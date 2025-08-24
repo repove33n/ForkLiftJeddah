@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Forklift Rental in Jeddah | Book Now</title>
   <meta name="description" content="Daily & long-term forklift rental in Jeddah. Maintenance & repairs. Eco-friendly electric forklifts. Call or WhatsApp 0580864487." />
+  <link rel="icon" type="image/png" href="A_logo_for_a_company_named_Forklift_Rental_Jeddah_.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --brand:#ff6a00;            /* forklift orange */
@@ -56,14 +59,48 @@
     .switch{cursor:pointer;padding:6px 10px;border-radius:10px;border:1px solid var(--stroke);background:#fff;color:#384156;font-weight:700}
     .switch.active{background:var(--brand);color:#fff;border-color:transparent}
 
-    /* Hero banner */
-    .hero{background:#fff;color:var(--ink)}
-    .hero .container{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:60px 20px}
-    .hero .lead{padding:22px}
-    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,106,0,.15);border:1px solid rgba(255,106,0,.3);color:var(--brand);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.25px}
-    .hero h1{font-size:38px;line-height:1.15;margin:.4rem 0 0;color:var(--brand);font-weight:900}
-    .hero .sub{color:#364359}
-    .hero-img img{border-radius:20px;box-shadow:0 8px 18px rgba(0,0,0,.12)}
+    /* HERO — Full-width background banner */
+    .hero{
+      position:relative;
+      min-height:72vh;
+      color:#fff;
+      background:url('5492b7da-a895-4f15-b773-b627165a39a8.jpg') center/cover no-repeat;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg,rgba(14,19,32,.65),rgba(14,19,32,.35));
+    }
+    .hero .container{
+      position:relative; z-index:1;
+      display:grid; grid-template-columns:1.2fr .8fr; gap:24px;
+      align-items:center; padding:70px 20px;
+    }
+    .hero .lead{
+      padding:22px;
+      background:rgba(0,0,0,.25);
+      backdrop-filter:blur(4px);
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:18px;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(255,106,0,.18);border:1px solid rgba(255,106,0,.45);
+      color:#ffe3d0;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.25px
+    }
+    .hero h1{
+      font-size:42px;line-height:1.12;margin:.4rem 0 0;
+      color:#ffd3bb;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.35)
+    }
+    .hero .slogan{
+      font-size:1.6em; font-weight:800; color:#ffd966;
+      margin:10px 0; text-shadow:0 2px 8px rgba(0,0,0,.5);
+    }
+    .hero .sub{color:#eef3ff}
+    .hero-card{
+      background:rgba(255,255,255,.08);backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:18px
+    }
 
     /* Sections & cards */
     .section{margin:40px 0}
@@ -78,6 +115,10 @@
     .form input,.form select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:#fff}
     .form button{width:100%}
 
+    /* Scroll reveal animations */
+    .reveal{opacity:0; transform:translateY(30px); transition:all .8s ease;}
+    .reveal.active{opacity:1; transform:translateY(0);}
+
     /* Footer */
     footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
@@ -88,7 +129,8 @@
       .grid-3,.grid-4{grid-template-columns:1fr}
       .head-wrap{grid-template-columns:auto 1fr}
       nav.primary{display:none}
-      .hero h1{font-size:32px}
+      .hero h1{font-size:34px}
+      .hero .slogan{font-size:1.3em}
     }
   </style>
 </head>
@@ -132,15 +174,15 @@
     </div>
   </header>
 
-  <!-- Hero with slogan, image and booking form -->
+  <!-- HERO: full-width image with overlay content and form -->
   <section class="hero" id="book">
     <div class="container">
       <div class="lead">
         <span class="badge">24/7 • Same-Day • جدة</span>
         <h1 id="hero-en">Forklift Rental in Jeddah</h1>
         <h1 id="hero-ar" style="display:none">تأجير رافعات في جدة</h1>
-        <p class="sub" id="slogan-en"><em>“Your Trusted Partner in Forklift Rental for Over 12 Years”</em></p>
-        <p class="sub" id="slogan-ar" style="display:none"><em>«شريكك الموثوق في تأجير الرافعات لأكثر من 12 عامًا»</em></p>
+        <p class="slogan" id="slogan-en">Heavy Lifting Made Easy</p>
+        <p class="slogan" id="slogan-ar" style="display:none">اجعل الرفع الثقيل سهلاً</p>
         <p class="sub" id="hero-sub-en">Daily & long-term rental. Certified operators, maintenance & eco-friendly electric models.</p>
         <p class="sub" id="hero-sub-ar" style="display:none">تأجير يومي وطويل الأجل. سائقون معتمدون وصيانة ونماذج كهربائية صديقة للبيئة.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
@@ -148,13 +190,7 @@
           <a class="btn" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp</a>
         </div>
       </div>
-      <div class="hero-img">
-        <img src="5492b7da-a895-4f15-b773-b627165a39a8.jpg" alt="Forklift working in warehouse">
-      </div>
-    </div>
-
-    <div class="container" style="margin-top:16px">
-      <div class="card" style="max-width:560px">
+      <div class="hero-card">
         <h3 style="margin-top:0" id="form-title-en">Get a Quick Quote</h3>
         <h3 style="margin-top:0;display:none" id="form-title-ar">احصل على عرض سريع</h3>
         <form id="bookNowForm" class="form">
@@ -181,7 +217,7 @@
   </section>
 
   <!-- Services -->
-  <section class="container section" id="services">
+  <section class="container section reveal" id="services">
     <h2 style="margin-top:0" id="services-en">Our Services</h2>
     <h2 style="margin-top:0;display:none" id="services-ar">خدماتنا</h2>
     <div class="grid grid-3">
@@ -210,7 +246,7 @@
   </section>
 
   <!-- Industries -->
-  <section class="container section" id="industries">
+  <section class="container section reveal" id="industries">
     <h2 id="indh-en">Industries We Serve</h2>
     <h2 id="indh-ar" style="display:none">القطاعات التي نخدمها</h2>
     <div class="grid grid-4">
@@ -222,7 +258,7 @@
   </section>
 
   <!-- Reviews -->
-  <section class="container section" id="reviews">
+  <section class="container section reveal" id="reviews">
     <h2 id="revh-en">Customer Reviews</h2>
     <h2 id="revh-ar" style="display:none">آراء العملاء</h2>
     <div class="grid grid-3">
@@ -233,7 +269,7 @@
   </section>
 
   <!-- Contact & Map -->
-  <section class="container section" id="contact">
+  <section class="container section reveal" id="contact">
     <h2 id="conh-en">Contact Us</h2>
     <h2 id="conh-ar" style="display:none">اتصل بنا</h2>
     <div class="grid" style="grid-template-columns:1fr 1fr">
@@ -294,7 +330,20 @@
         window.open(`https://wa.me/966580864487?text=${msg}`, '_blank');
       });
     }
+
+    // Scroll reveal animations
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.2});
+    reveals.forEach(el=>observer.observe(el));
   </script>
 </body>
 </html>
+
 
