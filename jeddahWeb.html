@@ -13,17 +13,20 @@
 
   <style>
     :root{
-      --brand:#ff6a00;            /* forklift orange */
+      --brand:#ff6a00;                 /* forklift orange */
       --brand-dark:#cc5400;
-      --ink:#0e1320;              /* dark ink */
-      --text:#1b2333;             /* body text */
-      --muted:#5d6b85;            /* secondary */
-      --bg:#f7fafc;               /* light background */
-      --card:#ffffff;             /* white cards */
-      --stroke:#e6eaf1;           /* soft borders */
-      --accent:#1c7efb;           /* link/hover accent */
-      --success:#20b15a;          /* WhatsApp */
+      --ink:#0b0b18;                   /* dark ink for purple theme */
+      --text:#e7e7ff;                  /* light text on dark */
+      --muted:#b8b8e6;                 /* secondary */
+      --bg:#130c2a;                    /* deep purple page background */
+      --card:#1b1238;                  /* dark purple card */
+      --stroke:#2c2052;                /* soft borders on dark */
+      --accent:#7c5cff;                /* violet accent */
+      --success:#20b15a;               /* WhatsApp green */
+      --hero-overlay1: rgba(11,11,24,.65);
+      --hero-overlay2: rgba(38,20,84,.45);
     }
+
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
     a{color:inherit;text-decoration:none}
@@ -31,56 +34,60 @@
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
     /* Top contact banner */
-    .topbar{background:var(--ink);color:#d8deea;font-size:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .topbar{background:#0f0c22;color:#cfd0ff;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
     .topbar .container{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;gap:12px}
-    .topbar .cta a{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.18)}
-    .topbar .cta a:hover{background:rgba(255,255,255,.06)}
+    .topbar .cta a{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.12)}
+    .topbar .cta a:hover{background:rgba(255,255,255,.05)}
 
-    /* Header with logo left */
-    header.sitehead{background:#fff;border-bottom:1px solid var(--stroke);position:sticky;top:0;z-index:50}
+    /* Header */
+    header.sitehead{background:#140d2d;border-bottom:1px solid var(--stroke);position:sticky;top:0;z-index:50}
     .head-wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:10px 20px}
     .brand{display:flex;align-items:center;gap:14px}
     .brand img{height:56px;width:auto}
     .brand .title{line-height:1}
-    .brand .title b{font-size:22px;font-weight:900;color:var(--brand)}
-    .brand .title span{display:block;color:var(--muted);font-size:12px}
+    .brand .title b{font-size:22px;font-weight:900;color:#ffd3bb}
+    .brand .title span{display:block;color:#c3bdf0;font-size:12px}
 
     /* Nav */
     nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
-    nav.primary a{padding:10px 8px;border-radius:8px;color:#384156;font-weight:600}
-    nav.primary a:hover{color:var(--accent)}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#fff;font-weight:800;cursor:pointer}
+    nav.primary a{padding:10px 8px;border-radius:8px;color:#dddafc;font-weight:600}
+    nav.primary a:hover{color:#ffffff}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#2a1d55;color:#fff;font-weight:800;cursor:pointer}
     .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
     .btn-brand:hover{background:var(--brand-dark)}
-    .btn-ghost{background:transparent}
+    .btn-ghost{background:transparent;border-color:var(--stroke)}
 
     /* Lang toggle */
     .lang{display:flex;align-items:center;gap:8px}
-    .switch{cursor:pointer;padding:6px 10px;border-radius:10px;border:1px solid var(--stroke);background:#fff;color:#384156;font-weight:700}
+    .switch{cursor:pointer;padding:6px 10px;border-radius:10px;border:1px solid var(--stroke);background:#24164a;color:#dddafc;font-weight:700}
     .switch.active{background:var(--brand);color:#fff;border-color:transparent}
 
-    /* HERO — Full-width background banner */
+    /* HERO — Full-width background slideshow */
     .hero{
       position:relative;
-      min-height:72vh;
+      min-height:76vh;
       color:#fff;
-      background:url('5492b7da-a895-4f15-b773-b627165a39a8.jpg') center/cover no-repeat;
+      overflow:hidden;
     }
-    .hero::before{
-      content:"";
+    .hero-bg{
       position:absolute; inset:0;
-      background:linear-gradient(180deg,rgba(14,19,32,.65),rgba(14,19,32,.35));
+      background-size:cover; background-position:center;
+      transition:opacity 1s ease;
+    }
+    .hero-bg::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(180deg,var(--hero-overlay1),var(--hero-overlay2));
     }
     .hero .container{
       position:relative; z-index:1;
       display:grid; grid-template-columns:1.2fr .8fr; gap:24px;
-      align-items:center; padding:70px 20px;
+      align-items:center; padding:80px 20px;
     }
     .hero .lead{
       padding:22px;
-      background:rgba(0,0,0,.25);
-      backdrop-filter:blur(4px);
-      border:1px solid rgba(255,255,255,.15);
+      background:rgba(14,9,34,.35);
+      backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.12);
       border-radius:18px;
     }
     .badge{
@@ -89,16 +96,16 @@
       color:#ffe3d0;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.25px
     }
     .hero h1{
-      font-size:42px;line-height:1.12;margin:.4rem 0 0;
+      font-size:44px;line-height:1.12;margin:.4rem 0 0;
       color:#ffd3bb;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.35)
     }
-    .hero .slogan{
+    .slogan{
       font-size:1.6em; font-weight:800; color:#ffd966;
       margin:10px 0; text-shadow:0 2px 8px rgba(0,0,0,.5);
     }
-    .hero .sub{color:#eef3ff}
+    .hero .sub{color:#e7e7ff}
     .hero-card{
-      background:rgba(255,255,255,.08);backdrop-filter:blur(6px);
+      background:rgba(21,14,48,.55);backdrop-filter:blur(8px);
       border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:18px
     }
 
@@ -110,9 +117,17 @@
     .card{background:var(--card);border:1px solid var(--stroke);padding:18px;border-radius:16px}
     .card img{border-radius:12px;margin-bottom:10px}
 
+    /* Stats bar */
+    .stats{background:#1a1140;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:20px 0;margin:0}
+    .stats .container{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:center;text-align:center}
+    .stat{padding:10px 8px}
+    .stat .num{font-size:30px;font-weight:900;color:#ffd966}
+    .stat .label{color:#dddafc}
+
     /* Form */
     .form{display:grid;gap:12px}
-    .form input,.form select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:#fff}
+    .form input,.form select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:#2a1d55;color:#fff}
+    .form input::placeholder,.form select{color:#d6d0fa}
     .form button{width:100%}
 
     /* Scroll reveal animations */
@@ -120,7 +135,7 @@
     .reveal.active{opacity:1; transform:translateY(0);}
 
     /* Footer */
-    footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
+    footer{background:#0f0c24;color:#c7c7ff;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
 
     /* Responsive */
@@ -130,7 +145,8 @@
       .head-wrap{grid-template-columns:auto 1fr}
       nav.primary{display:none}
       .hero h1{font-size:34px}
-      .hero .slogan{font-size:1.3em}
+      .slogan{font-size:1.3em}
+      .stats .container{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -174,8 +190,13 @@
     </div>
   </header>
 
-  <!-- HERO: full-width image with overlay content and form -->
+  <!-- HERO: background slideshow + overlay content and form -->
   <section class="hero" id="book">
+    <!-- Slideshow layers -->
+    <div class="hero-bg" id="bg0" style="opacity:1;background-image:url('https://robsforklift.com/wp-content/uploads/2025/02/Forklift-2-1024x859.jpg');"></div>
+    <div class="hero-bg" id="bg1" style="opacity:0;background-image:url('a3f66504-b7b6-4cca-83f9-f4838e5d585f.jpg');"></div>
+    <div class="hero-bg" id="bg2" style="opacity:0;background-image:url('5492b7da-a895-4f15-b773-b627165a39a8.jpg');"></div>
+
     <div class="container">
       <div class="lead">
         <span class="badge">24/7 • Same-Day • جدة</span>
@@ -212,6 +233,27 @@
           <button type="submit" class="btn btn-brand" id="book-btn-en">💬 Book on WhatsApp</button>
           <button type="submit" class="btn btn-brand" id="book-btn-ar" style="display:none">💬 احجز عبر واتساب</button>
         </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rolling stats bar -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stat">
+        <div class="num" data-target="6" data-suffix="+">0</div>
+        <div class="label" id="st1-en">Trained Staff</div>
+        <div class="label" id="st1-ar" style="display:none">أفراد مدرّبون</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-target="1500" data-suffix="+">0</div>
+        <div class="label" id="st2-en">Satisfied Clients</div>
+        <div class="label" id="st2-ar" style="display:none">عملاء راضون</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-target="12" data-suffix="+">0</div>
+        <div class="label" id="st3-en">Years in Business</div>
+        <div class="label" id="st3-ar" style="display:none">سنوات في المجال</div>
       </div>
     </div>
   </section>
@@ -262,9 +304,9 @@
     <h2 id="revh-en">Customer Reviews</h2>
     <h2 id="revh-ar" style="display:none">آراء العملاء</h2>
     <div class="grid grid-3">
-      <div class="card"><div class="stars">★★★★★</div><b id="r1n-en">Abdul Al-Hameed</b><b id="r1n-ar" style="display:none">عبدالحميد</b><p id="r1-en">The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.</p><p id="r1-ar" style="display:none">الفريق محترف ولطيف، قاموا بعمل رائع في المستودع. الخيار الأول لتأجير الرافعات.</p></div>
-      <div class="card"><div class="stars">★★★★☆</div><b id="r2n-en">Hamaad Q.</b><b id="r2n-ar" style="display:none">حماد ق.</b><p id="r2-en">The team responds very quick and great communication, highly recommend for long term rentals.</p><p id="r2-ar" style="display:none">استجابة سريعة وتواصل ممتاز، أنصح بهم للتأجير طويل الأجل.</p></div>
-      <div class="card"><div class="stars">★★★★★</div><b id="r3n-en">Sarah M.</b><b id="r3n-ar" style="display:none">سارة م.</b><p id="r3-en">Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.</p><p id="r3-ar" style="display:none">خدمة ممتازة! استأجرنا رافعات كهربائية – فعالة وصديقة للبيئة وبسعر مناسب.</p></div>
+      <div class="card"><div class="stars" style="color:#ffd966">★★★★★</div><b id="r1n-en">Abdul Al-Hameed</b><b id="r1n-ar" style="display:none">عبدالحميد</b><p id="r1-en">The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.</p><p id="r1-ar" style="display:none">الفريق محترف ولطيف، قاموا بعمل رائع في المستودع. الخيار الأول لتأجير الرافعات.</p></div>
+      <div class="card"><div class="stars" style="color:#ffd966">★★★★☆</div><b id="r2n-en">Hamaad Q.</b><b id="r2n-ar" style="display:none">حماد ق.</b><p id="r2-en">The team responds very quick and great communication, highly recommend for long term rentals.</p><p id="r2-ar" style="display:none">استجابة سريعة وتواصل ممتاز، أنصح بهم للتأجير طويل الأجل.</p></div>
+      <div class="card"><div class="stars" style="color:#ffd966">★★★★★</div><b id="r3n-en">Sarah M.</b><b id="r3n-ar" style="display:none">سارة م.</b><p id="r3-en">Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.</p><p id="r3-ar" style="display:none">خدمة ممتازة! استأجرنا رافعات كهربائية – فعالة وصديقة للبيئة وبسعر مناسب.</p></div>
     </div>
   </section>
 
@@ -342,6 +384,49 @@
       });
     },{threshold:0.2});
     reveals.forEach(el=>observer.observe(el));
+
+    // Background slideshow
+    const slides = [
+      "https://robsforklift.com/wp-content/uploads/2025/02/Forklift-2-1024x859.jpg",
+      "a3f66504-b7b6-4cca-83f9-f4838e5d585f.jpg",
+      "5492b7da-a895-4f15-b773-b627165a39a8.jpg"
+    ];
+    let current = 0;
+    const bgEls = [document.getElementById('bg0'), document.getElementById('bg1'), document.getElementById('bg2')];
+
+    setInterval(()=>{
+      const next = (current + 1) % slides.length;
+      bgEls[next].style.backgroundImage = `url('${slides[next]}')`;
+      bgEls[next].style.opacity = 1;
+      bgEls[current].style.opacity = 0;
+      current = next;
+    }, 5000); // change every 5s
+
+    // Rolling stats (count up on view)
+    const numEls = document.querySelectorAll('.stat .num');
+    let counted = false;
+    const statsObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting && !counted){
+          counted = true;
+          numEls.forEach(el=>{
+            const target = +el.dataset.target;
+            const suffix = el.dataset.suffix || "";
+            const duration = 1200; // ms
+            const start = performance.now();
+            function tick(now){
+              const p = Math.min((now - start)/duration, 1);
+              const val = Math.floor(target * p);
+              el.textContent = val.toLocaleString() + suffix;
+              if(p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+          });
+          statsObserver.disconnect();
+        }
+      });
+    }, {threshold:0.4});
+    statsObserver.observe(document.getElementById('stats'));
   </script>
 </body>
 </html>
