@@ -15,16 +15,17 @@
     :root{
       --brand:#ff6a00;                 /* forklift orange */
       --brand-dark:#cc5400;
-      --ink:#0b0b18;                   /* dark ink for purple theme */
-      --text:#e7e7ff;                  /* light text on dark */
-      --muted:#b8b8e6;                 /* secondary */
-      --bg:#130c2a;                    /* deep purple page background */
-      --card:#1b1238;                  /* dark purple card */
-      --stroke:#2c2052;                /* soft borders on dark */
-      --accent:#7c5cff;                /* violet accent */
-      --success:#20b15a;               /* WhatsApp green */
-      --hero-overlay1: rgba(11,11,24,.65);
-      --hero-overlay2: rgba(38,20,84,.45);
+      /* Lighter purple theme */
+      --ink:#141230;                   /* deep text on headers */
+      --text:#eef0ff;                  /* light text on dark */
+      --muted:#cfd0ff;                 /* secondary */
+      --bg:#1f1846;                    /* lighter purple page background */
+      --card:#281f5f;                  /* lighter card than before */
+      --stroke:#3a3176;                /* soft borders on dark */
+      --accent:#8e79ff;                /* violet accent */
+      --success:#25D366;               /* WhatsApp green */
+      --hero-overlay1: rgba(20,18,48,.45);
+      --hero-overlay2: rgba(46,28,98,.30);
     }
 
     *{box-sizing:border-box}
@@ -34,32 +35,36 @@
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
     /* Top contact banner */
-    .topbar{background:#0f0c22;color:#cfd0ff;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .topbar{background:#1b1740;color:#e6e7ff;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
     .topbar .container{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;gap:12px}
     .topbar .cta a{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.12)}
     .topbar .cta a:hover{background:rgba(255,255,255,.05)}
 
     /* Header */
-    header.sitehead{background:#140d2d;border-bottom:1px solid var(--stroke);position:sticky;top:0;z-index:50}
+    header.sitehead{background:#231c52;border-bottom:1px solid var(--stroke);position:sticky;top:0;z-index:50}
     .head-wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:10px 20px}
     .brand{display:flex;align-items:center;gap:14px}
     .brand img{height:56px;width:auto}
     .brand .title{line-height:1}
     .brand .title b{font-size:22px;font-weight:900;color:#ffd3bb}
-    .brand .title span{display:block;color:#c3bdf0;font-size:12px}
+    .brand .title span{display:block;color:#e1dcff;font-size:12px}
 
     /* Nav */
     nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
-    nav.primary a{padding:10px 8px;border-radius:8px;color:#dddafc;font-weight:600}
+    nav.primary a{padding:10px 8px;border-radius:8px;color:#f3f2ff;font-weight:600}
     nav.primary a:hover{color:#ffffff}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#2a1d55;color:#fff;font-weight:800;cursor:pointer}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#2f2670;color:#fff;font-weight:800;cursor:pointer}
     .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
     .btn-brand:hover{background:var(--brand-dark)}
-    .btn-ghost{background:transparent;border-color:var(--stroke)}
+    .btn-ghost{background:transparent;border-color:var(--stroke);color:#f3f2ff}
+
+    /* WhatsApp icon (inline SVG shared styles) */
+    .wa-ico{width:18px;height:18px;display:inline-block;vertical-align:-3px}
+    .wa-ico svg{display:block}
 
     /* Lang toggle */
     .lang{display:flex;align-items:center;gap:8px}
-    .switch{cursor:pointer;padding:6px 10px;border-radius:10px;border:1px solid var(--stroke);background:#24164a;color:#dddafc;font-weight:700}
+    .switch{cursor:pointer;padding:6px 10px;border-radius:10px;border:1px solid var(--stroke);background:#2f2670;color:#f3f2ff;font-weight:700}
     .switch.active{background:var(--brand);color:#fff;border-color:transparent}
 
     /* HERO — Full-width background slideshow */
@@ -85,7 +90,7 @@
     }
     .hero .lead{
       padding:22px;
-      background:rgba(14,9,34,.35);
+      background:rgba(32,26,82,.35);
       backdrop-filter:blur(6px);
       border:1px solid rgba(255,255,255,.12);
       border-radius:18px;
@@ -103,9 +108,9 @@
       font-size:1.6em; font-weight:800; color:#ffd966;
       margin:10px 0; text-shadow:0 2px 8px rgba(0,0,0,.5);
     }
-    .hero .sub{color:#e7e7ff}
+    .hero .sub{color:#f2f2ff}
     .hero-card{
-      background:rgba(21,14,48,.55);backdrop-filter:blur(8px);
+      background:rgba(40,31,95,.55);backdrop-filter:blur(8px);
       border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:18px
     }
 
@@ -118,24 +123,36 @@
     .card img{border-radius:12px;margin-bottom:10px}
 
     /* Stats bar */
-    .stats{background:#1a1140;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:20px 0;margin:0}
+    .stats{background:#231e57;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:20px 0;margin:0}
     .stats .container{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:center;text-align:center}
     .stat{padding:10px 8px}
     .stat .num{font-size:30px;font-weight:900;color:#ffd966}
-    .stat .label{color:#dddafc}
+    .stat .label{color:#f0eeff}
 
     /* Form */
     .form{display:grid;gap:12px}
-    .form input,.form select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:#2a1d55;color:#fff}
-    .form input::placeholder,.form select{color:#d6d0fa}
+    .form input,.form select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:#352c78;color:#fff}
+    .form input::placeholder,.form select{color:#e5e1ff}
     .form button{width:100%}
 
     /* Scroll reveal animations */
     .reveal{opacity:0; transform:translateY(30px); transition:all .8s ease;}
     .reveal.active{opacity:1; transform:translateY(0);}
 
+    /* Floating WhatsApp Call Button */
+    .floating-wa{
+      position:fixed; right:18px; bottom:18px;
+      width:60px; height:60px; border-radius:999px;
+      background:var(--success); color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+      z-index:80;
+    }
+    .floating-wa:hover{filter:brightness(1.05)}
+    .floating-wa svg{width:28px;height:28px;display:block}
+
     /* Footer */
-    footer{background:#0f0c24;color:#c7c7ff;margin-top:40px}
+    footer{background:#1c1746;color:#f0f0ff;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
 
     /* Responsive */
@@ -154,7 +171,16 @@
   <!-- Top contact banner -->
   <div class="topbar">
     <div class="container">
-      <div class="cta">📞 <a href="tel:0580864487">0580864487</a> · 📞 <a href="tel:0560461067">0560461067</a> · 💬 <a href="https://wa.me/966580864487" target="_blank">WhatsApp</a></div>
+      <div class="cta">
+        📞 <a href="tel:0580864487">0580864487</a> · 📞 <a href="tel:0560461067">0560461067</a> · 
+        <a href="https://wa.me/966580864487" target="_blank" aria-label="WhatsApp Chat">
+          <span class="wa-ico" aria-hidden="true">
+            <!-- WhatsApp SVG -->
+            <svg viewBox="0 0 32 32" fill="none"><path fill="#25D366" d="M16 .5C7.44.5.5 7.44.5 16c0 2.71.7 5.29 2.03 7.6L1.1 31l7.6-1.42A15.4 15.4 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5z"/><path fill="#fff" d="M24.57 22.07c-.35.99-2.06 1.9-2.84 1.96-.73.06-1.64.08-2.64-.16-.6-.15-1.36-.44-2.35-.86-4.13-1.78-6.8-6.08-7.01-6.36-.21-.28-1.67-2.22-1.67-4.25 0-2.03 1.05-3.02 1.42-3.44.37-.42.8-.52 1.07-.52.27 0 .54 0 .77.01.24.01.58-.09.9.69.35.86 1.2 2.98 1.3 3.2.11.22.18.48.03.76-.15.28-.23.45-.45.7-.22.25-.47.56-.67.75-.22.22-.45.46-.19.9.25.43 1.12 1.84 2.41 2.98 1.66 1.48 3.06 1.94 3.49 2.16.43.22.68.18.93-.11.25-.29 1.07-1.26 1.36-1.69.29-.43.58-.36.97-.22.4.14 2.53 1.19 2.97 1.41.44.22.73.32.84.5.11.2.11 1.15-.24 2.14z"/></svg>
+          </span>
+          WhatsApp
+        </a>
+      </div>
       <div class="lang">
         <span style="opacity:.8">Language / اللغة</span>
         <button class="switch active" data-lang="en">EN</button>
@@ -208,7 +234,12 @@
         <p class="sub" id="hero-sub-ar" style="display:none">تأجير يومي وطويل الأجل. سائقون معتمدون وصيانة ونماذج كهربائية صديقة للبيئة.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
           <a class="btn btn-brand" href="tel:0580864487">📞 0580864487</a>
-          <a class="btn" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp</a>
+          <a class="btn" target="_blank" href="https://wa.me/966580864487" aria-label="WhatsApp Chat">
+            <span class="wa-ico" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none"><path fill="#25D366" d="M16 .5C7.44.5.5 7.44.5 16c0 2.71.7 5.29 2.03 7.6L1.1 31l7.6-1.42A15.4 15.4 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5z"/><path fill="#fff" d="M24.57 22.07c-.35.99-2.06 1.9-2.84 1.96-.73.06-1.64.08-2.64-.16-.6-.15-1.36-.44-2.35-.86-4.13-1.78-6.8-6.08-7.01-6.36-.21-.28-1.67-2.22-1.67-4.25 0-2.03 1.05-3.02 1.42-3.44.37-.42.8-.52 1.07-.52.27 0 .54 0 .77.01.24.01.58-.09.9.69.35.86 1.2 2.98 1.3 3.2.11.22.18.48.03.76-.15.28-.23.45-.45.7-.22.25-.47.56-.67.75-.22.22-.45.46-.19.9.25.43 1.12 1.84 2.41 2.98 1.66 1.48 3.06 1.94 3.49 2.16.43.22.68.18.93-.11.25-.29 1.07-1.26 1.36-1.69.29-.43.58-.36.97-.22.4.14 2.53 1.19 2.97 1.41.44.22.73.32.84.5.11.2.11 1.15-.24 2.14z"/></svg>
+            </span>
+            WhatsApp
+          </a>
         </div>
       </div>
       <div class="hero-card">
@@ -321,7 +352,12 @@
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <a class="btn btn-ghost" href="tel:0580864487">📞 0580864487</a>
           <a class="btn btn-ghost" href="tel:0560461067">📞 0560461067</a>
-          <a class="btn btn-brand" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp</a>
+          <a class="btn" target="_blank" href="https://wa.me/966580864487" aria-label="WhatsApp Chat">
+            <span class="wa-ico" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none"><path fill="#25D366" d="M16 .5C7.44.5.5 7.44.5 16c0 2.71.7 5.29 2.03 7.6L1.1 31l7.6-1.42A15.4 15.4 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5z"/><path fill="#fff" d="M24.57 22.07c-.35.99-2.06 1.9-2.84 1.96-.73.06-1.64.08-2.64-.16-.6-.15-1.36-.44-2.35-.86-4.13-1.78-6.8-6.08-7.01-6.36-.21-.28-1.67-2.22-1.67-4.25 0-2.03 1.05-3.02 1.42-3.44.37-.42.8-.52 1.07-.52.27 0 .54 0 .77.01.24.01.58-.09.9.69.35.86 1.2 2.98 1.3 3.2.11.22.18.48.03.76-.15.28-.23.45-.45.7-.22.25-.47.56-.67.75-.22.22-.45.46-.19.9.25.43 1.12 1.84 2.41 2.98 1.66 1.48 3.06 1.94 3.49 2.16.43.22.68.18.93-.11.25-.29 1.07-1.26 1.36-1.69.29-.43.58-.36.97-.22.4.14 2.53 1.19 2.97 1.41.44.22.73.32.84.5.11.2.11 1.15-.24 2.14z"/></svg>
+            </span>
+            WhatsApp
+          </a>
         </div>
       </div>
       <div class="card">
@@ -336,6 +372,11 @@
       <div><a href="#book" class="btn btn-brand">Book Now</a></div>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp call button -->
+  <a class="floating-wa" id="waCallBtn" href="whatsapp://call?number=+966580864487" aria-label="WhatsApp Call">
+    <svg viewBox="0 0 32 32" fill="none"><path fill="#fff" d="M25.67 18.6c-.3.84-1.75 1.6-2.4 1.66-.62.05-1.39.07-2.24-.14-.51-.13-1.15-.38-1.99-.73-3.5-1.51-5.76-5.16-5.94-5.4-.18-.24-1.42-1.89-1.42-3.62 0-1.73.89-2.58 1.21-2.94.31-.36.68-.45.91-.45.23 0 .46 0 .65.01.2.01.49-.08.77.59.3.74 1.02 2.54 1.1 2.73.09.19.15.41.03.65-.13.24-.2.39-.38.6-.19.21-.4.48-.56.65-.19.19-.38.41-.16.78.21.37.96 1.58 2.04 2.57 1.41 1.28 2.59 1.68 2.95 1.87.36.19.57.15.79-.09.21-.25.9-1.09 1.15-1.46.25-.37.5-.31.82-.19.34.12 2.13 1.03 2.5 1.22.37.19.62.28.71.43.1.17.1.99-.2 1.85z"/><path fill="#25D366" d="M16 29.5c-2.16 0-4.22-.5-6.06-1.45L3.5 30l1.95-6.3A13.44 13.44 0 0 1 2.5 16C2.5 8.82 8.82 2.5 16 2.5S29.5 8.82 29.5 16 23.18 29.5 16 29.5Z"/></svg>
+  </a>
 
   <script>
     // Year
@@ -427,6 +468,17 @@
       });
     }, {threshold:0.4});
     statsObserver.observe(document.getElementById('stats'));
+
+    // Floating WhatsApp call button: try direct app call, fallback to chat link
+    const waBtn = document.getElementById('waCallBtn');
+    waBtn.addEventListener('click', function(e){
+      // On desktop, whatsapp:// may do nothing. Provide a quick fallback.
+      setTimeout(()=>{
+        // If the app didn't handle it, open chat link
+        window.open('https://wa.me/966580864487', '_blank');
+      }, 1200);
+    });
   </script>
 </body>
 </html>
+
