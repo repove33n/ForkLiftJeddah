@@ -54,6 +54,9 @@
     nav.primary a.btn-contact{background:var(--darkblue);color:#fff;font-weight:700}
     nav.primary a.btn-contact:hover{background:var(--darkblue-dark)}
 
+    .lang-toggle{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.2);color:#f3f2ff;cursor:pointer;font-weight:800}
+    .lang-toggle:hover{background:rgba(255,255,255,.06)}
+
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#fff;font-weight:800;cursor:pointer;color:#1b2436}
     .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
     .btn-brand:hover{background:var(--brand-dark)}
@@ -72,8 +75,8 @@
     .hero-card{background:rgba(14,19,32,0.85);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:22px;color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.25)}
     .hero-card h3{margin:0 0 8px;font-weight:900;font-size:22px;letter-spacing:.3px;color:#fff}
     .hero-card p.small{margin-top:4px;opacity:.9}
-    .hero-card input,.hero-card select{width:100%;padding:12px 12px;margin:10px 0;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:1rem;outline:none}
-    .hero-card input::placeholder,.hero-card select{color:#f1f1f1}
+    .hero-card input{width:100%;padding:12px 12px;margin:10px 0;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:1rem;outline:none}
+    .hero-card input::placeholder{color:#f1f1f1}
     .hero-card button{background:var(--brand);color:#fff;padding:14px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:900;width:100%;font-size:1rem;box-shadow:0 6px 14px rgba(0,0,0,.35)}
     .hero-card button:hover{background:var(--brand-dark)}
 
@@ -88,41 +91,27 @@
     .grid{display:grid;gap:16px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .grid-4{grid-template-columns:repeat(4,1fr)}
-
     .card{background:var(--card);border:1px solid var(--stroke);padding:18px;border-radius:16px}
     .card img{border-radius:12px;margin-bottom:10px;width:100%;height:220px;object-fit:cover}
 
-    /* About section extras */
-    .badge{
-      display:inline-block; padding:8px 14px; border-radius:10px;
-      background:rgba(37,211,102,.15); color:#0e1320; border:1px solid rgba(37,211,102,.35);
-      font-weight:800; letter-spacing:.06em; text-transform:uppercase; font-size:12px;
-      box-shadow:0 6px 16px rgba(0,0,0,.06)
-    }
-    .about-title{ font-size:34px; font-weight:900; letter-spacing:.2px; color:var(--darkblue); margin:10px 0 8px }
-    .callout{
-      display:inline-block; padding:10px 16px; border-radius:12px;
-      background:#fff; border:2px solid var(--stroke); box-shadow:0 8px 22px rgba(0,0,0,.06);
-      font-weight:900; color:var(--ink)
-    }
+    /* About extras */
+    .badge{display:inline-block;padding:8px 14px;border-radius:10px;background:rgba(37,211,102,.15);color:#0e1320;border:1px solid rgba(37,211,102,.35);font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
+    .about-title{font-size:34px;font-weight:900;letter-spacing:.2px;color:var(--darkblue);margin:10px 0 8px}
+    .callout{display:inline-block;padding:10px 16px;border-radius:12px;background:#fff;border:2px solid var(--stroke);box-shadow:0 8px 22px rgba(0,0,0,.06);font-weight:900;color:var(--ink)}
 
-    /* Floating WhatsApp (logo fills circle) */
+    /* Floating WhatsApp (SVG icon, perfectly cropped) */
     .floating-wa{
-      position:fixed; right:18px; bottom:18px;
-      width:64px; height:64px; border-radius:50%;
-      background-color:var(--success);
-      color:#fff; display:flex; align-items:center; justify-content:center;
-      z-index:80; box-shadow:0 10px 24px rgba(0,0,0,.25);
-      background-image:url('https://img.freepik.com/premium-vector/whatsapp-icon-concept_23-2147900930.jpg');
-      background-size:cover; background-position:center; background-repeat:no-repeat;
-      overflow:hidden;
+      position:fixed;right:18px;bottom:18px;width:64px;height:64px;border-radius:50%;
+      background-color:var(--success);display:flex;align-items:center;justify-content:center;
+      z-index:80;box-shadow:0 10px 24px rgba(0,0,0,.25);overflow:hidden;
     }
+    .floating-wa svg{width:56%;height:56%;display:block}
 
     /* Footer */
     footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
 
-    /* Mobile tweaks */
+    /* Mobile */
     @media (max-width:980px){
       .hero{min-height:68vh}
       .hero .container{grid-template-columns:1fr;padding:56px 16px;gap:18px}
@@ -130,20 +119,24 @@
       .slogan{font-size:1.25em}
       .hero-card{padding:18px}
       .grid-3,.grid-4{grid-template-columns:1fr}
-      .head-wrap{grid-template-columns:auto 1fr}
+      .head-wrap{grid-template-columns:auto 1fr auto}
       nav.primary{display:none}
       .stats .container{grid-template-columns:1fr}
       .btn{padding:12px 16px}
       .card img{height:200px}
       .about-title{font-size:28px}
     }
-
-    /* Small mobile (iPhone SE-ish) */
     @media (max-width:380px){
       .hero{min-height:62vh}
       .hero h1{font-size:28px}
       .floating-wa{width:58px;height:58px;right:14px;bottom:14px}
     }
+
+    /* RTL tweaks when Arabic is active */
+    .rtl{direction:rtl}
+    .rtl .head-wrap{grid-template-columns:auto auto 1fr}
+    .rtl .topbar .container,.rtl .container{padding-inline:20px}
+    .rtl nav.primary a{text-align:center}
   </style>
 </head>
 <body>
@@ -152,9 +145,10 @@
     <div class="container">
       <div class="cta">
         📞 <a href="tel:0580864487">0580864487</a> · 📞 <a href="tel:0560461067">0560461067</a>
-        <a class="btn btn-wa" href="https://wa.me/966580864487" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn btn-contact" href="#contact">Contact Us</a>
+        <a class="btn btn-wa" href="https://wa.me/966580864487" target="_blank" rel="noopener" data-i18n="top.whatsapp">WhatsApp</a>
+        <a class="btn btn-contact" href="#contact" data-i18n="top.contact">Contact Us</a>
       </div>
+      <button id="langToggle" class="lang-toggle" type="button">EN | AR</button>
     </div>
   </div>
 
@@ -165,11 +159,11 @@
         <img src="newJedLogo.png" alt="Forklift Rental Jeddah Logo" loading="lazy">
       </div>
       <nav class="primary">
-        <a href="#book" class="btn btn-brand">Book Now</a>
-        <a href="#services">Services</a>
-        <a href="#industries">Industries</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact" class="btn btn-contact">Contact</a>
+        <a href="#book" class="btn btn-brand" data-i18n="nav.book">Book Now</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#industries" data-i18n="nav.industries">Industries</a>
+        <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
+        <a href="#contact" class="btn btn-contact" data-i18n="nav.contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -182,28 +176,24 @@
 
     <div class="container">
       <div class="lead">
-        <h1>Forklift Rental in Jeddah</h1>
-        <p class="slogan">Heavy Lifting Made Easy</p>
-        <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.</p>
+        <h1 data-i18n="hero.h1">Forklift Rental in Jeddah</h1>
+        <p class="slogan" data-i18n="hero.slogan">Heavy Lifting Made Easy</p>
+        <p class="sub" data-i18n="hero.sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.</p>
       </div>
 
-      <!-- Quote Box (darker & bolder) -->
+      <!-- Quote Box -->
       <div class="hero-card">
-        <h3>Get a Quick Quote</h3>
+        <h3 data-i18n="quote.title">Get a Quick Quote</h3>
         <form id="bookNowForm">
-          <input id="bn_name" placeholder="Your Name / الاسم" required>
-          <input id="bn_phone" placeholder="Phone / الهاتف" required>
-          <input id="bn_email" type="email" placeholder="Email / البريد الإلكتروني" required>
-          <select id="bn_service" required>
-            <option value="">Select Service / اختر الخدمة</option>
-            <option>Daily Forklift Rental</option>
-            <option>Long-Term Rental</option>
-            <option>Customized Forklift Solutions</option>
-            <option>Eco-Friendly Electric Forklifts</option>
-          </select>
-          <input id="bn_date" type="date" required placeholder="Date / التاريخ">
-          <button type="submit">💬 Book on WhatsApp</button>
-          <p class="small">Direct to WhatsApp: <b>0580864487</b></p>
+          <input id="bn_name" placeholder="Your Name / الاسم" required data-i18n-ph="quote.name">
+          <input id="bn_phone" placeholder="Phone / الهاتف" required data-i18n-ph="quote.phone">
+          <input id="bn_email" type="email" placeholder="Email / البريد الإلكتروني" required data-i18n-ph="quote.email">
+          <!-- Replaced dropdown with free-text input -->
+          <input id="bn_service" placeholder="Service / الخدمة المطلوبة" required data-i18n-ph="quote.service">
+          <input id="bn_date" type="date" required placeholder="Date / التاريخ" data-i18n-ph="quote.date">
+          <!-- Button opens WhatsApp even if fields are empty -->
+          <button type="button" id="waBookBtn" data-i18n="quote.button">💬 Book on WhatsApp</button>
+          <p class="small" data-i18n="quote.direct">Direct to WhatsApp: <b>0580864487</b></p>
         </form>
       </div>
     </div>
@@ -212,69 +202,69 @@
   <!-- Stats -->
   <section class="stats">
     <div class="container">
-      <div class="stat"><div class="num" data-target="6">0+</div><div class="label">Trained Staff</div></div>
-      <div class="stat"><div class="num" data-target="1500">0+</div><div class="label">Satisfied Clients</div></div>
-      <div class="stat"><div class="num" data-target="12">0+</div><div class="label">Years in Business</div></div>
+      <div class="stat"><div class="num" data-target="6">0+</div><div class="label" data-i18n="stats.staff">Trained Staff</div></div>
+      <div class="stat"><div class="num" data-target="1500">0+</div><div class="label" data-i18n="stats.clients">Satisfied Clients</div></div>
+      <div class="stat"><div class="num" data-target="12">0+</div><div class="label" data-i18n="stats.years">Years in Business</div></div>
     </div>
   </section>
 
   <!-- Services -->
   <section class="container section" id="services">
-    <h2>Our Services</h2>
+    <h2 data-i18n="services.title">Our Services</h2>
     <div class="grid grid-3">
       <div class="card">
         <img loading="lazy" src="https://gobrennan.com/wp-content/uploads/2023/12/Hyundai-Forklifts-in-warehouse-1080x675.jpg" alt="Forklift Rental (1–10 Tons)">
-        <h3>Forklift Rental (1–10 Tons)</h3>
-        <p>Affordable, high-quality forklift rentals ranging from 1 ton to 10 tons, suitable for warehouses, logistics, and various worksites. Get the right size delivered quickly when you need it.</p>
+        <h3 data-i18n="services.s1.title">Forklift Rental (1–10 Tons)</h3>
+        <p data-i18n="services.s1.desc">Affordable, high-quality forklift rentals ranging from 1 ton to 10 tons, suitable for warehouses, logistics, and various worksites. Get the right size delivered quickly when you need it.</p>
       </div>
       <div class="card">
         <img loading="lazy" src="https://eqdepot.com/wp-content/uploads/2023/12/Heavy-Duty-750x600-1.jpg" alt="Electric Forklift Rental">
-        <h3>Electric Forklift Rental</h3>
-        <p>High-quality electric forklift rentals ideal for indoor operations—quiet, efficient, and eco-friendly. Contact us for the best deals.</p>
+        <h3 data-i18n="services.s2.title">Electric Forklift Rental</h3>
+        <p data-i18n="services.s2.desc">High-quality electric forklift rentals ideal for indoor operations—quiet, efficient, and eco-friendly. Contact us for the best deals.</p>
       </div>
       <div class="card">
         <img loading="lazy" src="https://www.liftone.net/wp-content/uploads/2021/04/Hyster-Yale-forklift.jpg" alt="Access to Truck Rentals">
-        <h3>Access to Truck Rentals</h3>
-        <p>We make forklift booking easy and affordable. Choose the right forklift for your needs today and keep your business moving without delays.</p>
+        <h3 data-i18n="services.s3.title">Access to Truck Rentals</h3>
+        <p data-i18n="services.s3.desc">We make forklift booking easy and affordable. Choose the right forklift for your needs today and keep your business moving without delays.</p>
       </div>
     </div>
   </section>
 
-  <!-- Industries (Oil & Gas removed) -->
+  <!-- Industries -->
   <section class="container section" id="industries">
-    <h2>Industries We Serve</h2>
+    <h2 data-i18n="industries.title">Industries We Serve</h2>
     <div class="grid grid-4">
-      <div class="card">📦 <b>Warehousing & Logistics</b></div>
-      <div class="card">🏭 <b>Manufacturing & Industrial</b></div>
-      <div class="card">🏗 <b>Construction & Infrastructure</b></div>
+      <div class="card" data-i18n="industries.i1">📦 <b>Warehousing & Logistics</b></div>
+      <div class="card" data-i18n="industries.i2">🏭 <b>Manufacturing & Industrial</b></div>
+      <div class="card" data-i18n="industries.i3">🏗 <b>Construction & Infrastructure</b></div>
     </div>
   </section>
 
   <!-- Who We Are -->
   <section class="container section" id="about">
-    <h2 class="about-title">Who We Are</h2>
+    <h2 class="about-title" data-i18n="about.title">Who We Are</h2>
     <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px">
       <div>
         <img src="https://safestart.com/wp-content/uploads/2021/04/ForkliftSafety.jpg" alt="Who We Are" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.1)" loading="lazy">
       </div>
       <div>
-        <div class="callout">How does it work</div>
-        <p style="margin-top:12px;font-weight:600">We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
+        <div class="callout" data-i18n="about.callout">How does it work</div>
+        <p style="margin-top:12px;font-weight:600" data-i18n="about.desc">We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
         <div class="grid grid-3" style="margin-top:16px">
           <div class="card" style="text-align:center">
             <div style="font-size:32px;color:var(--success)">⏰</div>
-            <h4 style="margin:8px 0 6px">Flexible hours</h4>
-            <p style="margin:0">We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
+            <h4 style="margin:8px 0 6px" data-i18n="about.f1.t">Flexible hours</h4>
+            <p style="margin:0" data-i18n="about.f1.d">We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
           </div>
           <div class="card" style="text-align:center">
             <div style="font-size:32px;color:var(--success)">📦</div>
-            <h4 style="margin:8px 0 6px">Commitment‑free</h4>
-            <p style="margin:0">Our services are commitment‑free — you can stop at any time.</p>
+            <h4 style="margin:8px 0 6px" data-i18n="about.f2.t">Commitment‑free</h4>
+            <p style="margin:0" data-i18n="about.f2.d">Our services are commitment‑free — you can stop at any time.</p>
           </div>
           <div class="card" style="text-align:center">
             <div style="font-size:32px;color:var(--success)">👷‍♂️</div>
-            <h4 style="margin:8px 0 6px">Local professionals</h4>
-            <p style="margin:0">We work with local professionals to ensure we provide the best service.</p>
+            <h4 style="margin:8px 0 6px" data-i18n="about.f3.t">Local professionals</h4>
+            <p style="margin:0" data-i18n="about.f3.d">We work with local professionals to ensure we provide the best service.</p>
           </div>
         </div>
       </div>
@@ -283,36 +273,36 @@
 
   <!-- Reviews -->
   <section class="container section" id="reviews">
-    <h2>Customer Reviews</h2>
+    <h2 data-i18n="reviews.title">Customer Reviews</h2>
     <div class="grid grid-3">
       <div class="card">
         <div style="color:#ffb400">★★★★★</div>
         <b>Abdul Al-Hameed</b>
-        <p>The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.</p>
+        <p data-i18n="reviews.r1">The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.</p>
       </div>
       <div class="card">
         <div style="color:#ffb400">★★★★☆</div>
         <b>Hamaad Q.</b>
-        <p>The team responds very quick and great communication, highly recommend for long term rentals.</p>
+        <p data-i18n="reviews.r2">The team responds very quick and great communication, highly recommend for long term rentals.</p>
       </div>
       <div class="card">
         <div style="color:#ffb400">★★★★★</div>
         <b>Sarah M.</b>
-        <p>Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.</p>
+        <p data-i18n="reviews.r3">Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.</p>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
   <section class="container section" id="contact">
-    <h2>Contact Us</h2>
+    <h2 data-i18n="contact.title">Contact Us</h2>
     <div class="grid" style="grid-template-columns:1fr 1fr">
       <div class="card">
-        <p>Call or WhatsApp us anytime for fast forklift rental support in Jeddah.</p>
+        <p data-i18n="contact.desc">Call or WhatsApp us anytime for fast forklift rental support in Jeddah.</p>
         <div class="contact-phones" style="display:flex;gap:10px;flex-wrap:wrap">
           <a class="btn" href="tel:0580864487" style="background:#fff">📞 <strong>0580864487</strong></a>
           <a class="btn" href="tel:0560461067" style="background:#fff">📞 <strong>0560461067</strong></a>
-          <a class="btn" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp Chat</a>
+          <a class="btn" target="_blank" href="https://wa.me/966580864487" data-i18n="contact.wa">💬 WhatsApp Chat</a>
         </div>
       </div>
       <div class="card">
@@ -323,13 +313,18 @@
 
   <footer>
     <div class="container">
-      <div>© <span id="year"></span> Forklift Rental in Jeddah</div>
-      <div><a href="#book" class="btn btn-brand">Book Now</a></div>
+      <div>© <span id="year"></span> <span data-i18n="footer.brand">Forklift Rental in Jeddah</span></div>
+      <div><a href="#book" class="btn btn-brand" data-i18n="nav.book">Book Now</a></div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp (logo + call) -->
-  <a class="floating-wa" id="waCallBtn" href="https://wa.me/966580864487" aria-label="WhatsApp Call" title="Call on WhatsApp"></a>
+  <!-- Floating WhatsApp (SVG icon) -->
+  <a class="floating-wa" id="waCallBtn" href="https://wa.me/966580864487" aria-label="WhatsApp Call" title="Call on WhatsApp">
+    <!-- WhatsApp SVG mark (white glyph), perfectly centered in green circle -->
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill="#FFFFFF" d="M19.754 17.06c-.303-.152-1.79-.886-2.067-.987-.277-.101-.479-.152-.68.153-.202.304-.78.987-.956 1.19-.177.202-.354.228-.657.076-.303-.152-1.28-.47-2.438-1.498-.901-.803-1.509-1.79-1.686-2.094-.177-.304-.019-.469.133-.62.137-.136.304-.354.456-.531.152-.178.202-.304.304-.507.101-.202.05-.38-.025-.531-.076-.152-.68-1.64-.933-2.246-.245-.59-.494-.51-.68-.52l-.58-.01c-.203 0-.532.076-.81.38-.277.304-1.06 1.036-1.06 2.527 0 1.49 1.086 2.93 1.238 3.133.152.203 2.14 3.266 5.187 4.58.725.313 1.29.5 1.729.64.726.231 1.386.199 1.909.121.582-.087 1.79-.732 2.041-1.438.252-.707.252-1.313.176-1.439-.075-.126-.277-.202-.58-.354zM16.04 27.5h-.01c-1.9 0-3.77-.5-5.4-1.45l-.39-.23-4.01 1.05 1.07-3.9-.25-.4a11.47 11.47 0 01-1.78-6.13c.01-6.35 5.18-11.49 11.53-11.49 3.08.01 5.98 1.21 8.16 3.38a11.42 11.42 0 013.37 8.15c-.01 6.35-5.17 11.49-11.53 11.49zm9.87-21.35a13.96 13.96 0 00-9.87-4.1c-7.7 0-13.97 6.26-13.99 13.95a13.9 13.9 0 002.1 7.37l-1.39 5.08 5.2-1.37a13.95 13.95 0 007.1 1.9h.01c7.69 0 13.96-6.26 13.99-13.95a13.88 13.88 0 00-4.1-9.93z"/>
+    </svg>
+  </a>
 
   <script>
     // Config — WhatsApp target number (Saudi, no leading zero)
@@ -339,19 +334,34 @@
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // WhatsApp booking (form -> WA message to 0580864487)
+    // Build WA message from current fields (can be empty)
+    function buildWAMessage(){
+      const n = (document.getElementById('bn_name')?.value || '').trim();
+      const p = (document.getElementById('bn_phone')?.value || '').trim();
+      const em = (document.getElementById('bn_email')?.value || '').trim();
+      const s = (document.getElementById('bn_service')?.value || '').trim();
+      const d = (document.getElementById('bn_date')?.value || '').trim();
+      return encodeURIComponent(
+        `Hello, my name is ${n || '(name)'}.\nService: ${s || '(service)'}.\nPhone: ${p || '(phone)'}.\nEmail: ${em || '(email)'}.\nDate needed: ${d || '(date)'}`
+      );
+    }
+
+    // Button always opens WA (even if fields empty)
+    const waBookBtn = document.getElementById('waBookBtn');
+    if (waBookBtn){
+      waBookBtn.addEventListener('click', ()=>{
+        const msg = buildWAMessage();
+        window.open(`https://wa.me/${WHATSAPP_E164}?text=${msg}`, '_blank');
+      });
+    }
+
+    // Also support pressing Enter to submit (for accessibility)
     const form = document.getElementById('bookNowForm');
-    if (form) {
+    if (form){
       form.addEventListener('submit', (e)=>{
         e.preventDefault();
-        const n = document.getElementById('bn_name').value.trim();
-        const p = document.getElementById('bn_phone').value.trim();
-        const em = document.getElementById('bn_email').value.trim();
-        const s = document.getElementById('bn_service').value.trim();
-        const d = document.getElementById('bn_date').value;
-        const msg = encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
-        const waUrl = `https://wa.me/${WHATSAPP_E164}?text=${msg}`;
-        window.open(waUrl, '_blank');
+        const msg = buildWAMessage();
+        window.open(`https://wa.me/${WHATSAPP_E164}?text=${msg}`, '_blank');
       });
     }
 
@@ -375,11 +385,8 @@
     if (waBtn) {
       waBtn.addEventListener('click',(e)=>{
         e.preventDefault();
-        // try WhatsApp voice call deep link
         window.location.href = `whatsapp://call?number=+${WHATSAPP_E164}`;
-        // fallback to phone dial in ~1.2s
         setTimeout(()=>{ window.location.href = `tel:+${WHATSAPP_E164}`; }, 1200);
-        // fallback to WhatsApp chat in ~2.4s
         setTimeout(()=>{ window.open(`https://wa.me/${WHATSAPP_E164}`, '_blank'); }, 2400);
       });
     }
@@ -388,7 +395,6 @@
     (function(){
       const nums = document.querySelectorAll('.stats .num');
       if (!nums.length) return;
-
       function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
       function animate(el, target, duration=1600){
         const start = 0, t0 = performance.now();
@@ -400,7 +406,6 @@
         }
         requestAnimationFrame(tick);
       }
-
       let started = false;
       const root = document.querySelector('.stats');
       const io = new IntersectionObserver((entries)=>{
@@ -415,9 +420,83 @@
           }
         });
       }, { threshold: 0.3 });
-
       if (root) io.observe(root);
     })();
+
+    // EN <-> AR toggle
+    const dict = {
+      en: {
+        "top.whatsapp":"WhatsApp","top.contact":"Contact Us",
+        "nav.book":"Book Now","nav.services":"Services","nav.industries":"Industries","nav.reviews":"Reviews","nav.contact":"Contact",
+        "hero.h1":"Forklift Rental in Jeddah","hero.slogan":"Heavy Lifting Made Easy","hero.sub":"Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.",
+        "quote.title":"Get a Quick Quote","quote.button":"💬 Book on WhatsApp","quote.direct":"Direct to WhatsApp: <b>0580864487</b>",
+        "quote.name":"Your Name / الاسم","quote.phone":"Phone / الهاتف","quote.email":"Email / البريد الإلكتروني","quote.service":"Service / الخدمة المطلوبة","quote.date":"Date / التاريخ",
+        "stats.staff":"Trained Staff","stats.clients":"Satisfied Clients","stats.years":"Years in Business",
+        "services.title":"Our Services",
+        "services.s1.title":"Forklift Rental (1–10 Tons)","services.s1.desc":"Affordable, high-quality forklift rentals ranging from 1 ton to 10 tons, suitable for warehouses, logistics, and various worksites. Get the right size delivered quickly when you need it.",
+        "services.s2.title":"Electric Forklift Rental","services.s2.desc":"High-quality electric forklift rentals ideal for indoor operations—quiet, efficient, and eco-friendly. Contact us for the best deals.",
+        "services.s3.title":"Access to Truck Rentals","services.s3.desc":"We make forklift booking easy and affordable. Choose the right forklift for your needs today and keep your business moving without delays.",
+        "industries.title":"Industries We Serve","industries.i1":"📦 <b>Warehousing & Logistics</b>","industries.i2":"🏭 <b>Manufacturing & Industrial</b>","industries.i3":"🏗 <b>Construction & Infrastructure</b>",
+        "about.title":"Who We Are","about.callout":"How does it work","about.desc":"We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.",
+        "about.f1.t":"Flexible hours","about.f1.d":"We offer flexible appointment times to suit your needs and provide you with complete convenience.",
+        "about.f2.t":"Commitment‑free","about.f2.d":"Our services are commitment‑free — you can stop at any time.",
+        "about.f3.t":"Local professionals","about.f3.d":"We work with local professionals to ensure we provide the best service.",
+        "reviews.title":"Customer Reviews","reviews.r1":"The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.","reviews.r2":"The team responds very quick and great communication, highly recommend for long term rentals.","reviews.r3":"Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.",
+        "contact.title":"Contact Us","contact.desc":"Call or WhatsApp us anytime for fast forklift rental support in Jeddah.","contact.wa":"💬 WhatsApp Chat",
+        "footer.brand":"Forklift Rental in Jeddah"
+      },
+      ar: {
+        "top.whatsapp":"واتساب","top.contact":"اتصل بنا",
+        "nav.book":"احجز الآن","nav.services":"الخدمات","nav.industries":"القطاعات","nav.reviews":"التقييمات","nav.contact":"تواصل",
+        "hero.h1":"تأجير رافعات في جدة","hero.slogan":"نرفع عنك التعب","hero.sub":"تأجير يومي وطويل الأجل. مشغلون معتمدون، حلول رافعات مخصصة ونماذج كهربائية صديقة للبيئة.",
+        "quote.title":"احصل على عرض سريع","quote.button":"💬 احجز عبر واتساب","quote.direct":"مباشرة إلى واتساب: <b>0580864487</b>",
+        "quote.name":"الاسم / Your Name","quote.phone":"الهاتف / Phone","quote.email":"البريد الإلكتروني / Email","quote.service":"الخدمة المطلوبة / Service","quote.date":"التاريخ / Date",
+        "stats.staff":"فريق مدرّب","stats.clients":"عملاء راضون","stats.years":"سنوات من الخبرة",
+        "services.title":"خدماتنا",
+        "services.s1.title":"تأجير رافعات (1–10 طن)","services.s1.desc":"تأجير رافعات عالية الجودة من 1 إلى 10 طن للمستودعات واللوجستيات ومختلف مواقع العمل. نوصل الحجم المناسب بسرعة.",
+        "services.s2.title":"تأجير رافعات كهربائية","services.s2.desc":"رافعات كهربائية مثالية للأعمال الداخلية — هادئة وفعّالة وصديقة للبيئة.",
+        "services.s3.title":"توفير شاحنات ومعدات","services.s3.desc":"نجعل حجز الرافعات سهلاً وبأسعار مناسبة للحفاظ على سير عملك دون تأخير.",
+        "industries.title":"القطاعات التي نخدمها","industries.i1":"📦 <b>المستودعات واللوجستيات</b>","industries.i2":"🏭 <b>التصنيع والصناعة</b>","industries.i3":"🏗 <b>الإنشاءات والبنية التحتية</b>",
+        "about.title":"من نحن","about.callout":"كيف تعمل الخدمة","about.desc":"نقدم تأجير منصات عمل للرافعات بأسعار مناسبة في جدة. منصاتنا قوية وآمنة لتلبية احتياجات أعمالك.",
+        "about.f1.t":"ساعات مرنة","about.f1.d":"نقدم مواعيد مرنة تناسب احتياجاتك وتوفر لك الراحة التامة.",
+        "about.f2.t":"بدون التزام","about.f2.d":"يمكنك التوقف في أي وقت — بلا التزامات طويلة.",
+        "about.f3.t":"محترفون محليون","about.f3.d":"نعمل مع محترفين محليين لضمان أفضل خدمة.",
+        "reviews.title":"آراء العملاء","reviews.r1":"الفريق محترف ولطيف جداً وأنجز عملاً رائعاً في مستودعي.","reviews.r2":"استجابة سريعة وتواصل ممتاز — أوصي به للإيجارات طويلة الأجل.","reviews.r3":"خدمة ممتازة! استأجرنا رافعات كهربائية — فعّالة وصديقة للبيئة وبأسعار مناسبة.",
+        "contact.title":"تواصل معنا","contact.desc":"اتصل بنا أو راسلنا عبر واتساب لدعم سريع في تأجير الرافعات بجدة.","contact.wa":"💬 محادثة واتساب",
+        "footer.brand":"تأجير رافعات في جدة"
+      }
+    };
+
+    function applyI18n(lang){
+      const isAR = lang === 'ar';
+      document.documentElement.lang = isAR ? 'ar' : 'en';
+      document.documentElement.dir  = isAR ? 'rtl' : 'ltr';
+      document.body.classList.toggle('rtl', isAR);
+
+      // Text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        const val = dict[lang][key];
+        if (typeof val === 'string') el.innerHTML = val;
+      });
+      // Placeholders
+      document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+        const key = el.getAttribute('data-i18n-ph');
+        const val = dict[lang][key];
+        if (typeof val === 'string') el.setAttribute('placeholder', val);
+      });
+    }
+
+    const langToggle = document.getElementById('langToggle');
+    let currentLang = 'en';
+    if (langToggle){
+      langToggle.addEventListener('click', ()=>{
+        currentLang = (currentLang === 'en') ? 'ar' : 'en';
+        applyI18n(currentLang);
+      });
+    }
+    // initialize English (already in DOM), but ensure placeholders match
+    applyI18n('en');
   </script>
 </body>
 </html>
