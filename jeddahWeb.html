@@ -14,7 +14,6 @@
       --brand-dark:#cc5400;
       --ink:#0e1320;
       --text:#213045;
-      --muted:#55637d;
       --bg:#ffffff;
       --card:#ffffff;
       --stroke:#e5e8f0;
@@ -22,28 +21,27 @@
       --purple:#231c52;
       --hero-overlay1: rgba(0,0,0,.45);
       --hero-overlay2: rgba(0,0,0,.25);
-      --grad: linear-gradient(90deg,#ff6a00,#ffb300,#8b7cff,#23c9ff);
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#213045}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
     /* Topbar */
-    .topbar{background:#0f1626;color:#dfe7f3;font-size:14px}
+    .topbar{background:#0f1626;color:#dfe7f3;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
     .topbar .container{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;gap:12px}
     .cta a{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.18)}
     .cta a:hover{background:rgba(255,255,255,.06)}
 
     /* Header */
-    header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50}
+    header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50;border-bottom:1px solid #1a1440}
     .head-wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:10px 20px}
+    .brand{display:flex;align-items:center;gap:14px}
     .brand img{height:56px;width:auto}
     nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
     nav.primary a{padding:10px 8px;border-radius:8px;color:#f3f2ff;font-weight:600}
-
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#fff;font-weight:800;cursor:pointer;color:#1b2436}
     .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
     .btn-brand:hover{background:var(--brand-dark)}
@@ -57,7 +55,7 @@
     .hero h1{font-size:44px;margin:.4rem 0 0;color:#ffd3bb;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.35)}
     .slogan{font-size:1.6em;font-weight:800;color:#ffd966;margin:10px 0;text-shadow:0 2px 8px rgba(0,0,0,.5)}
     .hero .sub{color:#f0f4ff}
-    .hero-card{background:#fff;border-radius:16px;padding:18px;color:#0e1320}
+    .hero-card{background:#fff;border-radius:16px;padding:18px;color:#0e1320;box-shadow:0 6px 20px rgba(0,0,0,.08)}
 
     /* Stats */
     .stats{background:var(--purple);padding:20px 0;margin:0}
@@ -69,13 +67,29 @@
     .section{margin:40px 0}
     .grid{display:grid;gap:16px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
 
     .card{background:var(--card);border:1px solid var(--stroke);padding:18px;border-radius:16px}
-    .card img{border-radius:12px;margin-bottom:10px}
+    .card img{border-radius:12px;margin-bottom:10px;width:100%;height:220px;object-fit:cover}
+
+    /* Contact phone buttons bold black */
+    .contact-phones a{color:#000 !important;font-weight:900 !important;background:#fff;border:2px solid var(--stroke)}
 
     /* Floating WhatsApp */
     .floating-wa{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;background:var(--success);color:#fff;display:flex;align-items:center;justify-content:center;z-index:80;box-shadow:0 10px 24px rgba(0,0,0,.25)}
     .floating-wa svg{width:28px;height:28px}
+
+    /* Mobile */
+    @media (max-width:980px){
+      .hero .container{grid-template-columns:1fr;padding:56px 16px}
+      .grid-3,.grid-4{grid-template-columns:1fr}
+      .head-wrap{grid-template-columns:auto 1fr}
+      nav.primary{display:none}
+      .hero h1{font-size:32px}
+      .slogan{font-size:1.3em}
+      .stats .container{grid-template-columns:1fr}
+      .btn{padding:12px 16px}
+    }
   </style>
 </head>
 <body>
@@ -83,7 +97,8 @@
   <div class="topbar">
     <div class="container">
       <div class="cta">
-        📞 <a href="tel:0580864487">0580864487</a> · 📞 <a href="tel:0560461067">0560461067</a>
+        📞 <a href="tel:0580864487">0580864487</a> · 📞 <a href="tel:0560461067">0560461067</a> ·
+        <a class="btn" href="https://wa.me/966580864487" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -96,7 +111,6 @@
       </div>
       <nav class="primary">
         <a href="#book" class="btn btn-brand">Book Now</a>
-        <a href="#who">Who We Are</a>
         <a href="#services">Services</a>
         <a href="#industries">Industries</a>
         <a href="#reviews">Reviews</a>
@@ -118,21 +132,21 @@
         <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.</p>
       </div>
 
-      <!-- Get a Quick Quote -->
+      <!-- Get a Quick Quote (original bilingual placeholders) -->
       <div class="hero-card">
-        <h3>Get a Quick Quote</h3>
+        <h3 style="margin-top:0">Get a Quick Quote</h3>
         <form id="bookNowForm">
-          <input id="bn_name" placeholder="Your Name" required>
-          <input id="bn_phone" placeholder="Phone" required>
-          <input id="bn_email" type="email" placeholder="Email" required>
+          <input id="bn_name" placeholder="Your Name / الاسم" required>
+          <input id="bn_phone" placeholder="Phone / الهاتف" required>
+          <input id="bn_email" type="email" placeholder="Email / البريد الإلكتروني" required>
           <select id="bn_service" required>
-            <option value="">Select Service</option>
+            <option value="">Select Service / اختر الخدمة</option>
             <option>Daily Forklift Rental</option>
             <option>Long-Term Rental</option>
             <option>Customized Forklift Solutions</option>
             <option>Eco-Friendly Electric Forklifts</option>
           </select>
-          <input id="bn_date" type="date" required>
+          <input id="bn_date" type="date" required placeholder="Date / التاريخ">
           <button type="submit" class="btn btn-brand">💬 Book on WhatsApp</button>
         </form>
       </div>
@@ -148,28 +162,22 @@
     </div>
   </section>
 
-  <!-- Who We Are -->
-  <section class="container section" id="who">
-    <h2>Who We Are</h2>
-    <p>At Forklift Rental Jeddah, we specialize in providing reliable forklift rental solutions tailored to your business needs. With over a decade of experience, we’ve built a reputation for offering affordable, flexible, and safe equipment rentals for companies across industries.</p>
-  </section>
-
-  <!-- Services -->
+  <!-- Services (with your images) -->
   <section class="container section" id="services">
     <h2>Our Services</h2>
     <div class="grid grid-3">
       <div class="card">
-        <img src="https://gobrennan.com/wp-content/uploads/2023/12/Hyundai-Forklifts-in-warehouse-1080x675.jpg" alt="Forklift Rental">
+        <img loading="lazy" src="https://gobrennan.com/wp-content/uploads/2023/12/Hyundai-Forklifts-in-warehouse-1080x675.jpg" alt="Forklift Rental (1–10 Tons)">
         <h3>Forklift Rental (1–10 Tons)</h3>
         <p>Affordable, high-quality forklift rentals ranging from 1 ton to 10 tons, suitable for warehouses, logistics, and various worksites. Get the right size delivered quickly when you need it.</p>
       </div>
       <div class="card">
-        <img src="https://eqdepot.com/wp-content/uploads/2023/12/Heavy-Duty-750x600-1.jpg" alt="Electric Forklift">
+        <img loading="lazy" src="https://eqdepot.com/wp-content/uploads/2023/12/Heavy-Duty-750x600-1.jpg" alt="Electric Forklift Rental">
         <h3>Electric Forklift Rental</h3>
         <p>High-quality electric forklift rentals ideal for indoor operations—quiet, efficient, and eco-friendly. Contact us for the best deals.</p>
       </div>
       <div class="card">
-        <img src="https://www.liftone.net/wp-content/uploads/2021/04/Hyster-Yale-forklift.jpg" alt="Truck Rentals">
+        <img loading="lazy" src="https://www.liftone.net/wp-content/uploads/2021/04/Hyster-Yale-forklift.jpg" alt="Access to Truck Rentals">
         <h3>Access to Truck Rentals</h3>
         <p>We make forklift booking easy and affordable. Choose the right forklift for your needs today and keep your business moving without delays.</p>
       </div>
@@ -179,11 +187,11 @@
   <!-- Industries -->
   <section class="container section" id="industries">
     <h2>Industries We Serve</h2>
-    <div class="grid grid-3">
-      <div class="card">Warehousing & Logistics</div>
-      <div class="card">Oil & Gas</div>
-      <div class="card">Manufacturing & Industrial</div>
-      <div class="card">Construction & Infrastructure</div>
+    <div class="grid grid-4">
+      <div class="card">📦 <b>Warehousing & Logistics</b></div>
+      <div class="card">🛢 <b>Oil & Gas</b></div>
+      <div class="card">🏭 <b>Manufacturing & Industrial</b></div>
+      <div class="card">🏗 <b>Construction & Infrastructure</b></div>
     </div>
   </section>
 
@@ -191,9 +199,21 @@
   <section class="container section" id="reviews">
     <h2>Customer Reviews</h2>
     <div class="grid grid-3">
-      <div class="card"><div>★★★★★</div><b>Abdul Al-Hameed</b><p>The team is very professional and nice, they did a great job at my warehouse.</p></div>
-      <div class="card"><div>★★★★☆</div><b>Hamaad Q.</b><p>The team responds very quick and great communication, highly recommend for long term rentals.</p></div>
-      <div class="card"><div>★★★★★</div><b>Sarah M.</b><p>Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.</p></div>
+      <div class="card">
+        <div style="color:#ffb400">★★★★★</div>
+        <b>Abdul Al-Hameed</b>
+        <p>The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.</p>
+      </div>
+      <div class="card">
+        <div style="color:#ffb400">★★★★☆</div>
+        <b>Hamaad Q.</b>
+        <p>The team responds very quick and great communication, highly recommend for long term rentals.</p>
+      </div>
+      <div class="card">
+        <div style="color:#ffb400">★★★★★</div>
+        <b>Sarah M.</b>
+        <p>Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.</p>
+      </div>
     </div>
   </section>
 
@@ -202,8 +222,12 @@
     <h2>Contact Us</h2>
     <div class="grid" style="grid-template-columns:1fr 1fr">
       <div class="card">
-        <p><b>Call us:</b> <span style="color:black;font-weight:900">0580864487</span>, <span style="color:black;font-weight:900">0560461067</span></p>
-        <a class="btn" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp Chat</a>
+        <p>Call or WhatsApp us anytime for fast forklift rental support in Jeddah.</p>
+        <div class="contact-phones" style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="tel:0580864487" style="background:#fff">📞 <strong>0580864487</strong></a>
+          <a class="btn" href="tel:0560461067" style="background:#fff">📞 <strong>0560461067</strong></a>
+          <a class="btn" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp Chat</a>
+        </div>
       </div>
       <div class="card">
         <iframe title="Map Jeddah" width="100%" height="280" style="border:0;border-radius:12px" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.684325404014!2d39.13152711500263!3d21.56460598570657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d07b51e3bbf9%3A0x70bffda8a2dbf25c!2s6712%20Sari%20Br%20Rd%2C%202%2C%204172%2C%20Jeddah%2023436!5e0!3m2!1sen!2ssa!4v1693392647000!5m2!1sen!2ssa"></iframe>
@@ -211,26 +235,68 @@
     </div>
   </section>
 
-  <footer><div class="container">© <span id="year"></span> Forklift Rental in Jeddah</div></footer>
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Forklift Rental in Jeddah</div>
+      <div><a href="#book" class="btn btn-brand">Book Now</a></div>
+    </div>
+  </footer>
 
   <!-- Floating WhatsApp Call -->
-  <a class="floating-wa" id="waCallBtn" href="#">
-    <svg viewBox="0 0 32 32" fill="none"><path fill="#fff" d="M25.67 18.6c-.3.84-1.75 1.6-2.4 1.66-.62.05-1.39.07-2.24-.14-.51-.13-1.15-.38-1.99-.73-3.5-1.51-5.76-5.16-5.94-5.4-.18-.24-1.42-1.89-1.42-3.62 0-1.73.89-2.58 1.21-2.94.31-.36.68-.45.91-.45.23 0 .46 0 .65.01.2.01.49-.08.77.59.3.74 1.02 2.54 1.1 2.73.09.19.15.41.03.65-.13.24-.2.39-.38.6-.19.21-.4.48-.56.65-.19.19-.38.41-.16.78.21.37.96 1.58 2.04 2.57 1.41 1.28 2.59 1.68 2.95 1.87.36.19.57.15.79-.09.21-.25.9-1.09 1.15-1.46.25-.37.5-.31.82-.19.34.12 2.13 1.03 2.5 1.22.37.19.62.28.71.43.1.17.1.99-.2 1.85z"/><path fill="#25D366" d="M16 29.5c-2.16 0-4.22-.5-6.06-1.45L3.5 30l1.95-6.3A13.44 13.44 0 0 1 2.5 16C2.5 8.82 8.82 2.5 16 2.5S29.5 8.82 29.5 16 23.18 29.5 16 29.5Z"/></svg>
+  <a class="floating-wa" id="waCallBtn" href="#" aria-label="WhatsApp Call" title="Call on WhatsApp">
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path fill="#fff" d="M25.67 18.6c-.3.84-1.75 1.6-2.4 1.66-.62.05-1.39.07-2.24-.14-.51-.13-1.15-.38-1.99-.73-3.5-1.51-5.76-5.16-5.94-5.4-.18-.24-1.42-1.89-1.42-3.62 0-1.73.89-2.58 1.21-2.94.31-.36.68-.45.91-.45.23 0 .46 0 .65.01.2.01.49-.08.77.59.3.74 1.02 2.54 1.1 2.73.09.19.15.41.03.65-.13.24-.2.39-.38.6-.19.21-.4.48-.56.65-.19.19-.38.41-.16.78.21.37.96 1.58 2.04 2.57 1.41 1.28 2.59 1.68 2.95 1.87.36.19.57.15.79-.09.21-.25.9-1.09 1.15-1.46.25-.37.5-.31.82-.19.34.12 2.13 1.03 2.5 1.22.37.19.62.28.71.43.1.17.1.99-.2 1.85z"/>
+      <path fill="#25D366" d="M16 29.5c-2.16 0-4.22-.5-6.06-1.45L3.5 30l1.95-6.3A13.44 13.44 0 0 1 2.5 16C2.5 8.82 8.82 2.5 16 2.5S29.5 8.82 29.5 16 23.18 29.5 16 29.5Z"/>
+    </svg>
   </a>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // WhatsApp booking form
-    document.getElementById('bookNowForm').addEventListener('submit',function(e){
+    // WhatsApp booking form (ALWAYS to first number 0580864487)
+    document.getElementById('bookNowForm').addEventListener('submit', function(e){
       e.preventDefault();
-      const name=document.getElementById('bn_name').value;
-      const phone=document.getElementById('bn_phone').value;
-      const email=document.getElementById('bn_email').value;
-      const service=document.getElementById('bn_service').value;
-      const date=document.getElementById('bn_date').value;
-      const msg=encodeURIComponent(`Hello, my name is ${name}.\nService: ${service}.\nPhone: ${phone
+      const name = document.getElementById('bn_name').value.trim();
+      const phone = document.getElementById('bn_phone').value.trim();
+      const email = document.getElementById('bn_email').value.trim();
+      const service = document.getElementById('bn_service').value;
+      const date = document.getElementById('bn_date').value;
+      const msg = encodeURIComponent(
+        `Hello, my name is ${name}.\nService: ${service}.\nPhone: ${phone}.\nEmail: ${email}.\nDate needed: ${date}`
+      );
+      window.open(`https://wa.me/966580864487?text=${msg}`, '_blank');
+    });
 
+    // Hero background slideshow
+    const slides = [
+      "https://www.novaliftequipment.com/wp-content/uploads/2021/03/Mask-Group-17.jpg",
+      "https://www.aaaforklifts.com/cdn/shop/articles/thumbnail_be8c9fd3-ade3-45e7-b12a-8e9a9714fd2e.jpg?v=1726381483&width=1024",
+      "https://www.baltimoreforkliftrental.com/uploads/1/4/3/1/143110782/editor/baltimore-forklift-rental-in-baltimore-ct-3.jpg?1662899524"
+    ];
+    let current = 0;
+    const bgEls = [document.getElementById('bg0'),document.getElementById('bg1'),document.getElementById('bg2')];
+    setInterval(()=>{
+      const next = (current + 1) % slides.length;
+      bgEls[next].style.backgroundImage = `url('${slides[next]}')`;
+      bgEls[next].style.opacity = 1;
+      bgEls[current].style.opacity = 0;
+      current = next;
+    }, 5000);
+
+    // Floating WhatsApp call: try WA call → phone → WA chat
+    document.getElementById('waCallBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      const waCall = 'whatsapp://call?number=+966580864487';
+      const telCall = 'tel:+966580864487';
+      const waChat = 'https://wa.me/966580864487';
+      window.location.href = waCall;
+      setTimeout(()=>{ window.location.href = telCall; }, 1200);
+      setTimeout(()=>{ window.open(waChat, '_blank'); }, 2400);
+    });
+  </script>
+</body>
+</html>
 
 
 
