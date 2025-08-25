@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Forklift Rental in Jeddah | Book Now</title>
   <meta name="description" content="Daily & long-term forklift rental in Jeddah. Customized forklift solutions. Eco-friendly electric forklifts. Call or WhatsApp 0580864487." />
   <link rel="icon" type="image/png" sizes="32x32" href="newJedLogo.png" />
@@ -27,7 +27,7 @@
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
@@ -92,27 +92,57 @@
     .card{background:var(--card);border:1px solid var(--stroke);padding:18px;border-radius:16px}
     .card img{border-radius:12px;margin-bottom:10px;width:100%;height:220px;object-fit:cover}
 
-    /* Contact phones */
-    .contact-phones a{color:#000 !important;font-weight:900 !important;background:#fff;border:2px solid var(--stroke)}
+    /* About section extras */
+    .badge{
+      display:inline-block; padding:8px 14px; border-radius:10px;
+      background:rgba(37,211,102,.15); color:#0e1320; border:1px solid rgba(37,211,102,.35);
+      font-weight:800; letter-spacing:.06em; text-transform:uppercase; font-size:12px;
+      box-shadow:0 6px 16px rgba(0,0,0,.06)
+    }
+    .about-title{ font-size:34px; font-weight:900; letter-spacing:.2px; color:var(--darkblue); margin:10px 0 8px }
+    .callout{
+      display:inline-block; padding:10px 16px; border-radius:12px;
+      background:#fff; border:2px solid var(--stroke); box-shadow:0 8px 22px rgba(0,0,0,.06);
+      font-weight:900; color:var(--ink)
+    }
 
-    /* Floating WhatsApp */
-    .floating-wa{position:fixed;right:18px;bottom:18px;width:64px;height:64px;border-radius:50%;background:var(--success);color:#fff;display:flex;align-items:center;justify-content:center;z-index:80;box-shadow:0 10px 24px rgba(0,0,0,.25)}
-    .floating-wa img{width:34px;height:34px;border-radius:4px;display:block}
+    /* Floating WhatsApp (logo fills circle) */
+    .floating-wa{
+      position:fixed; right:18px; bottom:18px;
+      width:64px; height:64px; border-radius:50%;
+      background-color:var(--success);
+      color:#fff; display:flex; align-items:center; justify-content:center;
+      z-index:80; box-shadow:0 10px 24px rgba(0,0,0,.25);
+      background-image:url('https://img.freepik.com/premium-vector/whatsapp-icon-concept_23-2147900930.jpg');
+      background-size:cover; background-position:center; background-repeat:no-repeat;
+      overflow:hidden;
+    }
 
     /* Footer */
     footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
 
-    /* Mobile */
+    /* Mobile tweaks */
     @media (max-width:980px){
-      .hero .container{grid-template-columns:1fr;padding:56px 16px}
+      .hero{min-height:68vh}
+      .hero .container{grid-template-columns:1fr;padding:56px 16px;gap:18px}
+      .hero h1{font-size:32px}
+      .slogan{font-size:1.25em}
+      .hero-card{padding:18px}
       .grid-3,.grid-4{grid-template-columns:1fr}
       .head-wrap{grid-template-columns:auto 1fr}
       nav.primary{display:none}
-      .hero h1{font-size:32px}
-      .slogan{font-size:1.3em}
       .stats .container{grid-template-columns:1fr}
       .btn{padding:12px 16px}
+      .card img{height:200px}
+      .about-title{font-size:28px}
+    }
+
+    /* Small mobile (iPhone SE-ish) */
+    @media (max-width:380px){
+      .hero{min-height:62vh}
+      .hero h1{font-size:28px}
+      .floating-wa{width:58px;height:58px;right:14px;bottom:14px}
     }
   </style>
 </head>
@@ -182,9 +212,9 @@
   <!-- Stats -->
   <section class="stats">
     <div class="container">
-      <div class="stat"><div class="num">6+</div><div class="label">Trained Staff</div></div>
-      <div class="stat"><div class="num">1,500+</div><div class="label">Satisfied Clients</div></div>
-      <div class="stat"><div class="num">12+</div><div class="label">Years in Business</div></div>
+      <div class="stat"><div class="num" data-target="6">0+</div><div class="label">Trained Staff</div></div>
+      <div class="stat"><div class="num" data-target="1500">0+</div><div class="label">Satisfied Clients</div></div>
+      <div class="stat"><div class="num" data-target="12">0+</div><div class="label">Years in Business</div></div>
     </div>
   </section>
 
@@ -222,29 +252,29 @@
 
   <!-- Who We Are -->
   <section class="container section" id="about">
-    <h2>Who We Are</h2>
+    <h2 class="about-title">Who We Are</h2>
     <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px">
       <div>
         <img src="https://safestart.com/wp-content/uploads/2021/04/ForkliftSafety.jpg" alt="Who We Are" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.1)" loading="lazy">
       </div>
       <div>
-        <h3 style="margin-top:0;color:var(--darkblue)">Forklift work platform rental</h3>
-        <p>We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
+        <div class="callout">How does it work</div>
+        <p style="margin-top:12px;font-weight:600">We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
         <div class="grid grid-3" style="margin-top:16px">
           <div class="card" style="text-align:center">
             <div style="font-size:32px;color:var(--success)">⏰</div>
-            <h4>Flexible hours</h4>
-            <p>We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
+            <h4 style="margin:8px 0 6px">Flexible hours</h4>
+            <p style="margin:0">We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
           </div>
           <div class="card" style="text-align:center">
             <div style="font-size:32px;color:var(--success)">📦</div>
-            <h4>Commitment‑free</h4>
-            <p>Our services are commitment‑free — you can stop at any time.</p>
+            <h4 style="margin:8px 0 6px">Commitment‑free</h4>
+            <p style="margin:0">Our services are commitment‑free — you can stop at any time.</p>
           </div>
           <div class="card" style="text-align:center">
             <div style="font-size:32px;color:var(--success)">👷‍♂️</div>
-            <h4>Local professionals</h4>
-            <p>We work with local professionals to ensure we provide the best service.</p>
+            <h4 style="margin:8px 0 6px">Local professionals</h4>
+            <p style="margin:0">We work with local professionals to ensure we provide the best service.</p>
           </div>
         </div>
       </div>
@@ -299,9 +329,7 @@
   </footer>
 
   <!-- Floating WhatsApp (logo + call) -->
-  <a class="floating-wa" id="waCallBtn" href="https://wa.me/966580864487" aria-label="WhatsApp Call" title="Call on WhatsApp">
-    <img src="https://img.freepik.com/premium-vector/whatsapp-icon-concept_23-2147900930.jpg" alt="WhatsApp" loading="lazy">
-  </a>
+  <a class="floating-wa" id="waCallBtn" href="https://wa.me/966580864487" aria-label="WhatsApp Call" title="Call on WhatsApp"></a>
 
   <script>
     // Config — WhatsApp target number (Saudi, no leading zero)
@@ -355,10 +383,44 @@
         setTimeout(()=>{ window.open(`https://wa.me/${WHATSAPP_E164}`, '_blank'); }, 2400);
       });
     }
+
+    // Rolling counters on scroll (Stats)
+    (function(){
+      const nums = document.querySelectorAll('.stats .num');
+      if (!nums.length) return;
+
+      function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+      function animate(el, target, duration=1600){
+        const start = 0, t0 = performance.now();
+        function tick(now){
+          const p = Math.min(1, (now - t0) / duration);
+          const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+          el.textContent = fmt(Math.floor(start + (target - start) * eased)) + '+';
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      let started = false;
+      const root = document.querySelector('.stats');
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if (e.isIntersecting && !started){
+            started = true;
+            nums.forEach(n=>{
+              const target = parseInt(n.getAttribute('data-target'), 10) || 0;
+              animate(n, target);
+            });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+
+      if (root) io.observe(root);
+    })();
   </script>
 </body>
 </html>
-
 
 
 
