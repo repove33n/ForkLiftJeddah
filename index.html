@@ -56,27 +56,29 @@
     .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
     .btn-brand:hover{background:var(--brand-dark)}
 
-    /* Hero slideshow */
+    /* Hero */
     .hero{position:relative;min-height:76vh;color:#fff;overflow:hidden;background:#2a254f}
     .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1s ease;opacity:0}
     .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--hero-overlay1),var(--hero-overlay2))}
     .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:80px 20px}
-    .hero .lead{padding:22px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.35);border-radius:18px}
+
+    /* Glassy panel (shared) */
+    .glass{
+      padding:22px;
+      background:rgba(255,255,255,.12);
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.35);
+      border-radius:18px;
+    }
+
+    .hero .lead{color:#f0f4ff}
     .hero h1{font-size:44px;margin:.4rem 0 0;color:#ffd3bb;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.35)}
     .slogan{font-size:1.6em;font-weight:800;color:#ffd966;margin:10px 0;text-shadow:0 2px 8px rgba(0,0,0,.5)}
     .hero .sub{color:#f0f4ff}
 
-    /* Transparent Get a Quote Card */
-    .hero-card{
-      background:rgba(255,255,255,0.15);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      border-radius:18px;
-      padding:22px;
-      border:1px solid rgba(255,255,255,0.35);
-      color:#fff;
-      box-shadow:0 8px 24px rgba(0,0,0,.2);
-    }
+    /* Quote Card mirrors glassy box */
+    .hero-card{color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.2)}
     .hero-card h3{margin-top:0;color:#ffd966;text-align:center}
     .hero-card input,.hero-card select{
       width:100%;padding:12px;margin:10px 0;
@@ -156,19 +158,20 @@
 
   <!-- Hero slideshow -->
   <section class="hero" id="book">
-    <div class="hero-bg" id="bg0" style="opacity:1;background-image:url('https://www.novaliftequipment.com/wp-content/uploads/2021/03/Mask-Group-17.jpg')"></div>
-    <div class="hero-bg" id="bg1" style="background-image:url('https://www.aaaforklifts.com/cdn/shop/articles/thumbnail_be8c9fd3-ade3-45e7-b12a-8e9a9714fd2e.jpg?v=1726381483&width=1024')"></div>
-    <div class="hero-bg" id="bg2" style="background-image:url('https://www.baltimoreforkliftrental.com/uploads/1/4/3/1/143110782/editor/baltimore-forklift-rental-in-baltimore-ct-3.jpg?1662899524')"></div>
+    <!-- Updated backgrounds to match new slideshow images -->
+    <div class="hero-bg" id="bg0" style="opacity:1;background-image:url('https://www.capmeurope.eu/image/repository-equipment-privateGallery-64776eeb9d817a675d5ae333-mobile_0cxvj.jpg/mediumGallery')"></div>
+    <div class="hero-bg" id="bg1" style="background-image:url('https://images.prismic.io/edapp-website/3f732ea2-b456-4721-9a55-2cd9c6330699_edapp-ny-forklift-training-course.png?auto=format,compress')"></div>
+    <div class="hero-bg" id="bg2" style="background-image:url('https://thumbs.dreamstime.com/b/worker-driver-warehouse-forklift-20227301.jpg')"></div>
 
     <div class="container">
-      <div class="lead">
+      <div class="lead glass">
         <h1>Forklift Rental in Jeddah</h1>
         <p class="slogan">Heavy Lifting Made Easy</p>
         <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.</p>
       </div>
 
-      <!-- Transparent Quote Box -->
-      <div class="hero-card">
+      <!-- Transparent Quote Box mirrors the left glassy panel -->
+      <div class="hero-card glass">
         <h3>Get a Quick Quote</h3>
         <form id="bookNowForm">
           <input id="bn_name" placeholder="Your Name / الاسم" required>
@@ -206,7 +209,9 @@
 
   <script>
     // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
     // WhatsApp booking
     document.getElementById('bookNowForm').addEventListener('submit', e=>{
       e.preventDefault();
@@ -218,10 +223,22 @@
       const msg=encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
       window.open(`https://wa.me/966580864487?text=${msg}`,'_blank');
     });
-    // Slideshow
-    const slides=["https://www.novaliftequipment.com/wp-content/uploads/2021/03/Mask-Group-17.jpg","https://www.aaaforklifts.com/cdn/shop/articles/thumbnail_be8c9fd3-ade3-45e7-b12a-8e9a9714fd2e.jpg?v=1726381483&width=1024","https://www.baltimoreforkliftrental.com/uploads/1/4/3/1/143110782/editor/baltimore-forklift-rental-in-baltimore-ct-3.jpg?1662899524"];
+
+    // Slideshow — updated image set
+    const slides=[
+      "https://www.capmeurope.eu/image/repository-equipment-privateGallery-64776eeb9d817a675d5ae333-mobile_0cxvj.jpg/mediumGallery",
+      "https://images.prismic.io/edapp-website/3f732ea2-b456-4721-9a55-2cd9c6330699_edapp-ny-forklift-training-course.png?auto=format,compress",
+      "https://thumbs.dreamstime.com/b/worker-driver-warehouse-forklift-20227301.jpg"
+    ];
     let current=0;const bgEls=[document.getElementById('bg0'),document.getElementById('bg1'),document.getElementById('bg2')];
-    setInterval(()=>{const next=(current+1)%slides.length;bgEls[next].style.backgroundImage=`url('${slides[next]}')`;bgEls[next].style.opacity=1;bgEls[current].style.opacity=0;current=next;},5000);
+    setInterval(()=>{
+      const next=(current+1)%slides.length;
+      bgEls[next].style.backgroundImage=`url('${slides[next]}')`;
+      bgEls[next].style.opacity=1;
+      bgEls[current].style.opacity=0;
+      current=next;
+    },5000);
+
     // Floating WhatsApp call
     document.getElementById('waCallBtn').addEventListener('click',e=>{
       e.preventDefault();
@@ -232,6 +249,7 @@
   </script>
 </body>
 </html>
+
 
 
 
