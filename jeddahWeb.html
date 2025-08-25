@@ -33,7 +33,7 @@
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;height:auto}
+    img{max-width:100%;height:auto;display:block}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
     /* Top contact banner (dark) */
@@ -71,16 +71,56 @@
     .switch.active{background:var(--brand);color:#fff;border-color:transparent}
 
     /* HERO — Full-width background slideshow */
-    .hero{position:relative;min-height:76vh;color:#fff;overflow:hidden}
-    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1s ease}
-    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--hero-overlay1),var(--hero-overlay2))}
-    .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:80px 20px}
-    .hero .lead{padding:22px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.35);border-radius:18px;color:#fff}
-    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,106,0,.16);border:1px solid rgba(255,106,0,.3);color:#ffe8dc;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
-    .hero h1{font-size:44px;line-height:1.12;margin:.4rem 0 0;color:#ffd3bb;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.35)}
-    .slogan{font-size:1.6em;font-weight:800;color:#ffd966;margin:10px 0;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+    .hero{
+      position:relative;
+      min-height:76vh;
+      color:#fff;
+      overflow:hidden;
+      background:#2a254f; /* Fallback color so text is visible even if images fail */
+    }
+    .hero-bg{
+      position:absolute; inset:0;
+      background-size:cover; background-position:center;
+      transition:opacity 1s ease;
+      opacity:0; /* start hidden for all, first will be set to 1 inline */
+    }
+    .hero-bg::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg,var(--hero-overlay1),var(--hero-overlay2));
+      pointer-events:none;
+    }
+    .hero .container{
+      position:relative; z-index:1;
+      display:grid; grid-template-columns:1.2fr .8fr; gap:24px;
+      align-items:center; padding:80px 20px;
+    }
+    .hero .lead{
+      padding:22px;
+      background:rgba(255,255,255,.12);
+      backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.35);
+      border-radius:18px;
+      color:#fff;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(255,106,0,.16);border:1px solid rgba(255,106,0,.3);
+      color:#ffe8dc;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800
+    }
+    .hero h1{
+      font-size:44px;line-height:1.12;margin:.4rem 0 0;
+      color:#ffd3bb;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.35)
+    }
+    .slogan{
+      font-size:1.6em;font-weight:800;color:#ffd966;
+      margin:10px 0;text-shadow:0 2px 8px rgba(0,0,0,.5)
+    }
     .hero .sub{color:#f0f4ff}
-    .hero-card{background:rgba(255,255,255,.2);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.45);border-radius:16px;padding:18px;color:#0e1320}
+    .hero-card{
+      background:rgba(255,255,255,.2);backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.45);border-radius:16px;padding:18px;color:#0e1320
+    }
 
     /* Sections & cards */
     .section{margin:40px 0}
@@ -185,8 +225,8 @@
   <section class="hero" id="book">
     <!-- Slideshow layers (your 3 images) -->
     <div class="hero-bg" id="bg0" style="opacity:1;background-image:url('https://www.novaliftequipment.com/wp-content/uploads/2021/03/Mask-Group-17.jpg');"></div>
-    <div class="hero-bg" id="bg1" style="opacity:0;background-image:url('https://www.aaaforklifts.com/cdn/shop/articles/thumbnail_be8c9fd3-ade3-45e7-b12a-8e9a9714fd2e.jpg?v=1726381483&width=1024');"></div>
-    <div class="hero-bg" id="bg2" style="opacity:0;background-image:url('https://www.baltimoreforkliftrental.com/uploads/1/4/3/1/143110782/editor/baltimore-forklift-rental-in-baltimore-ct-3.jpg?1662899524');"></div>
+    <div class="hero-bg" id="bg1" style="background-image:url('https://www.aaaforklifts.com/cdn/shop/articles/thumbnail_be8c9fd3-ade3-45e7-b12a-8e9a9714fd2e.jpg?v=1726381483&width=1024');"></div>
+    <div class="hero-bg" id="bg2" style="background-image:url('https://www.baltimoreforkliftrental.com/uploads/1/4/3/1/143110782/editor/baltimore-forklift-rental-in-baltimore-ct-3.jpg?1662899524');"></div>
 
     <div class="container">
       <div class="lead">
@@ -443,11 +483,7 @@
       const waCall = 'whatsapp://call?number=+966580864487';
       const telCall = 'tel:+966580864487';
       const waChat = 'https://wa.me/966580864487';
-
-      // Attempt WhatsApp call first
       window.location.href = waCall;
-
-      // Fallbacks
       setTimeout(()=>{ window.location.href = telCall; }, 1200);
       setTimeout(()=>{ window.open(waChat, '_blank'); }, 2400);
     });
