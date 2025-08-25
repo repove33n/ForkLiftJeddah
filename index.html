@@ -20,10 +20,10 @@
       --success:#25D366;
       --success-dark:#1ebe5a;
       --purple:#231c52;
-      --hero-overlay1: rgba(0,0,0,.45);
-      --hero-overlay2: rgba(0,0,0,.25);
       --darkblue:#0b3d91;
       --darkblue-dark:#083171;
+      --hero-overlay1: rgba(0,0,0,.45);
+      --hero-overlay2: rgba(0,0,0,.25);
     }
 
     *{box-sizing:border-box}
@@ -51,6 +51,8 @@
     nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
     nav.primary a{padding:10px 8px;border-radius:8px;color:#f3f2ff;font-weight:600}
     nav.primary a:hover{color:#ffffff}
+    nav.primary a.btn-contact{background:var(--darkblue);color:#fff;font-weight:700}
+    nav.primary a.btn-contact:hover{background:var(--darkblue-dark)}
 
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#fff;font-weight:800;cursor:pointer;color:#1b2436}
     .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
@@ -61,32 +63,18 @@
     .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1s ease;opacity:0}
     .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--hero-overlay1),var(--hero-overlay2))}
     .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:80px 20px}
-
-    /* Glassy panel (shared) */
-    .glass{
-      padding:22px;
-      background:rgba(255,255,255,.12);
-      backdrop-filter:blur(6px);
-      -webkit-backdrop-filter:blur(6px);
-      border:1px solid rgba(255,255,255,.35);
-      border-radius:18px;
-    }
-
-    .hero .lead{color:#f0f4ff}
+    .hero .lead{padding:22px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.35);border-radius:18px}
     .hero h1{font-size:44px;margin:.4rem 0 0;color:#ffd3bb;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.35)}
     .slogan{font-size:1.6em;font-weight:800;color:#ffd966;margin:10px 0;text-shadow:0 2px 8px rgba(0,0,0,.5)}
     .hero .sub{color:#f0f4ff}
 
-    /* Quote Card mirrors glassy box */
-    .hero-card{color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.2)}
-    .hero-card h3{margin-top:0;color:#ffd966;text-align:center}
-    .hero-card input,.hero-card select{
-      width:100%;padding:12px;margin:10px 0;
-      border-radius:8px;border:1px solid rgba(255,255,255,0.4);
-      background:rgba(255,255,255,0.2);color:#fff;font-size:1em;
-    }
+    /* Quote card – darker + bolder */
+    .hero-card{background:rgba(14,19,32,0.85);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:22px;color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.25)}
+    .hero-card h3{margin:0 0 8px;font-weight:900;font-size:22px;letter-spacing:.3px;color:#fff}
+    .hero-card p.small{margin-top:4px;opacity:.9}
+    .hero-card input,.hero-card select{width:100%;padding:12px 12px;margin:10px 0;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:1rem;outline:none}
     .hero-card input::placeholder,.hero-card select{color:#f1f1f1}
-    .hero-card button{background:var(--brand);color:#fff;padding:14px;border:none;border-radius:8px;cursor:pointer;font-weight:700;width:100%;font-size:1em;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+    .hero-card button{background:var(--brand);color:#fff;padding:14px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:900;width:100%;font-size:1rem;box-shadow:0 6px 14px rgba(0,0,0,.35)}
     .hero-card button:hover{background:var(--brand-dark)}
 
     /* Stats */
@@ -108,8 +96,8 @@
     .contact-phones a{color:#000 !important;font-weight:900 !important;background:#fff;border:2px solid var(--stroke)}
 
     /* Floating WhatsApp */
-    .floating-wa{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;background:var(--success);color:#fff;display:flex;align-items:center;justify-content:center;z-index:80;box-shadow:0 10px 24px rgba(0,0,0,.25)}
-    .floating-wa svg{width:28px;height:28px}
+    .floating-wa{position:fixed;right:18px;bottom:18px;width:64px;height:64px;border-radius:50%;background:var(--success);color:#fff;display:flex;align-items:center;justify-content:center;z-index:80;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+    .floating-wa img{width:34px;height:34px;border-radius:4px;display:block}
 
     /* Footer */
     footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
@@ -151,27 +139,26 @@
         <a href="#services">Services</a>
         <a href="#industries">Industries</a>
         <a href="#reviews">Reviews</a>
-        <a href="#contact" class="btn">Contact</a>
+        <a href="#contact" class="btn btn-contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero slideshow -->
   <section class="hero" id="book">
-    <!-- Updated backgrounds to match new slideshow images -->
     <div class="hero-bg" id="bg0" style="opacity:1;background-image:url('https://www.capmeurope.eu/image/repository-equipment-privateGallery-64776eeb9d817a675d5ae333-mobile_0cxvj.jpg/mediumGallery')"></div>
     <div class="hero-bg" id="bg1" style="background-image:url('https://images.prismic.io/edapp-website/3f732ea2-b456-4721-9a55-2cd9c6330699_edapp-ny-forklift-training-course.png?auto=format,compress')"></div>
     <div class="hero-bg" id="bg2" style="background-image:url('https://thumbs.dreamstime.com/b/worker-driver-warehouse-forklift-20227301.jpg')"></div>
 
     <div class="container">
-      <div class="lead glass">
+      <div class="lead">
         <h1>Forklift Rental in Jeddah</h1>
         <p class="slogan">Heavy Lifting Made Easy</p>
         <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.</p>
       </div>
 
-      <!-- Transparent Quote Box mirrors the left glassy panel -->
-      <div class="hero-card glass">
+      <!-- Quote Box (darker & bolder) -->
+      <div class="hero-card">
         <h3>Get a Quick Quote</h3>
         <form id="bookNowForm">
           <input id="bn_name" placeholder="Your Name / الاسم" required>
@@ -186,6 +173,7 @@
           </select>
           <input id="bn_date" type="date" required placeholder="Date / التاريخ">
           <button type="submit">💬 Book on WhatsApp</button>
+          <p class="small">Direct to WhatsApp: <b>0580864487</b></p>
         </form>
       </div>
     </div>
@@ -200,7 +188,7 @@
     </div>
   </section>
 
-    <!-- Services (with your images) -->
+  <!-- Services -->
   <section class="container section" id="services">
     <h2>Our Services</h2>
     <div class="grid grid-3">
@@ -222,14 +210,44 @@
     </div>
   </section>
 
-  <!-- Industries -->
+  <!-- Industries (Oil & Gas removed) -->
   <section class="container section" id="industries">
     <h2>Industries We Serve</h2>
     <div class="grid grid-4">
       <div class="card">📦 <b>Warehousing & Logistics</b></div>
-      <div class="card">🛢 <b>Oil & Gas</b></div>
       <div class="card">🏭 <b>Manufacturing & Industrial</b></div>
       <div class="card">🏗 <b>Construction & Infrastructure</b></div>
+    </div>
+  </section>
+
+  <!-- Who We Are -->
+  <section class="container section" id="about">
+    <h2>Who We Are</h2>
+    <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px">
+      <div>
+        <img src="https://safestart.com/wp-content/uploads/2021/04/ForkliftSafety.jpg" alt="Who We Are" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.1)" loading="lazy">
+      </div>
+      <div>
+        <h3 style="margin-top:0;color:var(--darkblue)">Forklift work platform rental</h3>
+        <p>We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
+        <div class="grid grid-3" style="margin-top:16px">
+          <div class="card" style="text-align:center">
+            <div style="font-size:32px;color:var(--success)">⏰</div>
+            <h4>Flexible hours</h4>
+            <p>We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
+          </div>
+          <div class="card" style="text-align:center">
+            <div style="font-size:32px;color:var(--success)">📦</div>
+            <h4>Commitment‑free</h4>
+            <p>Our services are commitment‑free — you can stop at any time.</p>
+          </div>
+          <div class="card" style="text-align:center">
+            <div style="font-size:32px;color:var(--success)">👷‍♂️</div>
+            <h4>Local professionals</h4>
+            <p>We work with local professionals to ensure we provide the best service.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -280,29 +298,36 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a class="floating-wa" id="waCallBtn" href="#" aria-label="WhatsApp Call" title="Call on WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="#fff"><path d="M380.9..."/></svg>
+  <!-- Floating WhatsApp (logo + call) -->
+  <a class="floating-wa" id="waCallBtn" href="https://wa.me/966580864487" aria-label="WhatsApp Call" title="Call on WhatsApp">
+    <img src="https://img.freepik.com/premium-vector/whatsapp-icon-concept_23-2147900930.jpg" alt="WhatsApp" loading="lazy">
   </a>
 
   <script>
+    // Config — WhatsApp target number (Saudi, no leading zero)
+    const WHATSAPP_E164 = '966580864487';
+
     // Year
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // WhatsApp booking
-    document.getElementById('bookNowForm').addEventListener('submit', e=>{
-      e.preventDefault();
-      const n=document.getElementById('bn_name').value,
-            p=document.getElementById('bn_phone').value,
-            em=document.getElementById('bn_email').value,
-            s=document.getElementById('bn_service').value,
-            d=document.getElementById('bn_date').value;
-      const msg=encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
-      window.open(`https://wa.me/966580864487?text=${msg}`,'_blank');
-    });
+    // WhatsApp booking (form -> WA message to 0580864487)
+    const form = document.getElementById('bookNowForm');
+    if (form) {
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const n = document.getElementById('bn_name').value.trim();
+        const p = document.getElementById('bn_phone').value.trim();
+        const em = document.getElementById('bn_email').value.trim();
+        const s = document.getElementById('bn_service').value.trim();
+        const d = document.getElementById('bn_date').value;
+        const msg = encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
+        const waUrl = `https://wa.me/${WHATSAPP_E164}?text=${msg}`;
+        window.open(waUrl, '_blank');
+      });
+    }
 
-    // Slideshow — updated image set
+    // Slideshow — slightly faster (3.8s)
     const slides=[
       "https://www.capmeurope.eu/image/repository-equipment-privateGallery-64776eeb9d817a675d5ae333-mobile_0cxvj.jpg/mediumGallery",
       "https://images.prismic.io/edapp-website/3f732ea2-b456-4721-9a55-2cd9c6330699_edapp-ny-forklift-training-course.png?auto=format,compress",
@@ -315,18 +340,25 @@
       bgEls[next].style.opacity=1;
       bgEls[current].style.opacity=0;
       current=next;
-    },5000);
+    },3800);
 
-    // Floating WhatsApp call
-    document.getElementById('waCallBtn').addEventListener('click',e=>{
-      e.preventDefault();
-      window.location.href='whatsapp://call?number=+966580864487';
-      setTimeout(()=>{window.location.href='tel:+966580864487'},1200);
-      setTimeout(()=>{window.open('https://wa.me/966580864487','_blank')},2400);
-    });
+    // Floating WhatsApp call: try native WA call, then phone, then WA chat
+    const waBtn = document.getElementById('waCallBtn');
+    if (waBtn) {
+      waBtn.addEventListener('click',(e)=>{
+        e.preventDefault();
+        // try WhatsApp voice call deep link
+        window.location.href = `whatsapp://call?number=+${WHATSAPP_E164}`;
+        // fallback to phone dial in ~1.2s
+        setTimeout(()=>{ window.location.href = `tel:+${WHATSAPP_E164}`; }, 1200);
+        // fallback to WhatsApp chat in ~2.4s
+        setTimeout(()=>{ window.open(`https://wa.me/${WHATSAPP_E164}`, '_blank'); }, 2400);
+      });
+    }
   </script>
 </body>
 </html>
+
 
 
 
