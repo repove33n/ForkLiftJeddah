@@ -1,423 +1,296 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Forklift Rental in Jeddah | Book Now</title>
-  <meta name="description" content="Daily & long-term forklift rental in Jeddah. Customized forklift solutions. Eco-friendly electric forklifts. Call or WhatsApp 0580864487." />
-  <link rel="icon" type="image/png" sizes="32x32" href="newJedLogo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fork Lift Rental — Demo</title>
   <style>
-    :root{
-      --brand:#ff6a00;
-      --brand-dark:#cc5400;
-      --ink:#0e1320;
-      --text:#213045;
-      --bg:#ffffff;
-      --card:#ffffff;
-      --stroke:#e5e8f0;
-      --success:#25D366;
-      --success-dark:#1ebe5a;
-      --purple:#231c52;
-      --darkblue:#0b3d91;
-      --darkblue-dark:#083171;
-      --hero-overlay1: rgba(0,0,0,.45);
-      --hero-overlay2: rgba(0,0,0,.25);
-    }
+    /* ===== Base / Reset ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #111827; background: #ffffff; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    :focus-visible { outline: 2px solid #6C2BD9; outline-offset: 2px; }
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-    .container{max-width:1180px;margin:0 auto;padding:0 20px}
+    /* ===== Layout Helpers ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+    .row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .col { flex: 1 1 320px; }
 
-    /* Topbar */
-    .topbar{background:#0f1626;color:#dfe7f3;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
-    .topbar .container{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;gap:12px}
-    .cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .cta a{padding:0 2px}
-    .cta .btn{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:10px;color:#fff;font-weight:700;border:none}
-    .btn-wa{background:var(--success)}
-    .btn-wa:hover{background:var(--success-dark)}
-    .btn-contact{background:var(--darkblue)}
-    .btn-contact:hover{background:var(--darkblue-dark)}
+    /* ===== Top Bar (Edit #5) ===== */
+    .topbar { background-color: #6C2BD9; }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { color: #fff; font-weight: 800; letter-spacing: .3px; }
+    .nav { display: flex; gap: 18px; align-items: center; }
+    .nav a { color: #fff !important; font-weight: 700; }
+    .nav a:hover, .nav a:focus { text-decoration: underline; }
 
-    /* Header */
-    header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50;border-bottom:1px solid #1a1440}
-    .head-wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:10px 20px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand img{height:56px;width:auto}
-    nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
-    nav.primary a{padding:10px 8px;border-radius:8px;color:#f3f2ff;font-weight:600}
-    nav.primary a:hover{color:#ffffff}
-    nav.primary a.btn-contact{background:var(--darkblue);color:#fff;font-weight:700}
-    nav.primary a.btn-contact:hover{background:var(--darkblue-dark)}
+    /* Language Toggle */
+    .lang-toggle { display: inline-flex; gap: 6px; }
+    .lang-toggle button { height: 32px; padding: 0 10px; border: 1px solid rgba(255,255,255,.5); background: transparent; color: #fff; border-radius: 8px; cursor: pointer; font-weight: 600; }
+    .lang-toggle button[aria-pressed="true"] { background: rgba(255,255,255,.2); text-decoration: underline; }
 
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#fff;font-weight:800;cursor:pointer;color:#1b2436}
-    .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
-    .btn-brand:hover{background:var(--brand-dark)}
+    /* ===== Hero ===== */
+    .hero { background: linear-gradient(180deg,#f4f4ff 0%, #ffffff 60%); padding: 40px 0 22px; }
+    .hero-box { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; box-shadow: 0 6px 24px rgba(0,0,0,.06); }
+    .hero-sub { font-size: .95rem; letter-spacing: .02em; opacity: .9; }
+    .hero-title { margin: 4px 0 8px; font-size: 2rem; line-height: 1.2; }
+    .hero-text { color: #374151; }
 
-    /* Hero */
-    .hero{position:relative;min-height:76vh;color:#fff;overflow:hidden;background:#2a254f}
-    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1s ease;opacity:0}
-    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--hero-overlay1),var(--hero-overlay2))}
-    .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:80px 20px}
-    .hero .lead{padding:22px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.35);border-radius:18px}
-    .hero h1{font-size:44px;margin:.4rem 0 0;color:#ffd3bb;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.35)}
-    .slogan{font-size:1.6em;font-weight:800;color:#ffd966;margin:10px 0;text-shadow:0 2px 8px rgba(0,0,0,.5)}
-    .hero .sub{color:#f0f4ff}
+    /* ===== Buttons (Edit #3) ===== */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 12px; border: none; cursor: pointer; font-weight: 700; }
+    .btn:disabled { opacity: .6; cursor: not-allowed; }
+    .btn-whatsapp { background-color: #25D366; color: #fff; }
+    .btn-whatsapp:hover, .btn-whatsapp:focus { filter: brightness(0.93); }
+    .btn-contact { background-color: #0B3D91; color: #fff; }
+    .btn-contact:hover, .btn-contact:focus { filter: brightness(0.93); }
+    .btn-outline { background: #fff; color: #111827; border: 1px solid #e5e7eb; }
 
-    /* Quote card – darker + bolder */
-    .hero-card{background:rgba(14,19,32,0.85);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:22px;color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.25)}
-    .hero-card h3{margin:0 0 8px;font-weight:900;font-size:22px;letter-spacing:.3px;color:#fff}
-    .hero-card p.small{margin-top:4px;opacity:.9}
-    .hero-card input,.hero-card select{width:100%;padding:12px 12px;margin:10px 0;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:1rem;outline:none}
-    .hero-card input::placeholder,.hero-card select{color:#f1f1f1}
-    .hero-card button{background:var(--brand);color:#fff;padding:14px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:900;width:100%;font-size:1rem;box-shadow:0 6px 14px rgba(0,0,0,.35)}
-    .hero-card button:hover{background:var(--brand-dark)}
+    /* ===== Quote Section ===== */
+    .section { padding: 28px 0 48px; }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 22px; box-shadow: 0 4px 18px rgba(0,0,0,.05); }
+    .field { display: grid; gap: 6px; margin-bottom: 14px; }
+    .field label { font-weight: 600; }
+    .input, .textarea { border: 1px solid #d1d5db; border-radius: 10px; padding: 10px 12px; font: inherit; }
+    .textarea { min-height: 100px; resize: vertical; }
 
-    /* Stats */
-    .stats{background:var(--purple);padding:20px 0;margin:0}
-    .stats .container{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
-    .stat .num{font-size:30px;font-weight:900;color:#ffd966}
-    .stat .label{color:#fff}
+    /* ===== Footer ===== */
+    footer { padding: 28px 0; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: .95rem; }
 
-    /* Sections */
-    .section{margin:40px 0}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-4{grid-template-columns:repeat(4,1fr)}
+    /* ===== Floating WhatsApp (Edit #4) ===== */
+    .wa-fab { position: fixed; right: 18px; bottom: 18px; z-index: 1000; width: 60px; height: 60px; display: grid; place-items: center; }
+    .wa-fab svg { width: 100%; height: 100%; display: block; }
 
-    .card{background:var(--card);border:1px solid var(--stroke);padding:18px;border-radius:16px}
-    .card img{border-radius:12px;margin-bottom:10px;width:100%;height:220px;object-fit:cover}
-
-    /* About section extras */
-    .badge{
-      display:inline-block; padding:8px 14px; border-radius:10px;
-      background:rgba(37,211,102,.15); color:#0e1320; border:1px solid rgba(37,211,102,.35);
-      font-weight:800; letter-spacing:.06em; text-transform:uppercase; font-size:12px;
-      box-shadow:0 6px 16px rgba(0,0,0,.06)
-    }
-    .about-title{ font-size:34px; font-weight:900; letter-spacing:.2px; color:var(--darkblue); margin:10px 0 8px }
-    .callout{
-      display:inline-block; padding:10px 16px; border-radius:12px;
-      background:#fff; border:2px solid var(--stroke); box-shadow:0 8px 22px rgba(0,0,0,.06);
-      font-weight:900; color:var(--ink)
-    }
-
-    /* Floating WhatsApp (logo fills circle) */
-    .floating-wa{
-      position:fixed; right:18px; bottom:18px;
-      width:64px; height:64px; border-radius:50%;
-      background-color:var(--success);
-      color:#fff; display:flex; align-items:center; justify-content:center;
-      z-index:80; box-shadow:0 10px 24px rgba(0,0,0,.25);
-      background-image:url('https://img.freepik.com/premium-vector/whatsapp-icon-concept_23-2147900930.jpg');
-      background-size:cover; background-position:center; background-repeat:no-repeat;
-      overflow:hidden;
-    }
-
-    /* Footer */
-    footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
-    footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
-
-    /* Mobile tweaks */
-    @media (max-width:980px){
-      .hero{min-height:68vh}
-      .hero .container{grid-template-columns:1fr;padding:56px 16px;gap:18px}
-      .hero h1{font-size:32px}
-      .slogan{font-size:1.25em}
-      .hero-card{padding:18px}
-      .grid-3,.grid-4{grid-template-columns:1fr}
-      .head-wrap{grid-template-columns:auto 1fr}
-      nav.primary{display:none}
-      .stats .container{grid-template-columns:1fr}
-      .btn{padding:12px 16px}
-      .card img{height:200px}
-      .about-title{font-size:28px}
-    }
-
-    /* Small mobile (iPhone SE-ish) */
-    @media (max-width:380px){
-      .hero{min-height:62vh}
-      .hero h1{font-size:28px}
-      .floating-wa{width:58px;height:58px;right:14px;bottom:14px}
-    }
+    /* ===== RTL tweaks for Arabic ===== */
+    html[dir="rtl"] body { font-family: system-ui, -apple-system, "Noto Naskh Arabic", "Amiri", Arial, sans-serif; }
+    html[dir="rtl"] .row { direction: rtl; }
+    html[dir="rtl"] .field { text-align: right; }
   </style>
 </head>
 <body>
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="container">
-      <div class="cta">
-        📞 <a href="tel:0580864487">0580864487</a> · 📞 <a href="tel:0560461067">0560461067</a>
-        <a class="btn btn-wa" href="https://wa.me/966580864487" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn btn-contact" href="#contact">Contact Us</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="sitehead">
-    <div class="container head-wrap">
-      <div class="brand">
-        <img src="newJedLogo.png" alt="Forklift Rental Jeddah Logo" loading="lazy">
-      </div>
-      <nav class="primary">
-        <a href="#book" class="btn btn-brand">Book Now</a>
-        <a href="#services">Services</a>
-        <a href="#industries">Industries</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact" class="btn btn-contact">Contact</a>
+  <!-- ===== Top Bar / Navigation (Edit #5) ===== -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand" data-i18n="brand">ForkLift Co.</div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#book" data-i18n="nav.book">Book now</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#contact" class="btn btn-contact" data-i18n="nav.contact">Contact us</a>
+        <div class="lang-toggle" title="Language">
+          <button type="button" id="lang-en" aria-pressed="true">EN</button>
+          <button type="button" id="lang-ar" aria-pressed="false">AR</button>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- Hero slideshow -->
-  <section class="hero" id="book">
-    <div class="hero-bg" id="bg0" style="opacity:1;background-image:url('https://www.capmeurope.eu/image/repository-equipment-privateGallery-64776eeb9d817a675d5ae333-mobile_0cxvj.jpg/mediumGallery')"></div>
-    <div class="hero-bg" id="bg1" style="background-image:url('https://images.prismic.io/edapp-website/3f732ea2-b456-4721-9a55-2cd9c6330699_edapp-ny-forklift-training-course.png?auto=format,compress')"></div>
-    <div class="hero-bg" id="bg2" style="background-image:url('https://thumbs.dreamstime.com/b/worker-driver-warehouse-forklift-20227301.jpg')"></div>
-
+  <!-- ===== Hero (Edits #6 + baseline content) ===== -->
+  <section class="hero">
     <div class="container">
-      <div class="lead">
-        <h1>Forklift Rental in Jeddah</h1>
-        <p class="slogan">Heavy Lifting Made Easy</p>
-        <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.</p>
-      </div>
-
-      <!-- Quote Box (darker & bolder) -->
-      <div class="hero-card">
-        <h3>Get a Quick Quote</h3>
-        <form id="bookNowForm">
-          <input id="bn_name" placeholder="Your Name / الاسم" required>
-          <input id="bn_phone" placeholder="Phone / الهاتف" required>
-          <input id="bn_email" type="email" placeholder="Email / البريد الإلكتروني" required>
-          <select id="bn_service" required>
-            <option value="">Select Service / اختر الخدمة</option>
-            <option>Daily Forklift Rental</option>
-            <option>Long-Term Rental</option>
-            <option>Customized Forklift Solutions</option>
-            <option>Eco-Friendly Electric Forklifts</option>
-          </select>
-          <input id="bn_date" type="date" required placeholder="Date / التاريخ">
-          <button type="submit">💬 Book on WhatsApp</button>
-          <p class="small">Direct to WhatsApp: <b>0580864487</b></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section class="stats">
-    <div class="container">
-      <div class="stat"><div class="num" data-target="6">0+</div><div class="label">Trained Staff</div></div>
-      <div class="stat"><div class="num" data-target="1500">0+</div><div class="label">Satisfied Clients</div></div>
-      <div class="stat"><div class="num" data-target="12">0+</div><div class="label">Years in Business</div></div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="container section" id="services">
-    <h2>Our Services</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <img loading="lazy" src="https://gobrennan.com/wp-content/uploads/2023/12/Hyundai-Forklifts-in-warehouse-1080x675.jpg" alt="Forklift Rental (1–10 Tons)">
-        <h3>Forklift Rental (1–10 Tons)</h3>
-        <p>Affordable, high-quality forklift rentals ranging from 1 ton to 10 tons, suitable for warehouses, logistics, and various worksites. Get the right size delivered quickly when you need it.</p>
-      </div>
-      <div class="card">
-        <img loading="lazy" src="https://eqdepot.com/wp-content/uploads/2023/12/Heavy-Duty-750x600-1.jpg" alt="Electric Forklift Rental">
-        <h3>Electric Forklift Rental</h3>
-        <p>High-quality electric forklift rentals ideal for indoor operations—quiet, efficient, and eco-friendly. Contact us for the best deals.</p>
-      </div>
-      <div class="card">
-        <img loading="lazy" src="https://www.liftone.net/wp-content/uploads/2021/04/Hyster-Yale-forklift.jpg" alt="Access to Truck Rentals">
-        <h3>Access to Truck Rentals</h3>
-        <p>We make forklift booking easy and affordable. Choose the right forklift for your needs today and keep your business moving without delays.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Industries (Oil & Gas removed) -->
-  <section class="container section" id="industries">
-    <h2>Industries We Serve</h2>
-    <div class="grid grid-4">
-      <div class="card">📦 <b>Warehousing & Logistics</b></div>
-      <div class="card">🏭 <b>Manufacturing & Industrial</b></div>
-      <div class="card">🏗 <b>Construction & Infrastructure</b></div>
-    </div>
-  </section>
-
-  <!-- Who We Are -->
-  <section class="container section" id="about">
-    <h2 class="about-title">Who We Are</h2>
-    <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px">
-      <div>
-        <img src="https://safestart.com/wp-content/uploads/2021/04/ForkliftSafety.jpg" alt="Who We Are" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.1)" loading="lazy">
-      </div>
-      <div>
-        <div class="callout">How does it work</div>
-        <p style="margin-top:12px;font-weight:600">We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
-        <div class="grid grid-3" style="margin-top:16px">
-          <div class="card" style="text-align:center">
-            <div style="font-size:32px;color:var(--success)">⏰</div>
-            <h4 style="margin:8px 0 6px">Flexible hours</h4>
-            <p style="margin:0">We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
+      <div class="hero-box">
+        <div class="hero-sub" data-i18n="home.badge">24/7 same day</div>
+        <h1 class="hero-title" data-i18n="home.title">Fork lift rental</h1>
+        <p class="hero-text" data-i18n="home.blurb">Fast, reliable forklifts and operators ready when you are.</p>
+        <div class="row" style="margin-top:14px;">
+          <div>
+            <a class="btn btn-whatsapp" id="hero-wa" target="_blank" rel="noopener" href="https://wa.me/15551234567?text=Hi%20there!%20I%27d%20like%20to%20book%20a%20service."><span aria-hidden>💬</span><span data-i18n="cta.whatsapp">Book on WhatsApp</span></a>
           </div>
-          <div class="card" style="text-align:center">
-            <div style="font-size:32px;color:var(--success)">📦</div>
-            <h4 style="margin:8px 0 6px">Commitment‑free</h4>
-            <p style="margin:0">Our services are commitment‑free — you can stop at any time.</p>
-          </div>
-          <div class="card" style="text-align:center">
-            <div style="font-size:32px;color:var(--success)">👷‍♂️</div>
-            <h4 style="margin:8px 0 6px">Local professionals</h4>
-            <p style="margin:0">We work with local professionals to ensure we provide the best service.</p>
+          <div>
+            <a class="btn btn-outline" href="#services" data-i18n="cta.learn">Learn more</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Reviews -->
-  <section class="container section" id="reviews">
-    <h2>Customer Reviews</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <div style="color:#ffb400">★★★★★</div>
-        <b>Abdul Al-Hameed</b>
-        <p>The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.</p>
-      </div>
-      <div class="card">
-        <div style="color:#ffb400">★★★★☆</div>
-        <b>Hamaad Q.</b>
-        <p>The team responds very quick and great communication, highly recommend for long term rentals.</p>
-      </div>
-      <div class="card">
-        <div style="color:#ffb400">★★★★★</div>
-        <b>Sarah M.</b>
-        <p>Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.</p>
-      </div>
+  <!-- ===== Services Anchor ===== -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 data-i18n="services.title">Popular services</h2>
+      <p class="hero-text" data-i18n="services.blurb">From short-term rentals to full logistics support.</p>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="container section" id="contact">
-    <h2>Contact Us</h2>
-    <div class="grid" style="grid-template-columns:1fr 1fr">
-      <div class="card">
-        <p>Call or WhatsApp us anytime for fast forklift rental support in Jeddah.</p>
-        <div class="contact-phones" style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn" href="tel:0580864487" style="background:#fff">📞 <strong>0580864487</strong></a>
-          <a class="btn" href="tel:0560461067" style="background:#fff">📞 <strong>0560461067</strong></a>
-          <a class="btn" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp Chat</a>
+  <!-- ===== Get a Quote (Edits #1 + #2) ===== -->
+  <section id="book" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h3 style="margin-top:0;" data-i18n="quote.title">Get a quote</h3>
+            <form id="quote-form">
+              <div class="field">
+                <label for="q-name" data-i18n="quote.name">Your name</label>
+                <input class="input" id="q-name" name="name" type="text" placeholder="John Doe" />
+              </div>
+              <div class="field">
+                <label for="q-phone" data-i18n="quote.phone">Phone</label>
+                <input class="input" id="q-phone" name="phone" type="tel" placeholder="(555) 123-4567" />
+              </div>
+              <div class="field">
+                <!-- Edit #1: free‑text instead of dropdown; still offers suggestions via datalist -->
+                <label for="quote-service" data-i18n="quote.service">Select Services</label>
+                <input class="input" id="quote-service" name="service" type="text" placeholder="Type your service" list="service-suggestions" autocomplete="off" />
+                <datalist id="service-suggestions">
+                  <option value="Forklift rental"></option>
+                  <option value="Operator + forklift"></option>
+                  <option value="Heavy equipment transport"></option>
+                  <option value="Warehouse moving"></option>
+                  <option value="Loading / Unloading"></option>
+                </datalist>
+              </div>
+              <div class="field">
+                <label for="q-details" data-i18n="quote.details">Details</label>
+                <textarea class="textarea" id="q-details" name="details" placeholder="Location, dates, load size…"></textarea>
+              </div>
+              <div class="row" style="align-items:center;">
+                <div>
+                  <!-- Edit #2: WhatsApp CTA is always clickable; JS only enriches the message if fields are filled -->
+                  <a id="wa-book" class="btn btn-whatsapp" target="_blank" rel="noopener" href="https://wa.me/15551234567?text=Hi%20there!%20I%27d%20like%20to%20book%20a%20service.">
+                    <span aria-hidden>💬</span>
+                    <span data-i18n="cta.whatsapp">Book on WhatsApp</span>
+                  </a>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-outline" data-i18n="quote.submit">Submit request</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="card">
-        <iframe title="Map Jeddah" width="100%" height="280" style="border:0;border-radius:12px" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.684325404014!2d39.13152711500263!3d21.56460598570657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d07b51e3bbf9%3A0x70bffda8a2dbf25c!2s6712%20Sari%20Br%20Rd%2C%202%2C%204172%2C%20Jeddah%2023436!5e0!3m2!1sen!2ssa!4v1693392647000!5m2!1sen!2ssa"></iframe>
+
+        <div class="col">
+          <div class="card" id="contact">
+            <h3 style="margin-top:0;" data-i18n="contact.title">Contact us</h3>
+            <p data-i18n="contact.blurb">Questions? Our team is here to help 24/7.</p>
+            <p><strong data-i18n="contact.phone">Phone:</strong> <a href="tel:+15551234567">+1 (555) 123‑4567</a></p>
+            <p><strong data-i18n="contact.email">Email:</strong> <a href="mailto:hello@example.com">hello@example.com</a></p>
+            <p>
+              <a class="btn btn-contact" href="mailto:hello@example.com" data-i18n="contact.cta">Email our team</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <div>© <span id="year"></span> Forklift Rental in Jeddah</div>
-      <div><a href="#book" class="btn btn-brand">Book Now</a></div>
+      <small>© <span id="year"></span> <span data-i18n="brand">ForkLift Co.</span> — <span data-i18n="footer.rights">All rights reserved.</span></small>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp (logo + call) -->
-  <a class="floating-wa" id="waCallBtn" href="https://wa.me/966580864487" aria-label="WhatsApp Call" title="Call on WhatsApp"></a>
+  <!-- ===== Floating WhatsApp Button (Edit #4) ===== -->
+  <a href="https://wa.me/15551234567" class="wa-fab" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+    <!-- SVG with full-bleed green circle so NO white space shows when zoomed -->
+    <svg viewBox="0 0 32 32" aria-hidden="true" role="img">
+      <circle cx="16" cy="16" r="16" fill="#25D366"/>
+      <path d="M22.3 19.2c-.4-.2-2.3-1.1-2.6-1.2-.3-.1-.5-.2-.7.2-.2.4-.8 1.2-1 1.4-.2.2-.4.2-.8 0-1.1-.6-2.1-1.5-2.9-2.6-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.1-.5 0-.7-.1-.2-.6-1.7-.8-2.3-.2-.5-.4-.4-.6-.4h-.6c-.2 0-.6.1-.9.4-.4.4-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5 .8.3 1.4.5 1.9.6.8.3 1.5.3 2.1.2.6-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z" fill="#fff"/>
+    </svg>
+  </a>
 
+  <!-- ===== Scripts ===== -->
   <script>
-    // Config — WhatsApp target number (Saudi, no leading zero)
-    const WHATSAPP_E164 = '966580864487';
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Year
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    // WhatsApp booking (form -> WA message to 0580864487)
-    const form = document.getElementById('bookNowForm');
-    if (form) {
-      form.addEventListener('submit', (e)=>{
-        e.preventDefault();
-        const n = document.getElementById('bn_name').value.trim();
-        const p = document.getElementById('bn_phone').value.trim();
-        const em = document.getElementById('bn_email').value.trim();
-        const s = document.getElementById('bn_service').value.trim();
-        const d = document.getElementById('bn_date').value;
-        const msg = encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
-        const waUrl = `https://wa.me/${WHATSAPP_E164}?text=${msg}`;
-        window.open(waUrl, '_blank');
+    // ===== Edit #2: Enrich WhatsApp message WITHOUT blocking the click
+    function bindWhatsAppEnrichment(anchorId) {
+      const waLink = document.getElementById(anchorId);
+      const form = document.getElementById('quote-form');
+      if (!waLink) return;
+      waLink.addEventListener('click', () => {
+        const get = (name) => form?.querySelector(`[name="${name}"]`)?.value?.trim() || '';
+        const name = get('name');
+        const phone = get('phone');
+        const service = get('service');
+        const details = get('details');
+        const parts = [
+          (document.documentElement.lang === 'ar') ? 'مرحباً! أود حجز خدمة.' : "Hi! I'd like to book a service.",
+          name && ((document.documentElement.lang === 'ar') ? `الاسم: ${name}` : `Name: ${name}`),
+          phone && ((document.documentElement.lang === 'ar') ? `الهاتف: ${phone}` : `Phone: ${phone}`),
+          service && ((document.documentElement.lang === 'ar') ? `الخدمة: ${service}` : `Service: ${service}`),
+          details && ((document.documentElement.lang === 'ar') ? `تفاصيل: ${details}` : `Details: ${details}`)
+        ].filter(Boolean);
+        const msg = encodeURIComponent(parts.join('\n'));
+        const base = 'https://wa.me/15551234567?text='; // <-- Replace with your full WhatsApp number (no + or dashes)
+        waLink.href = base + msg;
       });
     }
+    bindWhatsAppEnrichment('wa-book');
+    bindWhatsAppEnrichment('hero-wa');
 
-    // Slideshow — slightly faster (3.8s)
-    const slides=[
-      "https://www.capmeurope.eu/image/repository-equipment-privateGallery-64776eeb9d817a675d5ae333-mobile_0cxvj.jpg/mediumGallery",
-      "https://images.prismic.io/edapp-website/3f732ea2-b456-4721-9a55-2cd9c6330699_edapp-ny-forklift-training-course.png?auto=format,compress",
-      "https://thumbs.dreamstime.com/b/worker-driver-warehouse-forklift-20227301.jpg"
-    ];
-    let current=0;const bgEls=[document.getElementById('bg0'),document.getElementById('bg1'),document.getElementById('bg2')];
-    setInterval(()=>{
-      const next=(current+1)%slides.length;
-      bgEls[next].style.backgroundImage=`url('${slides[next]}')`;
-      bgEls[next].style.opacity=1;
-      bgEls[current].style.opacity=0;
-      current=next;
-    },3800);
-
-    // Floating WhatsApp call: try native WA call, then phone, then WA chat
-    const waBtn = document.getElementById('waCallBtn');
-    if (waBtn) {
-      waBtn.addEventListener('click',(e)=>{
-        e.preventDefault();
-        // try WhatsApp voice call deep link
-        window.location.href = `whatsapp://call?number=+${WHATSAPP_E164}`;
-        // fallback to phone dial in ~1.2s
-        setTimeout(()=>{ window.location.href = `tel:+${WHATSAPP_E164}`; }, 1200);
-        // fallback to WhatsApp chat in ~2.4s
-        setTimeout(()=>{ window.open(`https://wa.me/${WHATSAPP_E164}`, '_blank'); }, 2400);
-      });
-    }
-
-    // Rolling counters on scroll (Stats)
-    (function(){
-      const nums = document.querySelectorAll('.stats .num');
-      if (!nums.length) return;
-
-      function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
-      function animate(el, target, duration=1600){
-        const start = 0, t0 = performance.now();
-        function tick(now){
-          const p = Math.min(1, (now - t0) / duration);
-          const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
-          el.textContent = fmt(Math.floor(start + (target - start) * eased)) + '+';
-          if (p < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
+    // ===== Edit #7: Arabic <-> English toggle with RTL support
+    const i18n = {
+      en: {
+        brand: 'ForkLift Co.',
+        'nav.book': 'Book now',
+        'nav.services': 'Services',
+        'nav.contact': 'Contact us',
+        'home.badge': '24/7 same day',
+        'home.title': 'Fork lift rental',
+        'home.blurb': 'Fast, reliable forklifts and operators ready when you are.',
+        'cta.whatsapp': 'Book on WhatsApp',
+        'cta.learn': 'Learn more',
+        'services.title': 'Popular services',
+        'services.blurb': 'From short-term rentals to full logistics support.',
+        'quote.title': 'Get a quote',
+        'quote.name': 'Your name',
+        'quote.phone': 'Phone',
+        'quote.service': 'Select Services',
+        'quote.details': 'Details',
+        'quote.submit': 'Submit request',
+        'contact.title': 'Contact us',
+        'contact.blurb': 'Questions? Our team is here to help 24/7.',
+        'contact.phone': 'Phone:',
+        'contact.email': 'Email:',
+        'contact.cta': 'Email our team',
+        'footer.rights': 'All rights reserved.'
+      },
+      ar: {
+        brand: 'شركة الرافعات',
+        'nav.book': 'احجز الآن',
+        'nav.services': 'الخدمات',
+        'nav.contact': 'اتصل بنا',
+        'home.badge': '٢٤/٧ في نفس اليوم',
+        'home.title': 'تأجير رافعات شوكية',
+        'home.blurb': 'رافعات موثوقة مع مشغّلين جاهزون دائمًا.',
+        'cta.whatsapp': 'احجز عبر واتساب',
+        'cta.learn': 'اعرف المزيد',
+        'services.title': 'الخدمات الشائعة',
+        'services.blurb': 'من الإيجار قصير الأمد إلى الدعم اللوجستي الكامل.',
+        'quote.title': 'احصل على عرض سعر',
+        'quote.name': 'اسمك',
+        'quote.phone': 'الهاتف',
+        'quote.service': 'اختر الخدمة',
+        'quote.details': 'تفاصيل',
+        'quote.submit': 'إرسال الطلب',
+        'contact.title': 'اتصل بنا',
+        'contact.blurb': 'أسئلة؟ فريقنا متواجد لمساعدتك على مدار الساعة.',
+        'contact.phone': 'الهاتف:',
+        'contact.email': 'البريد الإلكتروني:',
+        'contact.cta': 'أرسل لنا بريدًا',
+        'footer.rights': 'جميع الحقوق محفوظة.'
       }
+    };
 
-      let started = false;
-      const root = document.querySelector('.stats');
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if (e.isIntersecting && !started){
-            started = true;
-            nums.forEach(n=>{
-              const target = parseInt(n.getAttribute('data-target'), 10) || 0;
-              animate(n, target);
-            });
-            io.disconnect();
-          }
-        });
-      }, { threshold: 0.3 });
+    function setLang(lang) {
+      const dict = i18n[lang] || i18n.en;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+      });
+      // Toggle button states
+      document.getElementById('lang-en')?.setAttribute('aria-pressed', String(lang==='en'));
+      document.getElementById('lang-ar')?.setAttribute('aria-pressed', String(lang==='ar'));
+      try { localStorage.setItem('site_lang', lang); } catch {}
+    }
 
-      if (root) io.observe(root);
-    })();
+    document.getElementById('lang-en')?.addEventListener('click', () => setLang('en'));
+    document.getElementById('lang-ar')?.addEventListener('click', () => setLang('ar'));
+    setLang(localStorage.getItem('site_lang') || 'en');
   </script>
 </body>
 </html>
