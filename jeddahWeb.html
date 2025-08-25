@@ -27,7 +27,7 @@
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
@@ -42,6 +42,7 @@
     .btn-wa:hover{background:var(--success-dark)}
     .btn-contact{background:var(--darkblue)}
     .btn-contact:hover{background:var(--darkblue-dark)}
+    .lang-toggle{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);color:#f3f2ff;background:transparent;cursor:pointer;font-weight:800}
 
     /* Header */
     header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50;border-bottom:1px solid #1a1440}
@@ -58,7 +59,7 @@
     .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
     .btn-brand:hover{background:var(--brand-dark)}
 
-    /* Hero */
+    /* Hero slideshow */
     .hero{position:relative;min-height:76vh;color:#fff;overflow:hidden;background:#2a254f}
     .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1s ease;opacity:0}
     .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--hero-overlay1),var(--hero-overlay2))}
@@ -68,12 +69,23 @@
     .slogan{font-size:1.6em;font-weight:800;color:#ffd966;margin:10px 0;text-shadow:0 2px 8px rgba(0,0,0,.5)}
     .hero .sub{color:#f0f4ff}
 
-    /* Quote card – darker + bolder */
-    .hero-card{background:rgba(14,19,32,0.85);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:22px;color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.25)}
+    /* Quote card – darker + bolder but same layout */
+    .hero-card{
+      background:rgba(14,19,32,0.85);
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:18px;
+      padding:22px;
+      color:#fff;
+      box-shadow:0 10px 28px rgba(0,0,0,.25)
+    }
     .hero-card h3{margin:0 0 8px;font-weight:900;font-size:22px;letter-spacing:.3px;color:#fff}
     .hero-card p.small{margin-top:4px;opacity:.9}
-    .hero-card input,.hero-card select{width:100%;padding:12px 12px;margin:10px 0;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:1rem;outline:none}
-    .hero-card input::placeholder,.hero-card select{color:#f1f1f1}
+    .hero-card input{
+      width:100%;padding:12px 12px;margin:10px 0;
+      border-radius:10px;border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.08);color:#fff;font-size:1rem;outline:none
+    }
+    .hero-card input::placeholder{color:#f1f1f1}
     .hero-card button{background:var(--brand);color:#fff;padding:14px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:900;width:100%;font-size:1rem;box-shadow:0 6px 14px rgba(0,0,0,.35)}
     .hero-card button:hover{background:var(--brand-dark)}
 
@@ -92,62 +104,41 @@
     .card{background:var(--card);border:1px solid var(--stroke);padding:18px;border-radius:16px}
     .card img{border-radius:12px;margin-bottom:10px;width:100%;height:220px;object-fit:cover}
 
-    /* About section extras */
-    .badge{
-      display:inline-block; padding:8px 14px; border-radius:10px;
-      background:rgba(37,211,102,.15); color:#0e1320; border:1px solid rgba(37,211,102,.35);
-      font-weight:800; letter-spacing:.06em; text-transform:uppercase; font-size:12px;
-      box-shadow:0 6px 16px rgba(0,0,0,.06)
-    }
-    .about-title{ font-size:34px; font-weight:900; letter-spacing:.2px; color:var(--darkblue); margin:10px 0 8px }
-    .callout{
-      display:inline-block; padding:10px 16px; border-radius:12px;
-      background:#fff; border:2px solid var(--stroke); box-shadow:0 8px 22px rgba(0,0,0,.06);
-      font-weight:900; color:var(--ink)
-    }
+    /* Contact phones */
+    .contact-phones a{color:#000 !important;font-weight:900 !important;background:#fff;border:2px solid var(--stroke)}
 
-    /* Floating WhatsApp (logo fills circle) */
+    /* Floating WhatsApp (zoomed logo, no white edges) */
     .floating-wa{
-      position:fixed; right:18px; bottom:18px;
-      width:64px; height:64px; border-radius:50%;
-      background-color:var(--success);
-      color:#fff; display:flex; align-items:center; justify-content:center;
-      z-index:80; box-shadow:0 10px 24px rgba(0,0,0,.25);
+      position:fixed;right:18px;bottom:18px;width:64px;height:64px;border-radius:50%;
+      background-color:var(--success);color:#fff;display:flex;align-items:center;justify-content:center;
+      z-index:80;box-shadow:0 10px 24px rgba(0,0,0,.25);overflow:hidden;
       background-image:url('https://img.freepik.com/premium-vector/whatsapp-icon-concept_23-2147900930.jpg');
-      background-size:cover; background-position:center; background-repeat:no-repeat;
-      overflow:hidden;
+      background-size:cover;background-position:center;background-repeat:no-repeat;
     }
 
     /* Footer */
     footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
 
-    /* Mobile tweaks */
+    /* Mobile */
     @media (max-width:980px){
-      .hero{min-height:68vh}
-      .hero .container{grid-template-columns:1fr;padding:56px 16px;gap:18px}
-      .hero h1{font-size:32px}
-      .slogan{font-size:1.25em}
-      .hero-card{padding:18px}
+      .hero .container{grid-template-columns:1fr;padding:56px 16px}
       .grid-3,.grid-4{grid-template-columns:1fr}
       .head-wrap{grid-template-columns:auto 1fr}
       nav.primary{display:none}
+      .hero h1{font-size:32px}
+      .slogan{font-size:1.3em}
       .stats .container{grid-template-columns:1fr}
       .btn{padding:12px 16px}
       .card img{height:200px}
-      .about-title{font-size:28px}
     }
 
-    /* Small mobile (iPhone SE-ish) */
-    @media (max-width:380px){
-      .hero{min-height:62vh}
-      .hero h1{font-size:28px}
-      .floating-wa{width:58px;height:58px;right:14px;bottom:14px}
-    }
+    /* RTL helper (toggle doesn’t change layout) */
+    .rtl{direction:rtl}
   </style>
 </head>
 <body>
-  <!-- Topbar -->
+  <!-- Topbar (unchanged layout) -->
   <div class="topbar">
     <div class="container">
       <div class="cta">
@@ -155,6 +146,7 @@
         <a class="btn btn-wa" href="https://wa.me/966580864487" target="_blank" rel="noopener">WhatsApp</a>
         <a class="btn btn-contact" href="#contact">Contact Us</a>
       </div>
+      <button id="langToggle" class="lang-toggle" type="button" title="English / العربية">EN | AR</button>
     </div>
   </div>
 
@@ -187,29 +179,25 @@
         <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.</p>
       </div>
 
-      <!-- Quote Box (darker & bolder) -->
+      <!-- Quote Box (same spot, darker) -->
       <div class="hero-card">
         <h3>Get a Quick Quote</h3>
         <form id="bookNowForm">
           <input id="bn_name" placeholder="Your Name / الاسم" required>
           <input id="bn_phone" placeholder="Phone / الهاتف" required>
           <input id="bn_email" type="email" placeholder="Email / البريد الإلكتروني" required>
-          <select id="bn_service" required>
-            <option value="">Select Service / اختر الخدمة</option>
-            <option>Daily Forklift Rental</option>
-            <option>Long-Term Rental</option>
-            <option>Customized Forklift Solutions</option>
-            <option>Eco-Friendly Electric Forklifts</option>
-          </select>
+          <!-- Free‑text service instead of dropdown -->
+          <input id="bn_service" placeholder="Service / الخدمة المطلوبة" required>
           <input id="bn_date" type="date" required placeholder="Date / التاريخ">
-          <button type="submit">💬 Book on WhatsApp</button>
+          <!-- Opens WA even if fields are empty -->
+          <button type="button" id="waBookBtn">💬 Book on WhatsApp</button>
           <p class="small">Direct to WhatsApp: <b>0580864487</b></p>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Stats -->
+  <!-- Stats (rolling counters) -->
   <section class="stats">
     <div class="container">
       <div class="stat"><div class="num" data-target="6">0+</div><div class="label">Trained Staff</div></div>
@@ -240,7 +228,7 @@
     </div>
   </section>
 
-  <!-- Industries (Oil & Gas removed) -->
+  <!-- Industries (Oil & Gas removed earlier) -->
   <section class="container section" id="industries">
     <h2>Industries We Serve</h2>
     <div class="grid grid-4">
@@ -250,16 +238,19 @@
     </div>
   </section>
 
-  <!-- Who We Are -->
+  <!-- Who We Are (simple block to match theme) -->
   <section class="container section" id="about">
-    <h2 class="about-title">Who We Are</h2>
+    <h2>Who We Are</h2>
     <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px">
       <div>
         <img src="https://safestart.com/wp-content/uploads/2021/04/ForkliftSafety.jpg" alt="Who We Are" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.1)" loading="lazy">
       </div>
       <div>
-        <div class="callout">How does it work</div>
-        <p style="margin-top:12px;font-weight:600">We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
+        <h3 style="margin-top:0;color:var(--darkblue)">How does it work</h3>
+        <div style="display:inline-block;padding:10px 16px;border-radius:12px;background:#fff;border:2px solid var(--stroke);box-shadow:0 8px 22px rgba(0,0,0,.06);font-weight:900;color:var(--ink);margin-bottom:8px">
+          Simple, reliable forklift rentals in Jeddah
+        </div>
+        <p>We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
         <div class="grid grid-3" style="margin-top:16px">
           <div class="card" style="text-align:center">
             <div style="font-size:32px;color:var(--success)">⏰</div>
@@ -328,34 +319,49 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp (logo + call) -->
+  <!-- Floating WhatsApp -->
   <a class="floating-wa" id="waCallBtn" href="https://wa.me/966580864487" aria-label="WhatsApp Call" title="Call on WhatsApp"></a>
 
   <script>
-    // Config — WhatsApp target number (Saudi, no leading zero)
+    // WhatsApp number (Saudi, no leading zero)
     const WHATSAPP_E164 = '966580864487';
 
     // Year
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // WhatsApp booking (form -> WA message to 0580864487)
-    const form = document.getElementById('bookNowForm');
-    if (form) {
-      form.addEventListener('submit', (e)=>{
-        e.preventDefault();
-        const n = document.getElementById('bn_name').value.trim();
-        const p = document.getElementById('bn_phone').value.trim();
-        const em = document.getElementById('bn_email').value.trim();
-        const s = document.getElementById('bn_service').value.trim();
-        const d = document.getElementById('bn_date').value;
-        const msg = encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
-        const waUrl = `https://wa.me/${WHATSAPP_E164}?text=${msg}`;
-        window.open(waUrl, '_blank');
+    // Build WhatsApp message (fields can be empty)
+    function buildWAMessage(){
+      const n = (document.getElementById('bn_name')?.value || '').trim();
+      const p = (document.getElementById('bn_phone')?.value || '').trim();
+      const em = (document.getElementById('bn_email')?.value || '').trim();
+      const s = (document.getElementById('bn_service')?.value || '').trim();
+      const d = (document.getElementById('bn_date')?.value || '').trim();
+      return encodeURIComponent(
+        `Hello, my name is ${n || '(name)'}.\nService: ${s || '(service)'}.\nPhone: ${p || '(phone)'}.\nEmail: ${em || '(email)'}.\nDate needed: ${d || '(date)'}`
+      );
+    }
+
+    // Button: always opens WA
+    const waBookBtn = document.getElementById('waBookBtn');
+    if (waBookBtn){
+      waBookBtn.addEventListener('click', ()=>{
+        const msg = buildWAMessage();
+        window.open(`https://wa.me/${WHATSAPP_E164}?text=${msg}`, '_blank');
       });
     }
 
-    // Slideshow — slightly faster (3.8s)
+    // Allow Enter/Submit to also open WA
+    const form = document.getElementById('bookNowForm');
+    if (form){
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const msg = buildWAMessage();
+        window.open(`https://wa.me/${WHATSAPP_E164}?text=${msg}`, '_blank');
+      });
+    }
+
+    // Slideshow (3.8s)
     const slides=[
       "https://www.capmeurope.eu/image/repository-equipment-privateGallery-64776eeb9d817a675d5ae333-mobile_0cxvj.jpg/mediumGallery",
       "https://images.prismic.io/edapp-website/3f732ea2-b456-4721-9a55-2cd9c6330699_edapp-ny-forklift-training-course.png?auto=format,compress",
@@ -370,37 +376,32 @@
       current=next;
     },3800);
 
-    // Floating WhatsApp call: try native WA call, then phone, then WA chat
+    // Floating WA: try WA call -> phone -> WA chat
     const waBtn = document.getElementById('waCallBtn');
     if (waBtn) {
       waBtn.addEventListener('click',(e)=>{
         e.preventDefault();
-        // try WhatsApp voice call deep link
         window.location.href = `whatsapp://call?number=+${WHATSAPP_E164}`;
-        // fallback to phone dial in ~1.2s
         setTimeout(()=>{ window.location.href = `tel:+${WHATSAPP_E164}`; }, 1200);
-        // fallback to WhatsApp chat in ~2.4s
         setTimeout(()=>{ window.open(`https://wa.me/${WHATSAPP_E164}`, '_blank'); }, 2400);
       });
     }
 
-    // Rolling counters on scroll (Stats)
+    // Rolling counters on scroll
     (function(){
       const nums = document.querySelectorAll('.stats .num');
       if (!nums.length) return;
-
-      function fmt(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+      const fmt = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       function animate(el, target, duration=1600){
         const start = 0, t0 = performance.now();
         function tick(now){
           const p = Math.min(1, (now - t0) / duration);
-          const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+          const eased = 1 - Math.pow(1 - p, 3);
           el.textContent = fmt(Math.floor(start + (target - start) * eased)) + '+';
           if (p < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
       }
-
       let started = false;
       const root = document.querySelector('.stats');
       const io = new IntersectionObserver((entries)=>{
@@ -415,13 +416,86 @@
           }
         });
       }, { threshold: 0.3 });
-
       if (root) io.observe(root);
     })();
+
+    // Lightweight EN <-> AR toggle (doesn’t change layout)
+    const langToggle = document.getElementById('langToggle');
+    let isAR = false;
+    const map = [
+      ['Book Now','احجز الآن'],
+      ['Services','الخدمات'],
+      ['Industries','القطاعات'],
+      ['Reviews','التقييمات'],
+      ['Contact','تواصل'],
+      ['Contact Us','اتصل بنا'],
+      ['Forklift Rental in Jeddah','تأجير رافعات في جدة'],
+      ['Heavy Lifting Made Easy','نرفع عنك التعب'],
+      ['Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.','تأجير يومي وطويل الأجل. مشغلون معتمدون، حلول مخصصة ونماذج كهربائية صديقة للبيئة.'],
+      ['Get a Quick Quote','احصل على عرض سريع'],
+      ['Your Name / الاسم','الاسم / Your Name'],
+      ['Phone / الهاتف','الهاتف / Phone'],
+      ['Email / البريد الإلكتروني','البريد الإلكتروني / Email'],
+      ['Service / الخدمة المطلوبة','الخدمة المطلوبة / Service'],
+      ['Date / التاريخ','التاريخ / Date'],
+      ['💬 Book on WhatsApp','💬 احجز عبر واتساب'],
+      ['Direct to WhatsApp:','مباشرة إلى واتساب:'],
+      ['Trained Staff','فريق مدرّب'],
+      ['Satisfied Clients','عملاء راضون'],
+      ['Years in Business','سنوات من الخبرة'],
+      ['Our Services','خدماتنا'],
+      ['Forklift Rental (1–10 Tons)','تأجير رافعات (1–10 طن)'],
+      ['Electric Forklift Rental','تأجير رافعات كهربائية'],
+      ['Access to Truck Rentals','توفير شاحنات ومعدات'],
+      ['We make forklift booking easy and affordable. Choose the right forklift for your needs today and keep your business moving without delays.','نجعل حجز الرافعات سهلاً وبأسعار مناسبة للحفاظ على سير عملك دون تأخير.'],
+      ['Industries We Serve','القطاعات التي نخدمها'],
+      ['📦 Warehousing & Logistics','📦 المستودعات واللوجستيات'],
+      ['🏭 Manufacturing & Industrial','🏭 التصنيع والصناعة'],
+      ['🏗 Construction & Infrastructure','🏗 الإنشاءات والبنية التحتية'],
+      ['Who We Are','من نحن'],
+      ['How does it work','كيف تعمل الخدمة'],
+      ['Simple, reliable forklift rentals in Jeddah','تأجير رافعات بسيط وموثوق في جدة'],
+      ['We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.','نقدم تأجير منصات عمل للرافعات بأسعار مناسبة في جدة. منصاتنا قوية وآمنة لتلبية احتياجات أعمالك.'],
+      ['Flexible hours','ساعات مرنة'],
+      ['Commitment‑free','بدون التزام'],
+      ['Local professionals','محترفون محليون'],
+      ['Customer Reviews','آراء العملاء'],
+      ['The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.','الفريق محترف ولطيف جداً وأنجز عملاً رائعاً في مستودعي.'],
+      ['The team responds very quick and great communication, highly recommend for long term rentals.','استجابة سريعة وتواصل ممتاز — أوصي به للإيجارات طويلة الأجل.'],
+      ['Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.','خدمة ممتازة! استأجرنا رافعات كهربائية — فعّالة وصديقة للبيئة وبأسعار مناسبة.'],
+      ['Call or WhatsApp us anytime for fast forklift rental support in Jeddah.','اتصل بنا أو راسلنا عبر واتساب لدعم سريع لتأجير الرافعات في جدة.'],
+      ['WhatsApp','واتساب'],
+    ];
+    function swapText(toAR){
+      document.body.classList.toggle('rtl', toAR);
+      document.documentElement.dir = toAR ? 'rtl' : 'ltr';
+      document.querySelectorAll('*').forEach(el=>{
+        // innerText swap
+        map.forEach(([en, ar])=>{
+          if (!el.children.length && el.innerText.trim() === (toAR?en:ar)){
+            el.innerText = toAR ? ar : en;
+          }
+        });
+        // placeholders
+        if (el.placeholder){
+          map.forEach(([en, ar])=>{
+            if (el.placeholder === (toAR?en:ar)){
+              el.placeholder = toAR ? ar : en;
+            }
+          });
+        }
+      });
+    }
+    if (langToggle){
+      langToggle.addEventListener('click', ()=>{
+        isAR = !isAR;
+        swapText(isAR);
+        langToggle.textContent = isAR ? 'AR | EN' : 'EN | AR';
+      });
+    }
   </script>
 </body>
 </html>
-
 
 
 
