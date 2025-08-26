@@ -38,32 +38,37 @@
     .cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
     .cta a{padding:0 2px}
 
-    /* Header */
+    /* Header (only change: make logo fill header vertically on desktop & mobile) */
     header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50;border-bottom:1px solid #1a1440}
     .head-wrap{
       display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
-      padding:6px 20px; /* thinner so logo fills height */
-      min-height:78px;
+      padding:0 20px;               /* remove vertical padding so logo can touch top/bottom */
+      height:90px;                  /* fixed header height */
     }
-    .brand{display:flex;align-items:center;gap:14px}
-    /* Bigger logo that fills header vertically */
-    .brand img{height:66px;width:auto}
-    .brand .availability{
-      color:#fff;font-weight:800;background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.25);padding:6px 10px;border-radius:10px;
-      font-size:12.5px;line-height:1;white-space:nowrap
+    .brand{display:flex;align-items:center;gap:14px;height:100%}
+    .brand img{
+      height:100%;                  /* logo fills the header vertically */
+      width:auto;object-fit:contain;
     }
-
+    .brand .availability{color:#fff;font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 10px;border-radius:10px;font-size:12.5px;line-height:1;white-space:nowrap}
     nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
     nav.primary a{padding:10px 14px;border-radius:8px;color:#f3f2ff;font-weight:600}
 
     /* Solid header buttons (no hover change) */
     nav.primary a.btn-wa-header{
-      background:var(--success);color:#fff !important;font-weight:800;border-radius:8px;padding:10px 14px;
+      background:var(--success);
+      color:#fff !important;
+      font-weight:800;
+      border-radius:8px;
+      padding:10px 14px;
     }
     nav.primary a.btn-wa-header:hover{background:var(--success)}
     nav.primary a.btn-contact{
-      background:var(--darkblue);color:#fff !important;font-weight:800;border-radius:8px;padding:10px 14px;
+      background:var(--darkblue);
+      color:#fff !important;
+      font-weight:800;
+      border-radius:8px;
+      padding:10px 14px;
     }
     nav.primary a.btn-contact:hover{background:var(--darkblue)}
 
@@ -122,11 +127,21 @@
     .achv-stat .t{display:block;color:#0e1320}
 
     /* World map background behind achievements row */
-    .worldmap{position:relative;overflow:hidden;border-radius:16px;padding:8px}
+    .worldmap{
+      position:relative;
+      overflow:hidden;
+      border-radius:16px;
+      padding:8px;
+    }
     .worldmap::before{
-      content:"";position:absolute;inset:0;
+      content:"";
+      position:absolute; inset:0;
       background-image:url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg');
-      background-repeat:no-repeat;background-size:contain;background-position:left center;opacity:.18;pointer-events:none;
+      background-repeat:no-repeat;
+      background-size:contain;
+      background-position:left center;
+      opacity:.18;
+      pointer-events:none;
     }
 
     /* Floating Call – plain green circle */
@@ -148,18 +163,17 @@
     @media (max-width:980px){
       .hero .container{grid-template-columns:1fr;padding:56px 16px}
       .grid-3,.grid-4{grid-template-columns:1fr}
-      .head-wrap{grid-template-columns:auto 1fr}
-      nav.primary{display:none}
-      /* show the 24/7 tag on mobile stacked under logo */
-      .brand{flex-direction:column;align-items:flex-start;gap:6px}
-      .brand img{height:60px}
+      .head-wrap{grid-template-columns:auto 1fr;height:88px}
+      /* show the 24/7 tag on mobile stacked under logo, logo fills vertically */
+      .brand{flex-direction:column;align-items:flex-start;gap:6px;height:100%}
+      .brand img{height:88px}
       .brand .availability{display:inline-block}
       .hero h1{font-size:32px}
       .slogan{font-size:1.3em}
       .stats .container{grid-template-columns:1fr}
       .btn{padding:12px 16px}
       .card img{height:220px}
-      .worldmap::before{background-size:cover;background-position:center}
+      .worldmap::before{background-size:cover; background-position:center}
     }
   </style>
 </head>
@@ -177,7 +191,7 @@
   <header class="sitehead">
     <div class="container head-wrap">
       <div class="brand">
-        <!-- Bigger logo -->
+        <!-- Bigger logo filling header vertically -->
         <img src="TransJed.png" alt="Forklift Rentals Jeddah Logo" loading="lazy">
         <span class="availability">24/7 Availability · متاح 24/7</span>
       </div>
@@ -262,7 +276,7 @@
     </div>
   </section>
 
-  <!-- Who We Are -->
+  <!-- Who We Are (dark purple + white/orange) -->
   <section class="section" id="about">
     <div class="container">
       <h2>Who We Are</h2>
@@ -277,7 +291,7 @@
           <p style="line-height:1.6;font-size:1.05rem">
             We offer forklift work platform rentals at affordable prices in Jeddah.
             Our platforms are sturdy and secure to meet your business needs.
-            <span style="color:var(--brand);font-weight:700">Contact us</span> for the best options and reliable services.
+            <span style="color:var(--brand);font-weight:700)">Contact us</span> for the best options and reliable services.
           </p>
           <div class="grid grid-3" style="margin-top:20px">
             <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
@@ -343,7 +357,7 @@
     </div>
   </section>
 
-  <!-- Reviews (moved to the very end) -->
+  <!-- Reviews (at the very end) -->
   <section class="container section" id="reviews">
     <h2>Customer Reviews</h2>
 
@@ -395,12 +409,11 @@
   <a class="floating-wa" id="callNowBtn" href="tel:+966580864487" aria-label="Call Now"></a>
 
   <script>
-    // Phone numbers
+    // Phone numbers (local + E.164)
     const PRIMARY_E164 = '+966580864487';
     const SECONDARY_E164 = '+966560461067';
 
-    // Optional: set this to your backend endpoint to make reviews visible site-wide.
-    // Example: const SERVER_REVIEWS_ENDPOINT = '/api/reviews';
+    // Optional backend to make reviews global across devices:
     const SERVER_REVIEWS_ENDPOINT = null;
 
     // Year
@@ -520,8 +533,6 @@
     }
 
     async function renderReviews(){
-      // Clear any duplicates beyond the seed cards
-      // (we keep initial 3 seed cards; appended ones come after)
       const server = await fetchServerReviews();
       const local = loadLocalReviews();
       [...server, ...local].forEach(r => reviewsGrid.appendChild(makeCard(r)));
