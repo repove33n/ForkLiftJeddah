@@ -43,6 +43,7 @@
     .head-wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:10px 20px}
     .brand{display:flex;align-items:center;gap:14px}
     .brand img{height:56px;width:auto}
+    .brand .availability{color:#fff;font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 10px;border-radius:10px;font-size:12.5px;white-space:nowrap}
     nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
     nav.primary a{padding:10px 14px;border-radius:8px;color:#f3f2ff;font-weight:600}
 
@@ -146,12 +147,18 @@
     footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
 
+    /* Reviews form */
+    .review-form{background:#fff;border:1px solid var(--stroke);border-radius:16px;padding:16px;margin-bottom:16px}
+    .review-form input,.review-form textarea,.review-form select{width:100%;padding:12px;border-radius:10px;border:1px solid #d9deea;margin:8px 0;font-size:1rem}
+    .review-form button{background:var(--brand);color:#fff;border:none;border-radius:10px;padding:12px 14px;font-weight:800;cursor:pointer}
+
     /* Mobile */
     @media (max-width:980px){
       .hero .container{grid-template-columns:1fr;padding:56px 16px}
       .grid-3,.grid-4{grid-template-columns:1fr}
       .head-wrap{grid-template-columns:auto 1fr}
       nav.primary{display:none}
+      .brand .availability{display:none} /* keep header clean on small screens */
       .hero h1{font-size:32px}
       .slogan{font-size:1.3em}
       .stats .container{grid-template-columns:1fr}
@@ -175,7 +182,9 @@
   <header class="sitehead">
     <div class="container head-wrap">
       <div class="brand">
-        <img src="newJedLogo.png" alt="Forklift Rental Jeddah Logo" loading="lazy">
+        <!-- Replaced logo -->
+        <img src="TransJed.png" alt="Forklift Rentals Jeddah Logo" loading="lazy">
+        <span class="availability">24/7 Availability · متاح 24/7</span>
       </div>
       <nav class="primary">
         <a href="#book" class="btn btn-brand">Book Now</a>
@@ -297,10 +306,29 @@
     </div>
   </section>
 
-  <!-- Reviews -->
+  <!-- Reviews (with submission) -->
   <section class="container section" id="reviews">
     <h2>Customer Reviews</h2>
-    <div class="grid grid-3">
+
+    <!-- New review form -->
+    <form id="reviewForm" class="review-form" novalidate>
+      <div class="grid" style="grid-template-columns:1fr 160px">
+        <input id="rev_name" placeholder="Your Name / الاسم" required>
+        <select id="rev_rating" aria-label="Rating" required>
+          <option value="">Rating (1–5)</option>
+          <option value="5">5 – ★★★★★</option>
+          <option value="4">4 – ★★★★☆</option>
+          <option value="3">3 – ★★★☆☆</option>
+          <option value="2">2 – ★★☆☆☆</option>
+          <option value="1">1 – ★☆☆☆☆</option>
+        </select>
+      </div>
+      <textarea id="rev_text" rows="3" placeholder="Your review / تقييمك" required></textarea>
+      <button type="submit">Post Review</button>
+      <small id="rev_msg" style="display:block;margin-top:6px;color:#2c7a3f;font-weight:700"></small>
+    </form>
+
+    <div class="grid grid-3" id="reviewsGrid">
       <div class="card">
         <div style="color:#ffb400">★★★★★</div>
         <b>Abdul Al-Hameed</b>
@@ -372,7 +400,7 @@
   <a class="floating-wa" id="callNowBtn" href="tel:+966580864487" aria-label="Call Now"></a>
 
   <script>
-    // Phone numbers (local + E.164 for reliability)
+    // Phone numbers (local + E.164)
     const PRIMARY_LOCAL = '0580864487';
     const SECONDARY_LOCAL = '0560461067';
     const PRIMARY_E164 = '+966580864487';
@@ -382,7 +410,7 @@
     const yearEl=document.getElementById('year');
     if(yearEl) yearEl.textContent=new Date().getFullYear();
 
-    // WhatsApp (quote) — fields optional
+    // WhatsApp booking (fields optional)
     const waBtn = document.getElementById('waBookBtn');
     if (waBtn){
       waBtn.addEventListener('click', ()=>{
@@ -411,12 +439,10 @@
       current=next;
     },3800);
 
-    // Floating green circle → CALL NOW behavior (works without JS via href too)
+    // Floating green circle → CALL NOW (works without JS via href too)
     const callBtn = document.getElementById('callNowBtn');
     if (callBtn){
       callBtn.addEventListener('click',(e)=>{
-        // Try primary, then secondary (helps some mobile browsers)
-        // If the first tel: is blocked by popup rules, the second often succeeds.
         e.preventDefault();
         window.location.href = `tel:${PRIMARY_E164}`;
         setTimeout(()=>{ window.location.href = `tel:${SECONDARY_E164}`; }, 1200);
@@ -450,9 +476,69 @@
       },{threshold:.3});
       if (root) io.observe(root);
     })();
+
+    // ---------- Reviews: load, render, submit ----------
+    const REV_KEY = 'jr_forklift_reviews_v1';
+    const reviewsGrid = document.getElementById('reviewsGrid');
+    const reviewForm = document.getElementById('reviewForm');
+    const msg = document.getElementById('rev_msg');
+
+    function starString(n){
+      n = Math.max(1, Math.min(5, parseInt(n,10)||5));
+      return '★★★★★'.slice(0,n) + '☆☆☆☆☆'.slice(0,5-n);
+    }
+
+    function makeCard({name, rating, text}){
+      const card = document.createElement('div');
+      card.className = 'card';
+      const stars = document.createElement('div');
+      stars.style.color = '#ffb400';
+      stars.textContent = starString(rating);
+      const b = document.createElement('b');
+      b.textContent = name;
+      const p = document.createElement('p');
+      p.textContent = text;
+      card.append(stars, b, p);
+      return card;
+    }
+
+    function loadReviews(){
+      try {
+        const arr = JSON.parse(localStorage.getItem(REV_KEY) || '[]');
+        arr.forEach(r => reviewsGrid.appendChild(makeCard(r)));
+      } catch(e){}
+    }
+
+    function saveReview(r){
+      const arr = JSON.parse(localStorage.getItem(REV_KEY) || '[]');
+      arr.push(r);
+      localStorage.setItem(REV_KEY, JSON.stringify(arr));
+    }
+
+    if (reviewForm){
+      reviewForm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const name = document.getElementById('rev_name').value.trim();
+        const rating = document.getElementById('rev_rating').value;
+        const text = document.getElementById('rev_text').value.trim();
+        if(!name || !rating || !text){
+          msg.style.color = '#c0392b';
+          msg.textContent = 'Please complete all fields.';
+          return;
+        }
+        const rev = {name, rating: parseInt(rating,10), text};
+        reviewsGrid.prepend(makeCard(rev));
+        saveReview(rev);
+        reviewForm.reset();
+        msg.style.color = '#2c7a3f';
+        msg.textContent = 'Thanks! Your review has been posted.';
+        setTimeout(()=> msg.textContent='', 3000);
+      });
+      loadReviews();
+    }
+    // ----------------------------------------------------
   </script>
 </body>
 </html>
-
 
 
