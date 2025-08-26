@@ -43,22 +43,109 @@
     .btn-contact{background:var(--darkblue)}
     .btn-contact:hover{background:var(--darkblue-dark)}
 
-    /* Header */
-    header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50;border-bottom:1px solid #1a1440}
-    .head-wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:10px 20px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand img{height:56px;width:auto}
-    nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
-    nav.primary a{padding:10px 8px;border-radius:8px;color:#f3f2ff;font-weight:600}
-    nav.primary a:hover{color:#ffffff}
-    nav.primary a.btn-contact{background:var(--darkblue);color:#fff;font-weight:700}
-    nav.primary a.btn-contact:hover{background:var(--darkblue-dark)}
+    <!-- Header -->
+<header class="sitehead">
+  <div class="container head-wrap">
+    <div class="brand">
+      <img src="newJedLogo.png" alt="Forklift Rental Jeddah Logo">
+    </div>
+    <nav class="primary">
+      <a href="#book" class="btn btn-brand">Book Now</a>
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#whatsapp" class="btn btn-green">WhatsApp</a>
+      <a href="#contact" class="btn btn-contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
 
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:#fff;font-weight:800;cursor:pointer;color:#1b2436}
-    .btn-brand{background:var(--brand);color:#fff;border-color:transparent}
-    .btn-brand:hover{background:var(--brand-dark)}
-    .btn-green{background:var(--success);color:#fff;border:none;font-weight:900}
-    .btn-green:hover{background:var(--success-dark)}
+<style>
+/* Header */
+header.sitehead {
+  background: var(--purple);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid #1a1440;
+}
+
+.head-wrap {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand img {
+  height: 56px;
+  width: auto;
+}
+
+nav.primary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: flex-end;
+}
+
+nav.primary a {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Base hover (for normal links) */
+nav.primary a:hover {
+  color: #ffffff;
+}
+
+/* Book Now button */
+.btn-brand {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+}
+
+.btn-brand:hover {
+  background: var(--brand-dark);
+}
+
+/* WhatsApp button: green box, white text */
+.btn-green {
+  background: #25D366;   /* WhatsApp green */
+  color: #fff;
+  border: none;
+  font-weight: 900;
+}
+
+.btn-green:hover {
+  background: #1ebe57;   /* slightly darker green on hover */
+  color: #fff;
+}
+
+/* Contact Us button: dark blue box, white text */
+.btn-contact {
+  background: #003366;   /* dark blue */
+  color: #fff;
+  font-weight: 700;
+  border: none;
+}
+
+.btn-contact:hover {
+  background: #002244;   /* darker blue on hover */
+  color: #fff;
+}
+</style>
+
 
     /* Hero */
     .hero{position:relative;min-height:76vh;color:#fff;overflow:hidden;background:#2a254f}
@@ -196,8 +283,8 @@
       </div>
       <div class="card">
         <img loading="lazy" src="https://eqdepot.com/wp-content/uploads/2023/12/Heavy-Duty-750x600-1.jpg" alt="Electric Forklift Rental">
-        <h3>Electric Forklift Rental</h3>
-        <p>High-quality electric forklift rentals ideal for indoor operations—quiet, efficient, and eco-friendly. Contact us for the best deals.</p>
+        <h3>Customixed Forklift Rental</h3>
+        <p>High-quality forklift rentals ideal for indoor operations—quiet, efficient, and eco-friendly. Contact us for the best deals.</p>
       </div>
       <div class="card">
         <img loading="lazy" src="https://www.liftone.net/wp-content/uploads/2021/04/Hyster-Yale-forklift.jpg" alt="Access to Truck Rentals">
@@ -229,12 +316,12 @@
         <div style="display:inline-block;padding:10px 16px;border-radius:12px;background:#fff;border:2px solid var(--stroke);box-shadow:0 8px 22px rgba(0,0,0,.06);font-weight:900;color:var(--ink);margin-bottom:8px">
           Simple, reliable forklift rentals in Jeddah
         </div>
-        <p>We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
+        <p>We offer the best and most affordable forklift work platform rentals in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options & reliable services.</p>
         <div class="grid grid-3" style="margin-top:16px">
           <div class="card" style="text-align:center">
             <div style="font-size:32px;color:var(--success)">⏰</div>
             <h4 style="margin:8px 0 6px">Flexible hours</h4>
-            <p style="margin:0">We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
+            <p style="margin:0">We offer flexible appointment times to suit your needs and provide convenience.</p>
           </div>
           <div class="card" style="text-align:center">
             <div style="font-size:32px;color:var(--success)">📦</div>
@@ -268,7 +355,7 @@
       <div class="card">
         <div style="color:#ffb400">★★★★★</div>
         <b>Sarah M.</b>
-        <p>Excellent service! We rented electric forklifts – efficient, eco-friendly, and affordable.</p>
+        <p>Excellent service! We rented forklifts – efficient, eco-friendly, and affordable.</p>
       </div>
     </div>
   </section>
