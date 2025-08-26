@@ -32,7 +32,7 @@
     img{max-width:100%;height:auto;display:block}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
-    /* Topbar (phones only) */
+    /* Topbar: phones only */
     .topbar{background:#0f1626;color:#dfe7f3;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
     .topbar .container{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;gap:12px}
     .cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
@@ -46,7 +46,7 @@
     nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
     nav.primary a{padding:10px 14px;border-radius:8px;color:#f3f2ff;font-weight:600}
 
-    /* Solid buttons (no hover change) */
+    /* Solid header buttons (no hover change) */
     nav.primary a.btn-wa-header{
       background:var(--success);
       color:#fff !important;
@@ -113,6 +113,21 @@
     footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
 
+    /* Who We Are — dark purple theme */
+    #about{background:var(--purple);color:#fff;padding:50px 20px;border-radius:12px}
+    #about h2{color:#ffd966;font-size:32px;font-weight:900;margin:0 0 20px}
+    #about h3{color:var(--brand);font-weight:900;font-size:26px;margin-top:0}
+    #about .about-badge{display:inline-block;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.25);font-weight:900;color:#ffd966;margin-bottom:12px}
+
+    /* Achievements block (Contact section add-on) */
+    .achv-badge{display:inline-block;background:rgba(37,211,102,.12);color:#2c7a3f;font-weight:900;border-radius:10px;padding:8px 12px;margin-bottom:10px}
+    .achv-title{font-size:36px;line-height:1.2;color:#0e1320;margin:6px 0 10px;font-weight:900}
+    .achv-text{color:#213045;font-size:1.05rem;line-height:1.6}
+    .achv-stats{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px}
+    .achv-stat{font-weight:900}
+    .achv-stat .n{font-size:32px;color:#7bbf2a}
+    .achv-stat .t{display:block;color:#0e1320}
+
     /* Mobile */
     @media (max-width:980px){
       .hero .container{grid-template-columns:1fr;padding:56px 16px}
@@ -175,7 +190,6 @@
           <input id="bn_name" placeholder="Your Name / الاسم">
           <input id="bn_phone" placeholder="Phone / الهاتف">
           <input id="bn_email" type="email" placeholder="Email / البريد الإلكتروني">
-          <!-- Free-text service input -->
           <input id="bn_service" placeholder="Service / الخدمة المطلوبة">
           <input id="bn_date" type="date" placeholder="Date / التاريخ">
           <button type="button" id="waBookBtn">💬 Book on WhatsApp</button>
@@ -184,7 +198,7 @@
     </div>
   </section>
 
-  <!-- Stats (animated rolling numbers) -->
+  <!-- Stats (animated) -->
   <section class="stats">
     <div class="container">
       <div class="stat"><div class="num" data-target="6">0+</div><div class="label">Trained Staff</div></div>
@@ -225,35 +239,39 @@
     </div>
   </section>
 
-  <!-- Who We Are -->
-  <section class="container section" id="about">
-    <h2>Who We Are</h2>
-    <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px">
-      <div>
-        <img src="https://safestart.com/wp-content/uploads/2021/04/ForkliftSafety.jpg" alt="Who We Are" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.1)" loading="lazy">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/069/157/817/small_2x/the-industrial-forklift-ready-for-efficient-pallet-handling-in-a-spacious-warehouse-photo.jpeg" alt="Warehouse Forklift" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.1);margin-top:12px" loading="lazy">
-      </div>
-      <div>
-        <h3 style="margin-top:0;color:var(--darkblue)">How does it work</h3>
-        <div style="display:inline-block;padding:10px 16px;border-radius:12px;background:#fff;border:2px solid var(--stroke);box-shadow:0 8px 22px rgba(0,0,0,.06);font-weight:900;color:var(--ink);margin-bottom:8px">
-          Simple, reliable forklift rentals in Jeddah
+  <!-- Who We Are (dark purple + white/orange) -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2>Who We Are</h2>
+      <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px">
+        <div>
+          <img src="https://safestart.com/wp-content/uploads/2021/04/ForkliftSafety.jpg" alt="Who We Are" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.4)" loading="lazy">
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/069/157/817/small_2x/the-industrial-forklift-ready-for-efficient-pallet-handling-in-a-spacious-warehouse-photo.jpeg" alt="Warehouse Forklift" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.4);margin-top:16px" loading="lazy">
         </div>
-        <p>We offer forklift work platform rentals at affordable prices in Jeddah. Our platforms are sturdy and secure to meet your business needs. Contact us for the best options and reliable services.</p>
-        <div class="grid grid-3" style="margin-top:16px">
-          <div class="card" style="text-align:center">
-            <div style="font-size:32px;color:var(--success)">⏰</div>
-            <h4 style="margin:8px 0 6px">Flexible hours</h4>
-            <p style="margin:0">We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
-          </div>
-          <div class="card" style="text-align:center">
-            <div style="font-size:32px;color:var(--success)">📦</div>
-            <h4 style="margin:8px 0 6px">Commitment-free</h4>
-            <p style="margin:0">Our services are commitment-free — you can stop at any time.</p>
-          </div>
-          <div class="card" style="text-align:center">
-            <div style="font-size:32px;color:var(--success)">👷‍♂️</div>
-            <h4 style="margin:8px 0 6px">Local professionals</h4>
-            <p style="margin:0">We work with local professionals to ensure we provide the best service.</p>
+        <div>
+          <h3>How does it work</h3>
+          <div class="about-badge">Simple, reliable forklift rentals in Jeddah</div>
+          <p style="line-height:1.6;font-size:1.05rem">
+            We offer forklift work platform rentals at affordable prices in Jeddah.
+            Our platforms are sturdy and secure to meet your business needs.
+            <span style="color:var(--brand);font-weight:700">Contact us</span> for the best options and reliable services.
+          </p>
+          <div class="grid grid-3" style="margin-top:20px">
+            <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
+              <div style="font-size:32px;color:var(--brand)">⏰</div>
+              <h4 style="margin:8px 0 6px;color:#ffd966">Flexible hours</h4>
+              <p style="margin:0">We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
+            </div>
+            <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
+              <div style="font-size:32px;color:var(--brand)">📦</div>
+              <h4 style="margin:8px 0 6px;color:#ffd966">Commitment-free</h4>
+              <p style="margin:0">Our services are commitment-free — you can stop at any time.</p>
+            </div>
+            <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
+              <div style="font-size:32px;color:var(--brand)">👷‍♂️</div>
+              <h4 style="margin:8px 0 6px;color:#ffd966">Local professionals</h4>
+              <p style="margin:0">We work with local professionals to ensure we provide the best service.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -282,7 +300,7 @@
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact + Achievements -->
   <section class="container section" id="contact">
     <h2>Contact Us</h2>
     <div class="grid" style="grid-template-columns:1fr 1fr">
@@ -296,6 +314,26 @@
       </div>
       <div class="card">
         <iframe title="Map Jeddah" width="100%" height="280" style="border:0;border-radius:12px" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.684325404014!2d39.13152711500263!3d21.56460598570657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d07b51e3bbf9%3A0x70bffda8a2dbf25c!2s6712%20Sari%20Br%20Rd%2C%202%2C%204172%2C%20Jeddah%2023436!5e0!3m2!1sen!2ssa!4v1693392647000!5m2!1sen!2ssa"></iframe>
+      </div>
+    </div>
+
+    <!-- New row: extra image + achievements -->
+    <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px;margin-top:24px">
+      <div class="card" style="padding:0;border:none">
+        <img src="https://images.pexels.com/photos/4484070/pexels-photo-4484070.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Forklift Warehouse" style="width:100%;height:340px;object-fit:cover;border-radius:16px">
+      </div>
+      <div class="card" style="background:#fff">
+        <div class="achv-badge">OUR ACHIEVEMENTS</div>
+        <div class="achv-title">Diesel forklift rental</div>
+        <p class="achv-text">
+          We offer powerful and reliable diesel forklift rentals. These cranes are ideal for heavy-duty work in open areas.
+          Contact us now for the best deals and services at competitive prices.
+        </p>
+        <div class="achv-stats">
+          <div class="achv-stat"><span class="n">20+</span><span class="t">Years of experience</span></div>
+          <div class="achv-stat"><span class="n">100%</span><span class="t">Customer satisfaction</span></div>
+          <div class="achv-stat"><span class="n">50+</span><span class="t">Workers</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -346,7 +384,7 @@
       current=next;
     },3800);
 
-    // Floating WhatsApp call → phone → chat (fallbacks)
+    // Floating WhatsApp call → phone → chat
     const waCall = document.getElementById('waCallBtn');
     if (waCall){
       waCall.addEventListener('click', (e)=>{
@@ -387,6 +425,7 @@
   </script>
 </body>
 </html>
+
 
 
 
