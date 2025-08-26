@@ -38,18 +38,15 @@
     .cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
     .cta a{padding:0 2px}
 
-    /* Header (only change: make logo fill header vertically on desktop & mobile) */
+    /* Header (logo fills bar vertically) */
     header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50;border-bottom:1px solid #1a1440}
     .head-wrap{
       display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
-      padding:0 20px;               /* remove vertical padding so logo can touch top/bottom */
-      height:90px;                  /* fixed header height */
+      padding:0 20px;
+      height:90px;
     }
     .brand{display:flex;align-items:center;gap:14px;height:100%}
-    .brand img{
-      height:100%;                  /* logo fills the header vertically */
-      width:auto;object-fit:contain;
-    }
+    .brand img{height:100%;width:auto;object-fit:contain}
     .brand .availability{color:#fff;font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 10px;border-radius:10px;font-size:12.5px;line-height:1;white-space:nowrap}
     nav.primary{display:flex;align-items:center;gap:18px;justify-content:flex-end}
     nav.primary a{padding:10px 14px;border-radius:8px;color:#f3f2ff;font-weight:600}
@@ -127,21 +124,11 @@
     .achv-stat .t{display:block;color:#0e1320}
 
     /* World map background behind achievements row */
-    .worldmap{
-      position:relative;
-      overflow:hidden;
-      border-radius:16px;
-      padding:8px;
-    }
+    .worldmap{position:relative;overflow:hidden;border-radius:16px;padding:8px}
     .worldmap::before{
-      content:"";
-      position:absolute; inset:0;
+      content:"";position:absolute;inset:0;
       background-image:url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg');
-      background-repeat:no-repeat;
-      background-size:contain;
-      background-position:left center;
-      opacity:.18;
-      pointer-events:none;
+      background-repeat:no-repeat;background-size:contain;background-position:left center;opacity:.18;pointer-events:none;
     }
 
     /* Floating Call – plain green circle */
@@ -159,12 +146,11 @@
     .review-form input,.review-form textarea,.review-form select{width:100%;padding:12px;border-radius:10px;border:1px solid #d9deea;margin:8px 0;font-size:1rem}
     .review-form button{background:var(--brand);color:#fff;border:none;border-radius:10px;padding:12px 14px;font-weight:800;cursor:pointer}
 
-    /* Mobile */
+    /* Mobile rules from earlier version */
     @media (max-width:980px){
       .hero .container{grid-template-columns:1fr;padding:56px 16px}
       .grid-3,.grid-4{grid-template-columns:1fr}
       .head-wrap{grid-template-columns:auto 1fr;height:88px}
-      /* show the 24/7 tag on mobile stacked under logo, logo fills vertically */
       .brand{flex-direction:column;align-items:flex-start;gap:6px;height:100%}
       .brand img{height:88px}
       .brand .availability{display:inline-block}
@@ -175,6 +161,44 @@
       .card img{height:220px}
       .worldmap::before{background-size:cover; background-position:center}
     }
+
+    /* ---------- MOBILE-FIRST POLISH (added now) ---------- */
+    html, body { overflow-x: hidden; }
+
+    /* Fluid hero typography for small screens (keeps desktop size on large) */
+    .hero h1 { font-size: clamp(26px, 6vw, 44px); }
+    .slogan   { font-size: clamp(18px, 4.5vw, 26px); }
+    .hero .sub { font-size: clamp(14px, 3.5vw, 18px); }
+
+    /* Respect safe-area on iOS and keep consistent side paddings */
+    .container {
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+    }
+
+    /* Tighten hero on phones so first screen fits better */
+    @media (max-width: 768px){
+      .hero { min-height: calc(var(--vh, 1vh) * 78); } /* uses JS --vh fix */
+      .hero .container { padding-top: 48px; padding-bottom: 40px; gap: 16px; }
+      .hero .lead { padding: 16px; }
+      .hero-card { padding: 16px; }
+    }
+
+    /* Cards become comfy single-column with reasonable image height */
+    @media (max-width: 768px){
+      .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .card img { height: 220px; object-fit: cover; }
+      .btn, .btn-brand, .btn-green { width: 100%; justify-content: center; }
+    }
+
+    /* Extra-small devices */
+    @media (max-width: 400px){
+      .head-wrap { height: 82px; }
+      .brand img { height: 82px; }
+      .hero .container { padding-top: 40px; padding-bottom: 32px; }
+      .card img { height: 200px; }
+    }
+    /* Map bg adjust already above for phones */
   </style>
 </head>
 <body>
@@ -291,7 +315,7 @@
           <p style="line-height:1.6;font-size:1.05rem">
             We offer forklift work platform rentals at affordable prices in Jeddah.
             Our platforms are sturdy and secure to meet your business needs.
-            <span style="color:var(--brand);font-weight:700)">Contact us</span> for the best options and reliable services.
+            <span style="color:var(--brand);font-weight:700">Contact us</span> for the best options and reliable services.
           </p>
           <div class="grid grid-3" style="margin-top:20px">
             <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
@@ -409,6 +433,15 @@
   <a class="floating-wa" id="callNowBtn" href="tel:+966580864487" aria-label="Call Now"></a>
 
   <script>
+    /* --- Mobile 100vh fix: expose real viewport height as --vh --- */
+    function setVh() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    setVh();
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', setVh);
+
     // Phone numbers (local + E.164)
     const PRIMARY_E164 = '+966580864487';
     const SECONDARY_E164 = '+966560461067';
@@ -581,4 +614,3 @@
   </script>
 </body>
 </html>
-
