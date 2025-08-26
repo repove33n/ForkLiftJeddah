@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Forklift Rental in Jeddah | Book Now</title>
-  <meta name="description" content="Daily & long-term forklift rental in Jeddah. Customized forklift solutions. Eco-friendly forklifts. Call or WhatsApp 0580864487." />
+  <meta name="description" content="Daily & long-term forklift rental in Jeddah. Customized forklift solutions. Eco-friendly models. Call or WhatsApp 0580864487." />
   <link rel="icon" type="image/png" sizes="32x32" href="newJedLogo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
@@ -123,7 +123,7 @@
       position:relative;
       overflow:hidden;
       border-radius:16px;
-      padding:8px; /* small inset so cards keep radius */
+      padding:8px;
     }
     .worldmap::before{
       content:"";
@@ -132,11 +132,11 @@
       background-repeat:no-repeat;
       background-size:contain;
       background-position:left center;
-      opacity:.18;        /* subtle */
+      opacity:.18;
       pointer-events:none;
     }
 
-    /* Floating WhatsApp – plain green circle */
+    /* Floating Call – plain green circle */
     .floating-wa{
       position:fixed;right:18px;bottom:18px;width:64px;height:64px;border-radius:50%;
       background-color:var(--success);z-index:80;box-shadow:0 10px 24px rgba(0,0,0,.25);cursor:pointer;
@@ -198,7 +198,7 @@
       <div class="lead">
         <h1>Forklift Rental in Jeddah</h1>
         <p class="slogan">Heavy Lifting Made Easy</p>
-        <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly electric models.</p>
+        <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly models.</p>
         <a href="tel:0580864487" class="btn btn-green" style="margin-top:12px;display:inline-block">📞 Call Now</a>
       </div>
 
@@ -236,9 +236,9 @@
         <p>Affordable, high-quality forklift rentals ranging from 1 ton to 10 tons, suitable for warehouses, logistics, and various worksites. Get the right size delivered quickly when you need it.</p>
       </div>
       <div class="card">
-        <img loading="lazy" src="https://eqdepot.com/wp-content/uploads/2023/12/Heavy-Duty-750x600-1.jpg" alt="Customized Forklift Rental">
-        <h3>Customized Forklift Rental</h3>
-        <p>High-quality forklift rentals ideal for indoor operations—quiet, efficient, and eco-friendly. Contact us for the best deals.</p>
+        <img loading="lazy" src="https://eqdepot.com/wp-content/uploads/2023/12/Heavy-Duty-750x600-1.jpg" alt="Customized Forklift Solutions">
+        <h3>Customized Forklift Solutions</h3>
+        <p>Tailored configurations and attachments for your job—indoor or outdoor. Tell us what you need and we’ll match the forklift to your workflow.</p>
       </div>
       <div class="card">
         <img loading="lazy" src="https://www.liftone.net/wp-content/uploads/2021/04/Hyster-Yale-forklift.jpg" alt="Access to Truck Rentals">
@@ -272,14 +272,14 @@
           <div class="about-badge">Simple, reliable forklift rentals in Jeddah</div>
           <p style="line-height:1.6;font-size:1.05rem">
             We offer forklift work platform rentals at affordable prices in Jeddah.
-            Our platforms are sturdy & secure to meet your business needs.
+            Our platforms are sturdy and secure to meet your business needs.
             <span style="color:var(--brand);font-weight:700">Contact us</span> for the best options and reliable services.
           </p>
           <div class="grid grid-3" style="margin-top:20px">
             <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
               <div style="font-size:32px;color:var(--brand)">⏰</div>
               <h4 style="margin:8px 0 6px;color:#ffd966">Flexible hours</h4>
-              <p style="margin:0">We offer flexible appointment times to suit your needs and provide convenience.</p>
+              <p style="margin:0">We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
             </div>
             <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
               <div style="font-size:32px;color:var(--brand)">📦</div>
@@ -314,7 +314,7 @@
       <div class="card">
         <div style="color:#ffb400">★★★★★</div>
         <b>Sarah M.</b>
-        <p>Excellent service! We rented diesel forklifts – efficient, eco-friendly, and affordable.</p>
+        <p>Excellent service! We rented forklifts – efficient and affordable.</p>
       </div>
     </div>
   </section>
@@ -339,7 +339,7 @@
     <!-- Achievements row with world map background -->
     <div class="worldmap" style="margin-top:24px">
       <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px;position:relative;z-index:1">
-        <!-- Left image (replaced with your URL) -->
+        <!-- Left image -->
         <div class="card" style="padding:0;border:none;background:transparent">
           <img src="https://static.vecteezy.com/system/resources/thumbnails/069/157/817/small_2x/the-industrial-forklift-ready-for-efficient-pallet-handling-in-a-spacious-warehouse-photo.jpeg" alt="Forklift Warehouse" style="width:100%;height:340px;object-fit:cover;border-radius:16px">
         </div>
@@ -368,17 +368,21 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp – plain green circle -->
-  <a class="floating-wa" id="waCallBtn" href="https://wa.me/966580864487" aria-label="WhatsApp"></a>
+  <!-- Floating Call – plain green circle -->
+  <a class="floating-wa" id="callNowBtn" href="tel:+966580864487" aria-label="Call Now"></a>
 
   <script>
-    const WHATSAPP_E164 = '966580864487';
+    // Phone numbers (local + E.164 for reliability)
+    const PRIMARY_LOCAL = '0580864487';
+    const SECONDARY_LOCAL = '0560461067';
+    const PRIMARY_E164 = '+966580864487';
+    const SECONDARY_E164 = '+966560461067';
 
     // Year
     const yearEl=document.getElementById('year');
     if(yearEl) yearEl.textContent=new Date().getFullYear();
 
-    // WhatsApp booking (fields optional)
+    // WhatsApp (quote) — fields optional
     const waBtn = document.getElementById('waBookBtn');
     if (waBtn){
       waBtn.addEventListener('click', ()=>{
@@ -388,7 +392,7 @@
               s=document.getElementById('bn_service').value||'',
               d=document.getElementById('bn_date').value||'';
         const msg=encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
-        window.open(`https://wa.me/${WHATSAPP_E164}?text=${msg}`,'_blank');
+        window.open(`https://wa.me/966580864487?text=${msg}`,'_blank');
       });
     }
 
@@ -407,14 +411,15 @@
       current=next;
     },3800);
 
-    // Floating WhatsApp call → phone → chat
-    const waCall = document.getElementById('waCallBtn');
-    if (waCall){
-      waCall.addEventListener('click', (e)=>{
+    // Floating green circle → CALL NOW behavior (works without JS via href too)
+    const callBtn = document.getElementById('callNowBtn');
+    if (callBtn){
+      callBtn.addEventListener('click',(e)=>{
+        // Try primary, then secondary (helps some mobile browsers)
+        // If the first tel: is blocked by popup rules, the second often succeeds.
         e.preventDefault();
-        window.location.href=`whatsapp://call?number=+${WHATSAPP_E164}`;
-        setTimeout(()=>{window.location.href=`tel:+${WHATSAPP_E164}`},1200);
-        setTimeout(()=>{window.open(`https://wa.me/${WHATSAPP_E164}`,'_blank')},2400);
+        window.location.href = `tel:${PRIMARY_E164}`;
+        setTimeout(()=>{ window.location.href = `tel:${SECONDARY_E164}`; }, 1200);
       });
     }
 
