@@ -2,10 +2,9 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <!-- Zoomed-out fit so the full header & buttons are visible on mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=0.85, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
   <title>Forklift Rental in Jeddah | Book Now</title>
-  <meta name="description" content="Daily & long-term forklift rental in Jeddah. Customized forklift solutions. Eco-friendly models. Call or WhatsApp 0580864487." />
+  <meta name="description" content="Daily & long-term forklift rental in Jeddah. Customized forklift solutions. Call or WhatsApp 0577212918." />
   <link rel="icon" type="image/png" sizes="32x32" href="newJedLogo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
@@ -41,10 +40,7 @@
 
     /* Header */
     header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50;border-bottom:1px solid #1a1440}
-    .head-wrap{
-      display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
-      padding:0 20px;height:90px; /* logo fills vertically */
-    }
+    .head-wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:0 20px;height:90px}
     .brand{display:flex;align-items:center;gap:14px;height:100%}
     .brand img{height:100%;width:auto;object-fit:contain}
     .brand .availability{color:#fff;font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 10px;border-radius:10px;font-size:12.5px;line-height:1;white-space:nowrap}
@@ -67,69 +63,18 @@
     .slogan{font-size:1.6em;font-weight:800;color:#ffd966;margin:10px 0;text-shadow:0 2px 8px rgba(0,0,0,.5)}
     .hero .sub{color:#f0f4ff}
 
-    /* Quote card */
     .hero-card{background:rgba(14,19,32,0.85);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:22px;color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.25)}
-    .hero-card h3{margin:0 0 8px;font-weight:900;font-size:22px;letter-spacing:.3px;color:#fff}
-    .hero-card input{width:100%;padding:12px 12px;margin:10px 0;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:1rem}
-    .hero-card input::placeholder{color:#f1f1f1}
-    .hero-card button{background:var(--brand);color:#fff;padding:14px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:900;width:100%;font-size:1rem;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+    .hero-card h3{margin:0 0 8px;font-weight:900;font-size:22px}
+    .hero-card input{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff}
+    .hero-card button{background:var(--brand);color:#fff;padding:14px;border:none;border-radius:10px;cursor:pointer;font-weight:900;width:100%}
 
-    /* Stats */
-    .stats{background:var(--purple);padding:20px 0;margin:0}
-    .stats .container{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
-    .stat .num{font-size:30px;font-weight:900;color:#ffd966}
-    .stat .label{color:#fff}
-
-    /* Sections */
-    .section{margin:40px 0}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-4{grid-template-columns:repeat(4,1fr)}
-
-    .card{background:var(--card);border:1px solid var(--stroke);padding:18px;border-radius:16px}
-    .card img{border-radius:12px;margin-bottom:10px;width:100%;height:300px;object-fit:cover}
-
-    /* Who We Are — dark purple theme */
-    #about{background:var(--purple);color:#fff;padding:50px 20px;border-radius:12px}
-    #about h2{color:#ffd966;font-size:32px;font-weight:900;margin:0 0 20px}
-    #about h3{color:var(--brand);font-weight:900;font-size:26px;margin-top:0}
-    #about .about-badge{display:inline-block;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.25);font-weight:900;color:#ffd966;margin-bottom:12px}
-
-    /* Achievements block */
-    .achv-badge{display:inline-block;background:rgba(37,211,102,.12);color:#2c7a3f;font-weight:900;border-radius:10px;padding:8px 12px;margin-bottom:10px}
-    .achv-title{font-size:36px;line-height:1.2;color:#0e1320;margin:6px 0 10px;font-weight:900}
-    .achv-text{color:#213045;font-size:1.05rem;line-height:1.6}
-    .achv-stats{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px}
-    .achv-stat{font-weight:900}
-    .achv-stat .n{font-size:32px;color:#7bbf2a}
-    .achv-stat .t{display:block;color:#0e1320}
-
-    /* World map background behind achievements row */
-    .worldmap{position:relative;overflow:hidden;border-radius:16px;padding:8px}
-    .worldmap::before{
-      content:"";position:absolute;inset:0;
-      background-image:url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg');
-      background-repeat:no-repeat;background-size:contain;background-position:left center;opacity:.18;pointer-events:none;
-    }
-
-    /* Floating Call – green circle with phone icon */
-    .floating-wa{
-      position:fixed;right:18px;bottom:18px;width:64px;height:64px;border-radius:50%;
-      background-color:var(--success);z-index:80;box-shadow:0 10px 24px rgba(0,0,0,.25);
-      display:flex;align-items:center;justify-content:center;cursor:pointer;
-    }
+    /* Floating Call button */
+    .floating-wa{position:fixed;right:18px;bottom:18px;width:64px;height:64px;border-radius:50%;background-color:var(--success);z-index:80;box-shadow:0 10px 24px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;cursor:pointer}
     .floating-wa svg{width:28px;height:28px;fill:#fff}
 
-    /* Footer */
     footer{background:#0f1626;color:#c7d1e4;margin-top:40px}
     footer .container{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 20px;align-items:center}
 
-    /* Reviews form */
-    .review-form{background:#fff;border:1px solid var(--stroke);border-radius:16px;padding:16px;margin-bottom:16px}
-    .review-form input,.review-form textarea,.review-form select{width:100%;padding:12px;border-radius:10px;border:1px solid #d9deea;margin:8px 0;font-size:1rem}
-    .review-form button{background:var(--brand);color:#fff;border:none;border-radius:10px;padding:12px 14px;font-weight:800;cursor:pointer}
-
-    /* Base mobile rules */
     @media (max-width:980px){
       .hero .container{grid-template-columns:1fr;padding:56px 16px}
       .grid-3,.grid-4{grid-template-columns:1fr}
@@ -137,21 +82,9 @@
       .brand{flex-direction:column;align-items:flex-start;gap:6px;height:100%}
       .brand img{height:88px}
       .brand .availability{display:inline-block}
-      .hero h1{font-size:32px}
-      .slogan{font-size:1.3em}
-      .stats .container{grid-template-columns:1fr}
-      .btn{padding:12px 16px;width:100%;justify-content:center}
+      .btn{width:100%;justify-content:center}
       .card img{height:220px}
-      .worldmap::before{background-size:cover; background-position:center}
-      /* Keep nav visible & scrollable if it overflows */
-      nav.primary{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:12px;scrollbar-width:none}
-      nav.primary::-webkit-scrollbar{display:none}
     }
-
-    /* Fluid hero text so zoomed-out still reads well */
-    .hero h1 { font-size: clamp(26px, 6vw, 44px); }
-    .slogan   { font-size: clamp(18px, 4.5vw, 26px); }
-    .hero .sub{ font-size: clamp(14px, 3.5vw, 18px); }
   </style>
 </head>
 <body>
@@ -159,7 +92,7 @@
   <div class="topbar">
     <div class="container">
       <div class="cta">
-        📞 <a href="tel:0580864487">0580864487</a> · 📞 <a href="tel:0560461067">0560461067</a>
+        📞 <a href="tel:0577212918">0577212918</a>
       </div>
     </div>
   </div>
@@ -176,7 +109,7 @@
         <a href="#services">Services</a>
         <a href="#industries">Industries</a>
         <a href="#reviews">Reviews</a>
-        <a href="https://wa.me/966580864487" target="_blank" class="btn-wa-header" rel="noopener">WhatsApp</a>
+        <a href="https://wa.me/966577212918" target="_blank" class="btn-wa-header">WhatsApp</a>
         <a href="#contact" class="btn-contact">Contact</a>
       </nav>
     </div>
@@ -192,8 +125,8 @@
       <div class="lead">
         <h1>Forklift Rental in Jeddah</h1>
         <p class="slogan">Heavy Lifting Made Easy</p>
-        <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly models.</p>
-        <a href="tel:0580864487" class="btn btn-green" style="margin-top:12px;display:inline-block">📞 Call Now</a>
+        <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions.</p>
+        <a href="tel:0577212918" class="btn btn-green">📞 Call Now</a>
       </div>
 
       <!-- Get a Quick Quote -->
@@ -211,165 +144,19 @@
     </div>
   </section>
 
-  <!-- Stats (animated) -->
-  <section class="stats">
-    <div class="container">
-      <div class="stat"><div class="num" data-target="6">0+</div><div class="label">Trained Staff</div></div>
-      <div class="stat"><div class="num" data-target="1500">0+</div><div class="label">Satisfied Clients</div></div>
-      <div class="stat"><div class="num" data-target="12">0+</div><div class="label">Years in Business</div></div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="container section" id="services">
-    <h2>Our Services</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <img loading="lazy" src="https://gobrennan.com/wp-content/uploads/2023/12/Hyundai-Forklifts-in-warehouse-1080x675.jpg" alt="Forklift Rental (1–10 Tons)">
-        <h3>Forklift Rental (1–10 Tons)</h3>
-        <p>Affordable, high-quality forklift rentals ranging from 1 ton to 10 tons, suitable for warehouses, logistics, and various worksites. Get the right size delivered quickly when you need it.</p>
-      </div>
-      <div class="card">
-        <img loading="lazy" src="https://eqdepot.com/wp-content/uploads/2023/12/Heavy-Duty-750x600-1.jpg" alt="Customized Forklift Solutions">
-        <h3>Customized Forklift Solutions</h3>
-        <p>Tailored configurations and attachments for your job—indoor or outdoor. Tell us what you need and we’ll match the forklift to your workflow.</p>
-      </div>
-      <div class="card">
-        <img loading="lazy" src="https://www.liftone.net/wp-content/uploads/2021/04/Hyster-Yale-forklift.jpg" alt="Access to Truck Rentals">
-        <h3>Access to Truck Rentals</h3>
-        <p>We make forklift booking easy and affordable. Choose the right forklift for your needs today and keep your business moving without delays.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Industries -->
-  <section class="container section" id="industries">
-    <h2>Industries We Serve</h2>
-    <div class="grid grid-4">
-      <div class="card">📦 <b>Warehousing & Logistics</b></div>
-      <div class="card">🏭 <b>Manufacturing & Industrial</b></div>
-      <div class="card">🏗 <b>Construction & Infrastructure</b></div>
-    </div>
-  </section>
-
-  <!-- Who We Are (dark purple + white/orange) -->
-  <section class="section" id="about">
-    <div class="container">
-      <h2>Who We Are</h2>
-      <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px">
-        <div>
-          <img src="https://safestart.com/wp-content/uploads/2021/04/ForkliftSafety.jpg" alt="Who We Are" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.4)" loading="lazy">
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/069/157/817/small_2x/the-industrial-forklift-ready-for-efficient-pallet-handling-in-a-spacious-warehouse-photo.jpeg" alt="Warehouse Forklift" style="border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.4);margin-top:16px" loading="lazy">
-        </div>
-        <div>
-          <h3>How does it work</h3>
-          <div class="about-badge">Simple, reliable forklift rentals in Jeddah</div>
-          <p style="line-height:1.6;font-size:1.05rem">
-            We offer forklift work platform rentals at affordable prices in Jeddah.
-            Our platforms are sturdy and secure to meet your business needs.
-            <span style="color:var(--brand);font-weight:700">Contact us</span> for the best options and reliable services.
-          </p>
-          <div class="grid grid-3" style="margin-top:20px">
-            <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
-              <div style="font-size:32px;color:var(--brand)">⏰</div>
-              <h4 style="margin:8px 0 6px;color:#ffd966">Flexible hours</h4>
-              <p style="margin:0">We offer flexible appointment times to suit your needs and provide you with complete convenience.</p>
-            </div>
-            <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
-              <div style="font-size:32px;color:var(--brand)">📦</div>
-              <h4 style="margin:8px 0 6px;color:#ffd966">Commitment-free</h4>
-              <p style="margin:0">Our services are commitment-free — you can stop at any time.</p>
-            </div>
-            <div class="card" style="background:rgba(255,255,255,0.1);border:none;text-align:center;color:#fff">
-              <div style="font-size:32px;color:var(--brand)">👷‍♂️</div>
-              <h4 style="margin:8px 0 6px;color:#ffd966">Local professionals</h4>
-              <p style="margin:0">We work with local professionals to ensure we provide the best service.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact + Achievements -->
+  <!-- Contact -->
   <section class="container section" id="contact">
     <h2>Contact Us</h2>
     <div class="grid" style="grid-template-columns:1fr 1fr">
       <div class="card">
         <p>Call or WhatsApp us anytime for fast forklift rental support in Jeddah.</p>
         <div class="contact-phones" style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn" href="tel:0580864487" style="background:#fff">📞 <strong>0580864487</strong></a>
-          <a class="btn" href="tel:0560461067" style="background:#fff">📞 <strong>0560461067</strong></a>
-          <a class="btn" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp Chat</a>
+          <a class="btn" href="tel:0577212918" style="background:#fff">📞 <strong>0577212918</strong></a>
+          <a class="btn" target="_blank" href="https://wa.me/966577212918">💬 WhatsApp Chat</a>
         </div>
       </div>
       <div class="card">
         <iframe title="Map Jeddah" width="100%" height="280" style="border:0;border-radius:12px" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.684325404014!2d39.13152711500263!3d21.56460598570657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d07b51e3bbf9%3A0x70bffda8a2dbf25c!2s6712%20Sari%20Br%20Rd%2C%202%2C%204172%2C%20Jeddah%2023436!5e0!3m2!1sen!2ssa!4v1693392647000!5m2!1sen!2ssa"></iframe>
-      </div>
-    </div>
-
-    <!-- Achievements row with world map background -->
-    <div class="worldmap" style="margin-top:24px">
-      <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px;position:relative;z-index:1">
-        <!-- Left image -->
-        <div class="card" style="padding:0;border:none;background:transparent">
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/069/157/817/small_2x/the-industrial-forklift-ready-for-efficient-pallet-handling-in-a-spacious-warehouse-photo.jpeg" alt="Forklift Warehouse" style="width:100%;height:340px;object-fit:cover;border-radius:16px">
-        </div>
-        <!-- Right achievements -->
-        <div class="card" style="background:#fff">
-          <div class="achv-badge">OUR ACHIEVEMENTS</div>
-          <div class="achv-title">Diesel forklift rental</div>
-          <p class="achv-text">
-            We offer powerful and reliable diesel forklift rentals. These cranes are ideal for heavy-duty work in open areas.
-            Contact us now for the best deals and services at competitive prices.
-          </p>
-          <div class="achv-stats">
-            <div class="achv-stat"><span class="n">20+</span><span class="t">Years of experience</span></div>
-            <div class="achv-stat"><span class="n">100%</span><span class="t">Customer satisfaction</span></div>
-            <div class="achv-stat"><span class="n">50+</span><span class="t">Workers</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews (at the very end) -->
-  <section class="container section" id="reviews">
-    <h2>Customer Reviews</h2>
-
-    <!-- New review form -->
-    <form id="reviewForm" class="review-form" novalidate>
-      <div class="grid" style="grid-template-columns:1fr 160px">
-        <input id="rev_name" placeholder="Your Name / الاسم" required>
-        <select id="rev_rating" aria-label="Rating" required>
-          <option value="">Rating (1–5)</option>
-          <option value="5">5 – ★★★★★</option>
-          <option value="4">4 – ★★★★☆</option>
-          <option value="3">3 – ★★★☆☆</option>
-          <option value="2">2 – ★★☆☆☆</option>
-          <option value="1">1 – ★☆☆☆☆</option>
-        </select>
-      </div>
-      <textarea id="rev_text" rows="3" placeholder="Your review / تقييمك" required></textarea>
-      <button type="submit">Post Review</button>
-      <small id="rev_msg" style="display:block;margin-top:6px;color:#2c7a3f;font-weight:700"></small>
-    </form>
-
-    <div class="grid grid-3" id="reviewsGrid">
-      <div class="card">
-        <div style="color:#ffb400">★★★★★</div>
-        <b>Abdul Al-Hameed</b>
-        <p>The team is very professional and nice, they did a great job at my warehouse. My number one for forklift rental.</p>
-      </div>
-      <div class="card">
-        <div style="color:#ffb400">★★★★☆</div>
-        <b>Hamaad Q.</b>
-        <p>The team responds very quick and great communication, highly recommend for long term rentals.</p>
-      </div>
-      <div class="card">
-        <div style="color:#ffb400">★★★★★</div>
-        <b>Sarah M.</b>
-        <p>Excellent service! We rented forklifts – efficient and affordable.</p>
       </div>
     </div>
   </section>
@@ -381,135 +168,47 @@
     </div>
   </footer>
 
-  <!-- Floating Call – green circle with phone icon -->
-  <a class="floating-wa" id="callNowBtn" href="tel:+966580864487" aria-label="Call Now">
-    <!-- Phone icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+  <!-- Floating Call button -->
+  <a class="floating-wa" id="callNowBtn" href="tel:+966577212918" aria-label="Call Now">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <path d="M391 351c-19-19-39-36-59-52-11-9-27-9-38 0l-25 19c-31-16-56-41-72-72l19-25c9-11 9-27 0-38-16-20-33-40-52-59-11-11-28-11-39 0l-29 29c-13 13-16 33-9 50 44 106 132 194 238 238 17 7 37 4 50-9l29-29c11-11 11-28 0-39z"/>
     </svg>
   </a>
 
   <script>
-    /* Mobile viewport height fix for better "fit" on phones */
-    function setVh(){const vh=window.innerHeight*0.01;document.documentElement.style.setProperty('--vh',`${vh}px`);}
-    setVh();window.addEventListener('resize',setVh);window.addEventListener('orientationchange',setVh);
+    document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Phone numbers
-    const PRIMARY_E164 = '+966580864487';
-    const SECONDARY_E164 = '+966560461067';
+    // WhatsApp booking
+    document.getElementById('waBookBtn').addEventListener('click',()=>{
+      const n=document.getElementById('bn_name').value||'',
+            p=document.getElementById('bn_phone').value||'',
+            em=document.getElementById('bn_email').value||'',
+            s=document.getElementById('bn_service').value||'',
+            d=document.getElementById('bn_date').value||'';
+      const msg=encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
+      window.open(`https://wa.me/966577212918?text=${msg}`,'_blank');
+    });
 
-    // Optional backend for global reviews:
-    const SERVER_REVIEWS_ENDPOINT = null;
+    // Floating call button
+    document.getElementById('callNowBtn').addEventListener('click',e=>{
+      e.preventDefault();
+      window.location.href='tel:+966577212918';
+    });
 
-    // Year
-    const yearEl=document.getElementById('year'); if(yearEl) yearEl.textContent=new Date().getFullYear();
-
-    // WhatsApp booking (fields optional; opens even if empty)
-    const waBtn=document.getElementById('waBookBtn');
-    if(waBtn){
-      waBtn.addEventListener('click',()=>{
-        const n=document.getElementById('bn_name').value||'',
-              p=document.getElementById('bn_phone').value||'',
-              em=document.getElementById('bn_email').value||'',
-              s=document.getElementById('bn_service').value||'',
-              d=document.getElementById('bn_date').value||'';
-        const msg=encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
-        window.open(`https://wa.me/966580864487?text=${msg}`,'_blank');
-      });
-    }
-
-    // Hero slideshow — slightly faster
+    // Slideshow
     const slides=[
       "https://www.capmeurope.eu/image/repository-equipment-privateGallery-64776eeb9d817a675d5ae333-mobile_0cxvj.jpg/mediumGallery",
       "https://images.prismic.io/edapp-website/3f732ea2-b456-4721-9a55-2cd9c6330699_edapp-ny-forklift-training-course.png?auto=format,compress",
       "https://thumbs.dreamstime.com/b/worker-driver-warehouse-forklift-20227301.jpg"
     ];
-    let current=0;const bgEls=[document.getElementById('bg0'),document.getElementById('bg1'),document.getElementById('bg2')];
+    let current=0;
+    const bgEls=[document.getElementById('bg0'),document.getElementById('bg1'),document.getElementById('bg2')];
     setInterval(()=>{
       const next=(current+1)%slides.length;
-      bgEls[next].style.backgroundImage=`url('${slides[next]}')`;
       bgEls[next].style.opacity=1;
       bgEls[current].style.opacity=0;
       current=next;
     },3800);
-
-    // Floating call button: call primary, then fallback to secondary
-    const callBtn=document.getElementById('callNowBtn');
-    if(callBtn){
-      callBtn.addEventListener('click',(e)=>{
-        e.preventDefault();
-        window.location.href=`tel:${PRIMARY_E164}`;
-        setTimeout(()=>{window.location.href=`tel:${SECONDARY_E164}`;},1200);
-      });
-    }
-
-    // Rolling counters on scroll (stats)
-    (function(){
-      const nums=document.querySelectorAll('.stats .num');
-      if(!nums.length) return;
-      function animate(el,target,duration=1600){
-        const start=0,t0=performance.now();
-        function tick(now){
-          const p=Math.min(1,(now-t0)/duration);
-          const eased=1-Math.pow(1-p,3);
-          el.textContent=(Math.floor(start+(target-start)*eased)).toLocaleString()+'+';
-          if(p<1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      }
-      let started=false;
-      const root=document.querySelector('.stats');
-      const io=new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting && !started){
-            started=true;
-            nums.forEach(n=>animate(n,parseInt(n.dataset.target,10)||0));
-            io.disconnect();
-          }
-        });
-      },{threshold:.3});
-      if(root) io.observe(root);
-    })();
-
-    // Reviews: load, render, submit (local fallback; optional server)
-    const REV_KEY='jr_forklift_reviews_v1';
-    const reviewsGrid=document.getElementById('reviewsGrid');
-    const reviewForm=document.getElementById('reviewForm');
-    const msg=document.getElementById('rev_msg');
-
-    function starString(n){n=Math.max(1,Math.min(5,parseInt(n,10)||5));return '★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n);}
-    function makeCard({name,rating,text}){
-      const card=document.createElement('div');card.className='card';
-      const stars=document.createElement('div');stars.style.color='#ffb400';stars.textContent=starString(rating);
-      const b=document.createElement('b');b.textContent=name;
-      const p=document.createElement('p');p.textContent=text;
-      card.append(stars,b,p);return card;
-    }
-    async function fetchServerReviews(){if(!SERVER_REVIEWS_ENDPOINT) return [];try{const r=await fetch(SERVER_REVIEWS_ENDPOINT);if(!r.ok) return [];return await r.json();}catch{return[]}}
-    function loadLocalReviews(){try{return JSON.parse(localStorage.getItem(REV_KEY)||'[]')}catch(e){return[]}}
-    function saveLocalReview(r){const arr=loadLocalReviews();arr.push(r);localStorage.setItem(REV_KEY,JSON.stringify(arr))}
-    async function renderReviews(){const server=await fetchServerReviews();const local=loadLocalReviews();[...server,...local].forEach(r=>reviewsGrid.appendChild(makeCard(r)))}
-
-    if(reviewForm){
-      reviewForm.addEventListener('submit',async(e)=>{
-        e.preventDefault();
-        const name=document.getElementById('rev_name').value.trim();
-        const rating=document.getElementById('rev_rating').value;
-        const text=document.getElementById('rev_text').value.trim();
-        if(!name||!rating||!text){msg.style.color='#c0392b';msg.textContent='Please complete all fields.';return;}
-        const rev={name,rating:parseInt(rating,10),text};
-        reviewsGrid.prepend(makeCard(rev));
-        let savedToServer=false;
-        if(SERVER_REVIEWS_ENDPOINT){
-          try{const r=await fetch(SERVER_REVIEWS_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rev)});savedToServer=r.ok;}catch{}
-        }
-        if(!savedToServer) saveLocalReview(rev);
-        reviewForm.reset();
-        msg.style.color='#2c7a3f';msg.textContent=savedToServer?'Thanks! Your review is live.':'Thanks! Your review is posted (local).';
-        setTimeout(()=>msg.textContent='',3000);
-      });
-      renderReviews();
-    }
   </script>
 </body>
 </html>
