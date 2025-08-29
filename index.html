@@ -5,7 +5,7 @@
   <!-- Zoomed-out fit so the full header & buttons are visible on mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=0.85, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
   <title>Forklift Rental in Jeddah | Book Now</title>
-  <meta name="description" content="Daily & long-term forklift rental in Jeddah. Customized forklift solutions. Eco-friendly models. Call or WhatsApp 0580864487." />
+  <meta name="description" content="Daily & long-term forklift rental in Jeddah. Customized forklift solutions. Call or WhatsApp 0577212918." />
   <link rel="icon" type="image/png" sizes="32x32" href="newJedLogo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
@@ -43,7 +43,7 @@
     header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50;border-bottom:1px solid #1a1440}
     .head-wrap{
       display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
-      padding:0 20px;height:90px; /* logo fills vertically */
+      padding:0 20px;height:90px;
     }
     .brand{display:flex;align-items:center;gap:14px;height:100%}
     .brand img{height:100%;width:auto;object-fit:contain}
@@ -129,7 +129,7 @@
     .review-form input,.review-form textarea,.review-form select{width:100%;padding:12px;border-radius:10px;border:1px solid #d9deea;margin:8px 0;font-size:1rem}
     .review-form button{background:var(--brand);color:#fff;border:none;border-radius:10px;padding:12px 14px;font-weight:800;cursor:pointer}
 
-    /* Base mobile rules */
+    /* Mobile */
     @media (max-width:980px){
       .hero .container{grid-template-columns:1fr;padding:56px 16px}
       .grid-3,.grid-4{grid-template-columns:1fr}
@@ -142,13 +142,13 @@
       .stats .container{grid-template-columns:1fr}
       .btn{padding:12px 16px;width:100%;justify-content:center}
       .card img{height:220px}
-      .worldmap::before{background-size:cover; background-position:center}
+      .worldmap::before{background-size:cover;background-position:center}
       /* Keep nav visible & scrollable if it overflows */
       nav.primary{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:12px;scrollbar-width:none}
       nav.primary::-webkit-scrollbar{display:none}
     }
 
-    /* Fluid hero text so zoomed-out still reads well */
+    /* Fluid hero text */
     .hero h1 { font-size: clamp(26px, 6vw, 44px); }
     .slogan   { font-size: clamp(18px, 4.5vw, 26px); }
     .hero .sub{ font-size: clamp(14px, 3.5vw, 18px); }
@@ -159,7 +159,7 @@
   <div class="topbar">
     <div class="container">
       <div class="cta">
-        📞 <a href="tel:0580864487">0580864487</a> · 📞 <a href="tel:0560461067">0560461067</a>
+        📞 <a href="tel:0577212918">0577212918</a>
       </div>
     </div>
   </div>
@@ -176,7 +176,7 @@
         <a href="#services">Services</a>
         <a href="#industries">Industries</a>
         <a href="#reviews">Reviews</a>
-        <a href="https://wa.me/966580864487" target="_blank" class="btn-wa-header" rel="noopener">WhatsApp</a>
+        <a href="https://wa.me/966577212918" target="_blank" class="btn-wa-header" rel="noopener">WhatsApp</a>
         <a href="#contact" class="btn-contact">Contact</a>
       </nav>
     </div>
@@ -193,7 +193,7 @@
         <h1>Forklift Rental in Jeddah</h1>
         <p class="slogan">Heavy Lifting Made Easy</p>
         <p class="sub">Daily & long-term rental. Certified operators, customized forklift solutions & eco-friendly models.</p>
-        <a href="tel:0580864487" class="btn btn-green" style="margin-top:12px;display:inline-block">📞 Call Now</a>
+        <a href="tel:0577212918" class="btn btn-green" style="margin-top:12px;display:inline-block">📞 Call Now</a>
       </div>
 
       <!-- Get a Quick Quote -->
@@ -298,17 +298,19 @@
       <div class="card">
         <p>Call or WhatsApp us anytime for fast forklift rental support in Jeddah.</p>
         <div class="contact-phones" style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn" href="tel:0580864487" style="background:#fff">📞 <strong>0580864487</strong></a>
-          <a class="btn" href="tel:0560461067" style="background:#fff">📞 <strong>0560461067</strong></a>
-          <a class="btn" target="_blank" href="https://wa.me/966580864487">💬 WhatsApp Chat</a>
+          <a class="btn" href="tel:0577212918" style="background:#fff">📞 <strong>0577212918</strong></a>
+          <a class="btn" target="_blank" href="https://wa.me/966577212918">💬 WhatsApp Chat</a>
         </div>
       </div>
       <div class="card">
-        <iframe title="Map Jeddah" width="100%" height="280" style="border:0;border-radius:12px" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.684325404014!2d39.13152711500263!3d21.56460598570657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d07b51e3bbf9%3A0x70bffda8a2dbf25c!2s6712%20Sari%20Br%20Rd%2C%202%2C%204172%2C%20Jeddah%2023436!5e0!3m2!1sen!2ssa!4v1693392647000!5m2!1sen!2ssa"></iframe>
+        <!-- Restored full Google Maps embed URL so it loads -->
+        <iframe title="Map Jeddah" width="100%" height="280" style="border:0;border-radius:12px" loading="lazy"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.684325404014!2d39.13152711500263!3d21.56460598570657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d07b51e3bbf9%3A0x70bffda8a2dbf25c!2s6712%20Sari%20Br%20Rd%2C%202%2C%204172%2C%20Jeddah%2023436!5e0!3m2!1sen!2ssa!4v1693392647000!5m2!1sen!2ssa">
+        </iframe>
       </div>
     </div>
 
-    <!-- Achievements row with world map background -->
+    <!-- Achievements row with world map background (restored) -->
     <div class="worldmap" style="margin-top:24px">
       <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px;position:relative;z-index:1">
         <!-- Left image -->
@@ -333,7 +335,7 @@
     </div>
   </section>
 
-  <!-- Reviews (at the very end) -->
+  <!-- Reviews (at the very end, restored) -->
   <section class="container section" id="reviews">
     <h2>Customer Reviews</h2>
 
@@ -382,7 +384,7 @@
   </footer>
 
   <!-- Floating Call – green circle with phone icon -->
-  <a class="floating-wa" id="callNowBtn" href="tel:+966580864487" aria-label="Call Now">
+  <a class="floating-wa" href="tel:0577212918" aria-label="Call Now">
     <!-- Phone icon -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
       <path d="M391 351c-19-19-39-36-59-52-11-9-27-9-38 0l-25 19c-31-16-56-41-72-72l19-25c9-11 9-27 0-38-16-20-33-40-52-59-11-11-28-11-39 0l-29 29c-13 13-16 33-9 50 44 106 132 194 238 238 17 7 37 4 50-9l29-29c11-11 11-28 0-39z"/>
@@ -393,13 +395,6 @@
     /* Mobile viewport height fix for better "fit" on phones */
     function setVh(){const vh=window.innerHeight*0.01;document.documentElement.style.setProperty('--vh',`${vh}px`);}
     setVh();window.addEventListener('resize',setVh);window.addEventListener('orientationchange',setVh);
-
-    // Phone numbers
-    const PRIMARY_E164 = '+966580864487';
-    const SECONDARY_E164 = '+966560461067';
-
-    // Optional backend for global reviews:
-    const SERVER_REVIEWS_ENDPOINT = null;
 
     // Year
     const yearEl=document.getElementById('year'); if(yearEl) yearEl.textContent=new Date().getFullYear();
@@ -414,7 +409,7 @@
               s=document.getElementById('bn_service').value||'',
               d=document.getElementById('bn_date').value||'';
         const msg=encodeURIComponent(`Hello, my name is ${n}.\nService: ${s}.\nPhone: ${p}.\nEmail: ${em}.\nDate needed: ${d}`);
-        window.open(`https://wa.me/966580864487?text=${msg}`,'_blank');
+        window.open(`https://wa.me/966577212918?text=${msg}`,'_blank');
       });
     }
 
@@ -433,85 +428,8 @@
       current=next;
     },3800);
 
-    // Floating call button: call primary, then fallback to secondary
-    const callBtn=document.getElementById('callNowBtn');
-    if(callBtn){
-      callBtn.addEventListener('click',(e)=>{
-        e.preventDefault();
-        window.location.href=`tel:${PRIMARY_E164}`;
-        setTimeout(()=>{window.location.href=`tel:${SECONDARY_E164}`;},1200);
-      });
-    }
-
     // Rolling counters on scroll (stats)
     (function(){
-      const nums=document.querySelectorAll('.stats .num');
-      if(!nums.length) return;
-      function animate(el,target,duration=1600){
-        const start=0,t0=performance.now();
-        function tick(now){
-          const p=Math.min(1,(now-t0)/duration);
-          const eased=1-Math.pow(1-p,3);
-          el.textContent=(Math.floor(start+(target-start)*eased)).toLocaleString()+'+';
-          if(p<1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      }
-      let started=false;
-      const root=document.querySelector('.stats');
-      const io=new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting && !started){
-            started=true;
-            nums.forEach(n=>animate(n,parseInt(n.dataset.target,10)||0));
-            io.disconnect();
-          }
-        });
-      },{threshold:.3});
-      if(root) io.observe(root);
-    })();
-
-    // Reviews: load, render, submit (local fallback; optional server)
-    const REV_KEY='jr_forklift_reviews_v1';
-    const reviewsGrid=document.getElementById('reviewsGrid');
-    const reviewForm=document.getElementById('reviewForm');
-    const msg=document.getElementById('rev_msg');
-
-    function starString(n){n=Math.max(1,Math.min(5,parseInt(n,10)||5));return '★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n);}
-    function makeCard({name,rating,text}){
-      const card=document.createElement('div');card.className='card';
-      const stars=document.createElement('div');stars.style.color='#ffb400';stars.textContent=starString(rating);
-      const b=document.createElement('b');b.textContent=name;
-      const p=document.createElement('p');p.textContent=text;
-      card.append(stars,b,p);return card;
-    }
-    async function fetchServerReviews(){if(!SERVER_REVIEWS_ENDPOINT) return [];try{const r=await fetch(SERVER_REVIEWS_ENDPOINT);if(!r.ok) return [];return await r.json();}catch{return[]}}
-    function loadLocalReviews(){try{return JSON.parse(localStorage.getItem(REV_KEY)||'[]')}catch(e){return[]}}
-    function saveLocalReview(r){const arr=loadLocalReviews();arr.push(r);localStorage.setItem(REV_KEY,JSON.stringify(arr))}
-    async function renderReviews(){const server=await fetchServerReviews();const local=loadLocalReviews();[...server,...local].forEach(r=>reviewsGrid.appendChild(makeCard(r)))}
-
-    if(reviewForm){
-      reviewForm.addEventListener('submit',async(e)=>{
-        e.preventDefault();
-        const name=document.getElementById('rev_name').value.trim();
-        const rating=document.getElementById('rev_rating').value;
-        const text=document.getElementById('rev_text').value.trim();
-        if(!name||!rating||!text){msg.style.color='#c0392b';msg.textContent='Please complete all fields.';return;}
-        const rev={name,rating:parseInt(rating,10),text};
-        reviewsGrid.prepend(makeCard(rev));
-        let savedToServer=false;
-        if(SERVER_REVIEWS_ENDPOINT){
-          try{const r=await fetch(SERVER_REVIEWS_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rev)});savedToServer=r.ok;}catch{}
-        }
-        if(!savedToServer) saveLocalReview(rev);
-        reviewForm.reset();
-        msg.style.color='#2c7a3f';msg.textContent=savedToServer?'Thanks! Your review is live.':'Thanks! Your review is posted (local).';
-        setTimeout(()=>msg.textContent='',3000);
-      });
-      renderReviews();
-    }
-  </script>
-</body>
-</html>
+      const nums=document
 
 
