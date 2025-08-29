@@ -43,7 +43,7 @@
     header.sitehead{background:var(--purple);position:sticky;top:0;z-index:50;border-bottom:1px solid #1a1440}
     .head-wrap{
       display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
-      padding:0 20px;height:90px;
+      padding:0 20px;height:90px; /* logo fills vertically */
     }
     .brand{display:flex;align-items:center;gap:14px;height:100%}
     .brand img{height:100%;width:auto;object-fit:contain}
@@ -303,14 +303,14 @@
         </div>
       </div>
       <div class="card">
-        <!-- Restored full Google Maps embed URL so it loads -->
+        <!-- Full Google Maps embed URL -->
         <iframe title="Map Jeddah" width="100%" height="280" style="border:0;border-radius:12px" loading="lazy"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.684325404014!2d39.13152711500263!3d21.56460598570657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d07b51e3bbf9%3A0x70bffda8a2dbf25c!2s6712%20Sari%20Br%20Rd%2C%202%2C%204172%2C%20Jeddah%2023436!5e0!3m2!1sen!2ssa!4v1693392647000!5m2!1sen!2ssa">
         </iframe>
       </div>
     </div>
 
-    <!-- Achievements row with world map background (restored) -->
+    <!-- Achievements row with world map background -->
     <div class="worldmap" style="margin-top:24px">
       <div class="grid" style="grid-template-columns:1fr 1fr;align-items:center;gap:24px;position:relative;z-index:1">
         <!-- Left image -->
@@ -335,7 +335,7 @@
     </div>
   </section>
 
-  <!-- Reviews (at the very end, restored) -->
+  <!-- Reviews (at the very end) -->
   <section class="container section" id="reviews">
     <h2>Customer Reviews</h2>
 
@@ -396,7 +396,7 @@
     function setVh(){const vh=window.innerHeight*0.01;document.documentElement.style.setProperty('--vh',`${vh}px`);}
     setVh();window.addEventListener('resize',setVh);window.addEventListener('orientationchange',setVh);
 
-    // Year
+    // Year in footer
     const yearEl=document.getElementById('year'); if(yearEl) yearEl.textContent=new Date().getFullYear();
 
     // WhatsApp booking (fields optional; opens even if empty)
@@ -428,7 +428,80 @@
       current=next;
     },3800);
 
-    // Rolling counters on scroll (stats)
+    // Rolling counters on scroll (stats) — COMPLETE
     (function(){
-      const nums=document
+      const nums=document.querySelectorAll('.stats .num');
+      if(!nums.length) return;
+
+      function animate(el,target,duration=1600){
+        const start=0,t0=performance.now();
+        function tick(now){
+          const p=Math.min(1,(now-t0)/duration);
+          const eased=1-Math.pow(1-p,3); /* easeOutCubic */
+          el.textContent=(Math.floor(start+(target-start)*eased)).toLocaleString()+'+';
+          if(p<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      let started=false;
+      const root=document.querySelector('.stats');
+      const io=new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting && !started){
+            started=true;
+            nums.forEach(n=>animate(n,parseInt(n.dataset.target,10)||0));
+            io.disconnect();
+          }
+        });
+      },{threshold:.3});
+      if(root) io.observe(root);
+    })();
+
+    // Reviews: load, render, submit (local fallback; optional server)
+    const SERVER_REVIEWS_ENDPOINT=null; // if you add a backend, set URL here
+    const REV_KEY='jr_forklift_reviews_v1';
+    const reviewsGrid=document.getElementById('reviewsGrid');
+    const reviewForm=document.getElementById('reviewForm');
+    const msg=document.getElementById('rev_msg');
+
+    function starString(n){n=Math.max(1,Math.min(5,parseInt(n,10)||5));return '★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n);}
+    function makeCard({name,rating,text}){
+      const card=document.createElement('div');card.className='card';
+      const stars=document.createElement('div');stars.style.color='#ffb400';stars.textContent=starString(rating);
+      const b=document.createElement('b');b.textContent=name;
+      const p=document.createElement('p');p.textContent=text;
+      card.append(stars,b,p);return card;
+    }
+    async function fetchServerReviews(){if(!SERVER_REVIEWS_ENDPOINT) return [];try{const r=await fetch(SERVER_REVIEWS_ENDPOINT);if(!r.ok) return [];return await r.json();}catch{return[]}}
+    function loadLocalReviews(){try{return JSON.parse(localStorage.getItem(REV_KEY)||'[]')}catch(e){return[]}}
+    function saveLocalReview(r){const arr=loadLocalReviews();arr.push(r);localStorage.setItem(REV_KEY,JSON.stringify(arr))}
+    async function renderReviews(){const server=await fetchServerReviews();const local=loadLocalReviews();[...server,...local].forEach(r=>reviewsGrid.appendChild(makeCard(r)))}
+
+    if(reviewForm){
+      reviewForm.addEventListener('submit',async(e)=>{
+        e.preventDefault();
+        const name=document.getElementById('rev_name').value.trim();
+        const rating=document.getElementById('rev_rating').value;
+        const text=document.getElementById('rev_text').value.trim();
+        if(!name||!rating||!text){msg.style.color='#c0392b';msg.textContent='Please complete all fields.';return;}
+        const rev={name,rating:parseInt(rating,10),text};
+        reviewsGrid.prepend(makeCard(rev));
+        let savedToServer=false;
+        if(SERVER_REVIEWS_ENDPOINT){
+          try{
+            const r=await fetch(SERVER_REVIEWS_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rev)});
+            savedToServer=r.ok;
+          }catch{}
+        }
+        if(!savedToServer) saveLocalReview(rev);
+        reviewForm.reset();
+        msg.style.color='#2c7a3f';msg.textContent=savedToServer?'Thanks! Your review is live.':'Thanks! Your review is posted (local).';
+        setTimeout(()=>msg.textContent='',3000);
+      });
+      renderReviews();
+    }
+  </script>
+</body>
+</html>
 
